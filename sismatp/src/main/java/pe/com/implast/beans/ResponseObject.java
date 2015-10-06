@@ -1,5 +1,5 @@
 package pe.com.implast.beans;
 
-public class ResponseObject<String> {
-	
+public class ResponseObject<T> {
+	private T t;
 }
