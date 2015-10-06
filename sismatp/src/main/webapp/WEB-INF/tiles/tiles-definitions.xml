@@ -1,0 +1,54 @@
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    
+    <definition name="baseLayout" template="/WEB-INF/views/layout/layout.jsp">
+        <put-attribute name="title" value="IMP - Impresiones Plasticas" />
+        <put-attribute name="header" value="/WEB-INF/views/layout/header.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/layout/body.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+    </definition>
+
+    <definition name="home" extends="baseLayout">
+        <put-attribute name="body" value="/WEB-INF/views/layout/home.jsp" />
+    </definition>
+
+	<definition name="login" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
+	</definition>
+
+	<definition name="menuPrincipal" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/layout/body.jsp" />
+	</definition>
+
+
+	<!-- mantenimiento -->
+	<definition name="materiaPrima" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/mantenimiento/materiaPrima/materiaPrima.jsp" />
+	</definition>
+
+	<definition name="proveedor" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/mantenimiento/proveedor/proveedor.jsp" />
+	</definition>
+
+	<!-- consultas -->
+	<definition name="consultaIngresos" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/consultas/consultaIngresos.jsp" />
+	</definition>
+
+	<definition name="consultaSalidas" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/consultas/consultaSalidas.jsp" />
+	</definition>
+
+	<definition name="ingresoMateriaPrima" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/ingresos/ingresoMateriaPrima.jsp" />
+	</definition>
+
+	<definition name="salidaMateriaPrima" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/salidas/salidaMateriaPrima.jsp" />
+	</definition>
+
+
+
+    
+</tiles-definitions>
