@@ -148,8 +148,6 @@
 		<version>${springsecurity.version}</version>
 	</dependency>
     
-    
-    
   </dependencies>
   <build>
     <finalName>sismatp</finalName>
