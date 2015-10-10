@@ -15,11 +15,12 @@ function registrarMateriaPrima(){
 	var parametros=new Object();
 	parametros.codigoMateriaPrima=$("#txtCodigoMateriaPrima").val();
 	parametros.descripcion=$("#txtDescripcion").val();
+	alert("estoy en este punto");
 	
 	$.ajax({
-		url : 'registrarMateriaPrima.htm',
+		url : "registrarMateriaPrima.htm",
 		data : parametros,
-		type : 'POST',
+		type : "POST",
 		async : false,
 		cache : false
 	}).done(function(jsondata){

@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import pe.com.implast.beans.ResponseList;
+import pe.com.implast.beans.ResponseListBean;
+import pe.com.implast.beans.ResponseObjectBean;
 import pe.com.implast.logic.business.MateriaPrimaBUS;
 import pe.com.implast.model.beans.MateriaPrimaBean;
 
@@ -33,19 +34,18 @@ public class MateriaPrimaController {
 	}
 	
 	
-	@RequestMapping(value="/mantenimiento/registrarMateriaPrima.htm",method={RequestMethod.POST})
-	@ResponseBody
-	public ResponseList<MateriaPrimaBean> registrarMateriaPrima(
+	@RequestMapping(value="/mantenimiento/registrarMateriaPrima.htm",method={RequestMethod.POST,RequestMethod.GET},produces="application/json")
+	public @ResponseBody ResponseObjectBean<String> registrarMateriaPrima(
 			@RequestParam(value="codigoMateriaPrima") String codigoMateriaPrima,
 			@RequestParam(value="descripción" ) String descripcion
 			){
-		ResponseList<MateriaPrimaBean> response=new ResponseList<MateriaPrimaBean>();
+		ResponseObjectBean<String> response=new ResponseObjectBean<String>();
 		try{
 			MateriaPrimaBean mp=new MateriaPrimaBean();
 			mp.setCodigoProveedor(codigoMateriaPrima);
 			mp.setDescripcion(descripcion);
 			materiaPrimaBUS.crearMateriaPrima(mp);
-			
+			//response.setRows(rows);
 		}catch(Exception e){
 			LOG.equals(e);
 		}

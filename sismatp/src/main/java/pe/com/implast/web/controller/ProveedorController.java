@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import pe.com.implast.beans.ResponseObject;
+import pe.com.implast.beans.ResponseObjectBean;
 import pe.com.implast.logic.business.ProveedorBUS;
 import pe.com.implast.model.beans.ProveedorBean;
 
@@ -34,11 +34,11 @@ public class ProveedorController {
 	
 	@RequestMapping(value="/mantenimiento/registrarProveedor.json",produces="application/json")
 	@ResponseBody
-	public ResponseObject<String> registrarProveedor(
+	public ResponseObjectBean<String> registrarProveedor(
 		@RequestParam(value="codigoProveedor")String codigoProveedor,
 		@RequestParam(value="razonsocial")String razonSocial
 		){
-		ResponseObject<String> response=new ResponseObject<String>();
+		ResponseObjectBean<String> response=new ResponseObjectBean<String>();
 		try{
 			ProveedorBean proveedor=new ProveedorBean();
 			proveedor.setIdProveedor(Integer.valueOf(codigoProveedor).intValue());

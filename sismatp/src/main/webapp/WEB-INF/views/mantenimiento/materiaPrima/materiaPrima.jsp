@@ -24,7 +24,11 @@
 							</tr>
 							<tr>
 								<td><label>Descripción:</label></td>
-								<td><input type="text" id="txtDescripcion" /></td>
+								<td><input type="text" id="txtDescripcion"  maxlength="250" /></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
 							</tr>
 							<tr>
 								<td><input type="button" id="btnRegistrarMateriaPrima" name="Registrar"

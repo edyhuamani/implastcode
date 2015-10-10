@@ -1,7 +1,6 @@
 package pe.com.implast.model.daoimpl;
 
 import org.apache.log4j.Logger;
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -20,22 +19,16 @@ public class ProveedorDAOImpl  implements ProveedorDAO {
 	SessionFactory sessionFactory;
 	
 	public void createProveedor(ProveedorBean mprima) {
-		
-		Session session=sessionFactory.getCurrentSession();
-		session.beginTransaction();
-		session.save(mprima);
-		Transaction tx=session.getTransaction();
-
-		try	{
+		try{
+			Session session=sessionFactory.getCurrentSession();
+			session.beginTransaction();
 			session.save(mprima);
+			Transaction tx=session.getTransaction();
 			tx.commit();
-		}catch(HibernateException hbex){
-			LOG.error(hbex);
-			tx.rollback();
-		}catch (Exception ex){
-			tx.rollback();
-			LOG.error(ex);
-		}	
+			session.close();
+		}catch(Exception e){
+			LOG.error(e.getMessage(),e);
+		}
 	}
 
 	public ProveedorBean retrieveProveedor(int idProveedor) {
