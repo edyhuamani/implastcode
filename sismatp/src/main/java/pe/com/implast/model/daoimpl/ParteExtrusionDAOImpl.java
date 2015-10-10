@@ -25,7 +25,7 @@ public class ParteExtrusionDAOImpl implements ParteExtrusionDAO{
 		
 		
 		} catch (Exception e){
-			
+			LOG.error(e);
 		}
 	}
 
@@ -33,7 +33,7 @@ public class ParteExtrusionDAOImpl implements ParteExtrusionDAO{
 		try {
 			
 		}catch(Exception e){
-			
+			LOG.error(e);
 		}
 		
 	}
@@ -42,7 +42,7 @@ public class ParteExtrusionDAOImpl implements ParteExtrusionDAO{
 		try {
 			
 		}catch (Exception e){
-			
+			LOG.error(e);
 		}
 		
 	}
