@@ -20,6 +20,7 @@ function registrarMateriaPrima(){
 	$.ajax({
 		url : "registrarMateriaPrima.htm",
 		data : parametros,
+		dataType: "json",
 		type : "POST",
 		async : false,
 		cache : false
