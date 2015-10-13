@@ -7,27 +7,30 @@
 <!-- <div id="body" style="margin:0 auto 0 auto ;width: 800px;"> -->
 <div class="container">	
 	<div class="row">
-		<form action="" id="frmProveedo">
-			<p>Registro Proveedores </p>
-			<fieldset style="height: 70px;width: auto;">
-				<legend>Ingreso de Datos</legend>
-				<table>
-					<tbody>
-						<tr>
-							<td><label>Código Proveedor:</label></td>
-							<td><input type="text" id="txtCodigoProveedor"></td>
-						</tr>
-						<tr>
-							<td><label>Razón Social (Nombre):</label></td>
-							<td><input type="text" id="txtNombreRazonSocial"></td>
-						</tr>
-						<tr>
-							<td><input type="button" id="btnRegistrarProveedor" title="Registrar" value="Registrar" /></td>
-						</tr>
-					</tbody>
-				</table>
-			</fieldset>
-		</form>
+		
+		<div class="panel panel-default">
+			<form action="" id="frmProveedo">
+				<p>Registro Proveedores </p>
+				<fieldset style="height: 70px;width: auto;">
+					<legend>Ingreso de Datos</legend>
+					<table>
+						<tbody>
+							<tr>
+								<td><label>Código Proveedor:</label></td>
+								<td><input type="text" id="txtCodigoProveedor"></td>
+							</tr>
+							<tr>
+								<td><label>Razón Social (Nombre):</label></td>
+								<td><input type="text" id="txtNombreRazonSocial"></td>
+							</tr>
+							<tr>
+								<td><input type="button" id="btnRegistrarProveedor" title="Registrar" value="Registrar" /></td>
+							</tr>
+						</tbody>
+					</table>
+				</fieldset>
+			</form>
+		</div>
 	</div>
 </div>
 <!-- end proveedor.jsp -->
