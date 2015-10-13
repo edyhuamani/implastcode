@@ -24,11 +24,13 @@
         <!-- <property name="hbm2ddl.auto">create</property>-->
         
         <property name="transaction.manager_lookup_class" >org.hibernate.transaction.JBossTransactionManagerLookup </property>
+      <!-- 
         <property name="transaction.factory_class" >org.hibernate.transaction.JTATransactionFactory </property>
-
-        
+	  -->
         
         <!--  <mapping class="com.equifax.sicom.model.Usuario"/>-->
+        <mapping resource="MateriaPrimaBean.hbm.xml"/>
+        <mapping resource="ProveedorBean.hbm.xml"/>
     </session-factory>
     
 </hibernate-configuration>

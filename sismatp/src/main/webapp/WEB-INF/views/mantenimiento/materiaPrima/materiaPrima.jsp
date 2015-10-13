@@ -19,17 +19,26 @@
 					<table>
 						<tbody>
 							<tr>
-								<td><label>Código: </label></td>
-								<td><input type="text" id="txtCodigo" /></td>
+								<td><label>Código Materia Prima: </label></td>
+								<td><input type="text" id="txtCodigoMateriaPrima" /></td>
 							</tr>
 							<tr>
 								<td><label>Descripción:</label></td>
 								<td><input type="text" id="txtDescripcion"  maxlength="250" /></td>
 							</tr>
 							<tr>
-								<td></td>
-								<td></td>
+								<td><label>Codigo Proveedor:</label></td>
+								
+								<td>
+									<select id="listProveedores" > 
+										<c:forEach var="proveedor" items="${proveedores}">
+											<option value="">${proveedor.razonSocial} </option>
+										</c:forEach>
+									</select>
+								</td>
 							</tr>
+							
+							
 							<tr>
 								<td><input type="button" id="btnRegistrarMateriaPrima" name="Registrar"
 									title="Registrar" value="Registrar"></td>

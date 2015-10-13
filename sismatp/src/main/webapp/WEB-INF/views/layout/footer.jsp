@@ -6,7 +6,7 @@
 		<div class="container">
 			<div class="row" align="center">
 				<div class="panel panel-default">
-					<div class="center-block">
+					<!-- <div class="center-block"> -->
 						<p>Impresiones Plasticas S.A.C</p>
 						<!-- <br/>-->
 						<p>Para cualquier duda contactar con nuestro Servicio de
@@ -14,9 +14,9 @@
 							(51 1) XXX XXXX</p>
 						<!-- <br/>-->
 						<p>
-							e-mail <a href="mailto:clientes@equifax.com.pe">administracion@implastsac.com.pe</a>
+							e-mail <a href="mailto:administracion@implastsac.com.pe">administracion@implastsac.com.pe</a>
 						</p>
-					</div>
+					<!-- </div> -->
 				</div>
 			</div>
 

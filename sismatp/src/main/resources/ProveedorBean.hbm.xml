@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-oct-2015 18:18:56 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="pe.com.implast.model.beans.ProveedorBean" table="PROVEEDOR">
+        <id name="idProveedor" type="int">
+            <column name="IDPROVEEDOR" />
+            <generator class="assigned" />
+        </id>
+        <property name="codigoProveedor" type="java.lang.String">
+            <column name="CODIGOPROVEEDOR" />
+        </property>
+        <property name="razonSocial" type="java.lang.String">
+            <column name="RAZONSOCIAL" />
+        </property>
+    </class>
+</hibernate-mapping>

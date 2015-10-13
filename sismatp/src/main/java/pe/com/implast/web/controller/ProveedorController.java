@@ -1,5 +1,6 @@
 package pe.com.implast.web.controller;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,17 +36,19 @@ public class ProveedorController {
 	@RequestMapping(value="/mantenimiento/registrarProveedor.json",produces="application/json")
 	@ResponseBody
 	public ResponseObjectBean<String> registrarProveedor(
-		@RequestParam(value="codigoProveedor")String codigoProveedor,
-		@RequestParam(value="razonsocial")String razonSocial
+		@RequestParam(value="codigoProveedor",defaultValue=StringUtils.EMPTY)String codigoProveedor,
+		@RequestParam(value="razonSocial",defaultValue=StringUtils.EMPTY)String razonSocial
 		){
+		
 		ResponseObjectBean<String> response=new ResponseObjectBean<String>();
 		try{
 			ProveedorBean proveedor=new ProveedorBean();
 			proveedor.setIdProveedor(Integer.valueOf(codigoProveedor).intValue());
+			proveedor.setCodigoProveedor(codigoProveedor);
 			proveedor.setRazonSocial(razonSocial);
 			proveedorBUS.crearProveedor(proveedor);
 		}catch(Exception e){
-			LOG.error(e);
+			LOG.error(e.getMessage(),e);
 		}
 		return response;
 	}

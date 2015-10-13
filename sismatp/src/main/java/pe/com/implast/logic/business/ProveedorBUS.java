@@ -1,5 +1,7 @@
 package pe.com.implast.logic.business;
 
+import java.util.List;
+
 import pe.com.implast.model.beans.ProveedorBean;
 
 public interface ProveedorBUS {
@@ -12,4 +14,5 @@ public interface ProveedorBUS {
 
 	public void eliminarProveedor(int idProveedo);
 
+	public List<ProveedorBean> obtenerListaProveedores();
 }

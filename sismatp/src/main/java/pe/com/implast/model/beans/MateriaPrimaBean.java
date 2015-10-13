@@ -16,7 +16,7 @@ public class MateriaPrimaBean {
 		this.idMateriaPrima = idMateriaPrima;
 	}
 
-	public String getCodigoMateriaPrima() {
+	private String getCodigoMateriaPrima() {
 		return codigoMateriaPrima;
 	}
 

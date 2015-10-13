@@ -12,11 +12,12 @@ $(document).ready(function(){
 function registrarProveedor(){
 	var parametros=new Object();
 	parametros.codigoProveedor=$("#txtCodigoProveedor").val();
-	parametros.razonSocial=$("#txtRazonSocial").val();
+	parametros.razonSocial=$("#txtNombreRazonSocial").val();
 	
 	$.ajax({
-		url : 'registrarProveedor.htm',
+		url : 'registrarProveedor.json',
 		data : parametros,
+		dataType:'json',
 		type : 'POST',
 		async : false,
 		cache : false
