@@ -47,12 +47,14 @@ public class MateriaPrimaController {
 		return model;
 	}
 	
-	@RequestMapping(value="/mantenimiento/listarMateriasPrimas.json",method={RequestMethod.GET,RequestMethod.POST},headers="Accept=*/*",produces="application/json")
+	@RequestMapping(value="/mantenimiento/listarMateriasPrimas.json",method={RequestMethod.POST,RequestMethod.GET},headers="Accept=application/json",produces="application/json")
 	public @ResponseBody ResponseListBean<MateriaPrimaBean> listarMateriaPrimas(
 		@RequestParam(value="page",defaultValue="1") Integer pagina,
 		@RequestParam(value="rows",defaultValue="10")Integer registros ){
+		
 		ResponseListBean<MateriaPrimaBean> response=new ResponseListBean<MateriaPrimaBean>();
 		List<MateriaPrimaBean> listaMateriasPrimas=new ArrayList<MateriaPrimaBean>();
+		
 		try{
 			listaMateriasPrimas=materiaPrimaBUS.listarMateriasPrimas();
 			Integer totalRegistros = materiaPrimaBUS.totalMateriasPrimas();

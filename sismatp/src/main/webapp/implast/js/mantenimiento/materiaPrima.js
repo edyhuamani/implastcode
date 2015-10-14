@@ -24,7 +24,7 @@ $(document).ready(function(){
 	jQuery("#grilla_mantenimiento_materiasPrimas").jqGrid(
 		{
 			url:'listarMateriasPrimas.json',
-			datatype : "json",
+			dataType : 'json',
 			mtype : 'POST',
 			colNames : ['Código','Descripción','Proveedor', 'Opciones'],
 			colModel : [ 

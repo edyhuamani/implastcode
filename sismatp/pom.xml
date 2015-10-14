@@ -12,6 +12,7 @@
   	<spring.version>4.1.0.RELEASE</spring.version>
   	<tiles.version>3.0.5</tiles.version>
   	<springsecurity.version>3.2.5.RELEASE</springsecurity.version>
+  	<jackson.version>1.9.11</jackson.version>
   </properties>
   
   <dependencies>
@@ -147,6 +148,20 @@
 		<artifactId>spring-security-config</artifactId>
 		<version>${springsecurity.version}</version>
 	</dependency>
+    
+    <!-- parser json -->
+    <dependency>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-mapper-asl</artifactId>
+		<version>1.9.13</version>
+	</dependency>
+
+	<dependency>
+		<groupId>cglib</groupId>
+		<artifactId>cglib</artifactId>
+		<version>3.1</version>
+	</dependency>
+     
     
   </dependencies>
   <build>
