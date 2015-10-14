@@ -1,5 +1,7 @@
 package pe.com.implast.logic.business;
 
+import java.util.List;
+
 import pe.com.implast.model.beans.MateriaPrimaBean;
 
 public interface MateriaPrimaBUS {
@@ -10,4 +12,8 @@ public interface MateriaPrimaBUS {
 	public void actualizarMateriaPrima(MateriaPrimaBean materiaPrima);
 
 	public void eliminarMateriaPrima(int idMateriaPrima);
+	
+	public List<MateriaPrimaBean> listarMateriasPrimas();
+	
+	public Integer totalMateriasPrimas();
 }

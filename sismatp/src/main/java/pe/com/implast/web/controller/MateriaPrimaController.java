@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import pe.com.implast.beans.ResponseListBean;
 import pe.com.implast.beans.ResponseObjectBean;
 import pe.com.implast.logic.business.MateriaPrimaBUS;
 import pe.com.implast.logic.business.ProveedorBUS;
@@ -21,7 +22,6 @@ import pe.com.implast.model.beans.ProveedorBean;
 
 @Controller
 public class MateriaPrimaController {
-	
 	
 	@Autowired
 	private MateriaPrimaBUS materiaPrimaBUS;
@@ -47,6 +47,26 @@ public class MateriaPrimaController {
 		return model;
 	}
 	
+	@RequestMapping(value="/mantenimiento/listarMateriasPrimas.json",method={RequestMethod.GET,RequestMethod.POST},headers="Accept=*/*",produces="application/json")
+	public @ResponseBody ResponseListBean<MateriaPrimaBean> listarMateriaPrimas(
+		@RequestParam(value="page",defaultValue="1") Integer pagina,
+		@RequestParam(value="rows",defaultValue="10")Integer registros ){
+		ResponseListBean<MateriaPrimaBean> response=new ResponseListBean<MateriaPrimaBean>();
+		List<MateriaPrimaBean> listaMateriasPrimas=new ArrayList<MateriaPrimaBean>();
+		try{
+			listaMateriasPrimas=materiaPrimaBUS.listarMateriasPrimas();
+			Integer totalRegistros = materiaPrimaBUS.totalMateriasPrimas();
+			response.setRows(listaMateriasPrimas);
+			response.setRecords(1);
+			//response.setTotal(OperadoresUtil.obtenerCociente(totalRegistros, registros));
+			response.setTotal(1);
+			response.setPage(pagina);
+		}catch(Exception e) {
+			LOG.error(e.getMessage(),e);
+		}
+		return response;
+	}
+		
 	
 	@RequestMapping(value="/mantenimiento/registrarMateriaPrima.json",method={RequestMethod.POST,RequestMethod.GET},produces="application/json")
 	public @ResponseBody ResponseObjectBean<String> registrarMateriaPrima(

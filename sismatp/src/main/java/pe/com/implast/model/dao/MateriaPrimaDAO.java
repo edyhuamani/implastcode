@@ -1,5 +1,7 @@
 package pe.com.implast.model.dao;
 
+import java.util.List;
+
 import pe.com.implast.model.beans.MateriaPrimaBean;
 
 public interface MateriaPrimaDAO {
@@ -11,4 +13,8 @@ public interface MateriaPrimaDAO {
 	void updateMateriaPrima(MateriaPrimaBean mprima);
 
 	void deleteMateriaPrima(int idMP);
+	
+	List<MateriaPrimaBean> listarMateriasPrimas();
+	
+	Integer totalMateriasPrimas();
 }

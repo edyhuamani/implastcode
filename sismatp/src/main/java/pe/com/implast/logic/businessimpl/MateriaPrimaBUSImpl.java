@@ -1,5 +1,8 @@
 package pe.com.implast.logic.businessimpl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,6 +53,27 @@ public class MateriaPrimaBUSImpl implements MateriaPrimaBUS {
 			LOG.error(e.getMessage(),e);
 		}
 		
+	}
+
+	public List<MateriaPrimaBean> listarMateriasPrimas() {
+
+		List<MateriaPrimaBean> materiasPrimas=new ArrayList<MateriaPrimaBean>();
+		try{
+			materiasPrimas=materiaPrimaDAO.listarMateriasPrimas();
+		}catch (Exception e){
+			LOG.error(e.getMessage(),e);
+		}
+		return materiasPrimas;
+	}
+
+	public Integer totalMateriasPrimas() {
+		Integer totalMateriasPrimas=null;
+		try{
+			totalMateriasPrimas=materiaPrimaDAO.totalMateriasPrimas();
+		}catch (Exception e){
+			LOG.error(e.getMessage(), e);
+		}
+		return totalMateriasPrimas;
 	}
 
 }

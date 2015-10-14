@@ -11,18 +11,13 @@
 	</script>
 	-->
 
-<!-- menu api inicio -->
-<link type="text/css" href="<%=request.getContextPath()%>/jquery/js/menu.css" rel="stylesheet" />
-<script type="text/javascript" src="<%=request.getContextPath()%>/jquery/js/jquery.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/jquery/js/menu.js"></script>
-<!-- menu api fin  -->
 
 <spring:url value="/img/iconos/close.png" var="close"></spring:url>
 <spring:url value="/img/logo_impresiones.jpg" var="logoImpresiones"></spring:url>	
 <spring:url value="http://localhost:8080/sismatp" var="homeurl"></spring:url>	
 
 <!-- Bootstrap -->
-<link type="text/css" href="<%=request.getContextPath()%>/bootstrap/css/bootstrap.css" rel="stylesheet">
+<!-- <link type="text/css" href="<%=request.getContextPath()%>/bootstrap/css/bootstrap.css" rel="stylesheet">-->
 	
 <!-- header -->
 <div id="header">

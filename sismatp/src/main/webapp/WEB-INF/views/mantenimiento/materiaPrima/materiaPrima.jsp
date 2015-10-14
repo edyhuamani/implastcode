@@ -16,7 +16,7 @@
 				<p>Registro Creación de Materias Primas </p>
 				
 				<form action="" id="frmMateriaPrima">
-					<fieldset style="height: 70px;width: auto;">
+					<fieldset style="height: 0 auto ;width: 0 auto;">
 						<legend>Ingreso de Datos</legend>
 						<table>
 							<tbody>
@@ -24,10 +24,12 @@
 									<td><label>Código Materia Prima: </label></td>
 									<td><input type="text" id="txtCodigoMateriaPrima" /></td>
 								</tr>
+								
 								<tr>
 									<td><label>Descripción:</label></td>
 									<td><input type="text" id="txtDescripcion"  maxlength="250" /></td>
 								</tr>
+								
 								<tr>
 									<td><label>Codigo Proveedor:</label></td>
 									
@@ -40,7 +42,6 @@
 									</td>
 								</tr>
 								
-								
 								<tr>
 									<td><input type="button" id="btnRegistrarMateriaPrima" name="Registrar"
 										title="Registrar" value="Registrar"></td>
@@ -49,7 +50,19 @@
 						</table>
 					</fieldset>
 				</form>
+				
 			</div>
+			<br>
+			<br>
+			<!-- grilla materia primas-->
+			<div class="ready">
+				<div>
+					<table id="grilla_mantenimiento_materiasPrimas"></table>
+					<div id="pgrilla_mantenimiento_materiasPrimas"></div>
+				</div>
+			</div>
+			<!-- fin grilla materias primas -->
+
 		</div>
 	</div>
 	

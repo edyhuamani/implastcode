@@ -1,11 +1,16 @@
 package pe.com.implast.model.daoimpl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,23 +25,21 @@ public class MateriaPrimaDAOImpl implements MateriaPrimaDAO {
 	@Autowired
 	SessionFactory sessionFactory; 
 	
+	@Autowired
+	JdbcTemplate jdbcTemplate;
+	
+	
 	@Transactional
 	public void createMateriaPrima(MateriaPrimaBean mprima) {
 		
 		Session session=sessionFactory.getCurrentSession();
-
 		try{
-			//session.beginTransaction();
 			session.saveOrUpdate(mprima);
-			//session.getTransaction().commit();
 		}catch(HibernateException he){
-			//session.getTransaction().rollback();
-			//LOG.error(he.getMessage(),he);
+			LOG.error(he.getMessage(),he);
 		}catch(Exception e){
-			//session.getTransaction().rollback();
 			LOG.error(e.getMessage(),e);
 		}finally{
-			//session.close();
 		}	
 	}
 
@@ -71,16 +74,36 @@ public class MateriaPrimaDAOImpl implements MateriaPrimaDAO {
 	public void deleteMateriaPrima(int idMP) {
 
 		Session session=sessionFactory.getCurrentSession();
-		
 		session.beginTransaction();
 		Transaction tx=session.getTransaction();
 		MateriaPrimaBean mp=(MateriaPrimaBean) session.get(MateriaPrimaBean.class, idMP);
 		session.delete(mp);
 		tx.commit();
 		session.close();
-		
-		
-		
+	}
+	
+	@Transactional
+	public List<MateriaPrimaBean> listarMateriasPrimas() {
+		List<MateriaPrimaBean> response=new ArrayList<MateriaPrimaBean>(); 
+		try{
+			Session session=sessionFactory.getCurrentSession();
+			response=session.createCriteria(MateriaPrimaBean.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+		}catch (Exception e){
+			LOG.error(e.getMessage(), e);
+		}
+		return response;
+	}
+
+	public Integer totalMateriasPrimas() {
+		Integer response=null;
+		try{
+			String sql="Select count(*) from Materiaprima";
+			jdbcTemplate.execute(sql);
+			
+		}catch (Exception e){
+			LOG.error(e.getMessage(),e);
+		}
+		return null;
 	}
 
 }
