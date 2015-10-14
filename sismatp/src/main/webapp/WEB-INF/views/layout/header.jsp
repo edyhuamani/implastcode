@@ -17,7 +17,7 @@
 <spring:url value="http://localhost:8080/sismatp" var="homeurl"></spring:url>	
 
 <!-- Bootstrap -->
-<!-- <link type="text/css" href="<%=request.getContextPath()%>/bootstrap/css/bootstrap.css" rel="stylesheet">-->
+<link type="text/css" href="<%=request.getContextPath()%>/bootstrap/css/bootstrap.css" rel="stylesheet">
 	
 <!-- header -->
 <div id="header">

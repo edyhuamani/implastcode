@@ -4,7 +4,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <script type="text/javascript"  src="<%=request.getContextPath()%>/implast/js/mantenimiento/proveedor.js"></script>
 
-<!-- <div id="body" style="margin:0 auto 0 auto ;width: 800px;"> -->
+<script type="text/javascript">
+	$(function(){
+
+		$("input[type=submit], input[type=button], button").button()
+			.click(function(event) {
+			event.preventDefault();
+		});
+	
+	});
+
+</script>
+
 <div class="container">	
 	<div class="row">
 		
@@ -31,6 +42,16 @@
 				</fieldset>
 			</form>
 		</div>
+		
+		<!-- grilla materia primas-->
+		<div class="ready">
+				<div>
+					<table id="grilla_mantenimiento_proveedor"></table>
+					<div id="pgrilla_mantenimiento_proveedor"></div>
+				</div>
+		</div>
+		<!-- fin grilla materias primas -->
+		
 	</div>
 </div>
 <!-- end proveedor.jsp -->
