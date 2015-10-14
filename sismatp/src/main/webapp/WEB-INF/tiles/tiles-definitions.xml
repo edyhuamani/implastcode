@@ -31,6 +31,15 @@
 		<put-attribute name="body" value="/WEB-INF/views/mantenimiento/proveedor/proveedor.jsp" />
 	</definition>
 
+	<definition name="parametros" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/mantenimiento/parametros/parametros.jsp" />
+	</definition>
+
+	<definition name="operador" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/mantenimiento/operador/operador.jsp" />
+	</definition>
+
+
 	<!-- consultas -->
 	<definition name="consultaIngresos" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/consultas/consultaIngresos.jsp" />

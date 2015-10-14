@@ -54,8 +54,6 @@ public class ProveedorBUSImpl implements ProveedorBUS{
 	
 	public List<ProveedorBean> obtenerListaProveedores(){
 
-		
-		
 		List<ProveedorBean> proveedores=new ArrayList<ProveedorBean>();
 		try{
 			proveedores=proveedorDAO.obtenerListaProveedores();

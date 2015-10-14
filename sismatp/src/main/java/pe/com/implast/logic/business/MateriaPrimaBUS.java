@@ -13,7 +13,7 @@ public interface MateriaPrimaBUS {
 
 	public void eliminarMateriaPrima(int idMateriaPrima);
 	
-	public List<MateriaPrimaBean> listarMateriasPrimas();
+	public List<MateriaPrimaBean> listarMateriasPrimas(Integer pagina, Integer registros);
 	
 	public Integer totalMateriasPrimas();
 }

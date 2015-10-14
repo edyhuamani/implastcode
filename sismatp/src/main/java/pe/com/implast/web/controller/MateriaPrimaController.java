@@ -19,6 +19,7 @@ import pe.com.implast.logic.business.MateriaPrimaBUS;
 import pe.com.implast.logic.business.ProveedorBUS;
 import pe.com.implast.model.beans.MateriaPrimaBean;
 import pe.com.implast.model.beans.ProveedorBean;
+import pe.com.implast.utils.OperadoresUtil;
 
 @Controller
 public class MateriaPrimaController {
@@ -47,7 +48,7 @@ public class MateriaPrimaController {
 		return model;
 	}
 	
-	@RequestMapping(value="/mantenimiento/listarMateriasPrimas.json",method={RequestMethod.POST,RequestMethod.GET},headers="Accept=application/json",produces="application/json")
+	@RequestMapping(value="/mantenimiento/listarMateriasPrimas.json",method={RequestMethod.POST,RequestMethod.GET},produces="application/json")
 	public @ResponseBody ResponseListBean<MateriaPrimaBean> listarMateriaPrimas(
 		@RequestParam(value="page",defaultValue="1") Integer pagina,
 		@RequestParam(value="rows",defaultValue="10")Integer registros ){
@@ -56,13 +57,12 @@ public class MateriaPrimaController {
 		List<MateriaPrimaBean> listaMateriasPrimas=new ArrayList<MateriaPrimaBean>();
 		
 		try{
-			listaMateriasPrimas=materiaPrimaBUS.listarMateriasPrimas();
+			listaMateriasPrimas=materiaPrimaBUS.listarMateriasPrimas(pagina,registros);
 			Integer totalRegistros = materiaPrimaBUS.totalMateriasPrimas();
-			response.setRows(listaMateriasPrimas);
-			response.setRecords(1);
-			//response.setTotal(OperadoresUtil.obtenerCociente(totalRegistros, registros));
-			response.setTotal(1);
 			response.setPage(pagina);
+			response.setRecords(totalRegistros);
+			response.setTotal(OperadoresUtil.obtenerCociente(totalRegistros, registros));
+			response.setRows(listaMateriasPrimas);
 		}catch(Exception e) {
 			LOG.error(e.getMessage(),e);
 		}
@@ -76,15 +76,20 @@ public class MateriaPrimaController {
 			@RequestParam(value="descripcion",defaultValue=StringUtils.EMPTY ) String descripcion,
 			@RequestParam(value="codigoProveedor",defaultValue=StringUtils.EMPTY) String codigoProveedor
 			){
+		//List<MensajeValidacionBean> listaMensajesValidacionBeans = new ArrayList<>();
 		ResponseObjectBean<String> response=new ResponseObjectBean<String>();
 		try{
+			
+			
+			
 			MateriaPrimaBean mp=new MateriaPrimaBean();
-			mp.setIdMateriaPrima(1);
+			mp.setIdMateriaPrima(Integer.valueOf(codigoMateriaPrima));
 			mp.setCodigoMateriaPrima(codigoMateriaPrima);
 			mp.setDescripcion(descripcion);
-			mp.setCodigoProveedor(codigoMateriaPrima);
+			mp.setCodigoProveedor(codigoProveedor);
 			materiaPrimaBUS.crearMateriaPrima(mp);
-			//response.setRows(rows);
+			
+			
 		}catch(Exception e){
 			LOG.error(e.getMessage(),e);
 		}

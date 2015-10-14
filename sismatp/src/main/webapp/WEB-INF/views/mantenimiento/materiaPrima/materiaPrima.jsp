@@ -6,6 +6,24 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <script type="text/javascript"  src="<%=request.getContextPath()%>/implast/js/mantenimiento/materiaPrima.js"></script>
 
+<script type="text/javascript"> 
+	$(function() {
+		$( "#listProveedores" )
+		.selectmenu()
+		.selectmenu("menuWidget")
+	  	.addClass( "overflow" );
+
+		    
+		$("input[type=submit], input[type=button], button").button()
+		.click(function(event) {
+			event.preventDefault();
+		});
+	});
+	
+
+	
+</script>
+
 <div id="body" style="margin-left: 0">
 	
 	<!-- <div style="margin: 0 auto 0 auto;width: 800px; ">-->
@@ -34,7 +52,7 @@
 									<td><label>Codigo Proveedor:</label></td>
 									
 									<td>
-										<select id="listProveedores" > 
+										<select id="listProveedores"  style="font-size: 10px;"> 
 											<c:forEach var="proveedor" items="${proveedores}">
 												<option value="${proveedor.codigoProveedor}">${proveedor.razonSocial} </option>
 											</c:forEach>

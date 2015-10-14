@@ -83,7 +83,11 @@ public class MateriaPrimaDAOImpl implements MateriaPrimaDAO {
 	}
 	
 	@Transactional
-	public List<MateriaPrimaBean> listarMateriasPrimas() {
+	public List<MateriaPrimaBean> listarMateriasPrimas(Integer pagina, Integer registros) {
+		
+		Integer inicio = (pagina - 1) * registros + 1;
+		Integer fin = inicio + registros - 1;
+		
 		List<MateriaPrimaBean> response=new ArrayList<MateriaPrimaBean>(); 
 		try{
 			Session session=sessionFactory.getCurrentSession();
@@ -97,13 +101,13 @@ public class MateriaPrimaDAOImpl implements MateriaPrimaDAO {
 	public Integer totalMateriasPrimas() {
 		Integer response=null;
 		try{
-			String sql="Select count(*) from Materiaprima";
-			jdbcTemplate.execute(sql);
+			String sql="Select count(*) from MateriaPrima";
+			response=jdbcTemplate.queryForObject(sql, Integer.class);
 			
 		}catch (Exception e){
 			LOG.error(e.getMessage(),e);
 		}
-		return null;
+		return response;
 	}
 
 }

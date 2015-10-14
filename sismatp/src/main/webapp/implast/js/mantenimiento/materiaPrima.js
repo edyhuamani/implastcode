@@ -9,12 +9,10 @@ $(document).ready(function(){
 		
 		var botones = "<center>";		
 			botones += "<div style='display: inline-block;'>";
-			botones += "<a href=javascript:editarProducto('" + rowObject.codigo +"'); title='Editar'>";
-			//botones += "<img src='../../opera/img/editar.png' border='0' title='Editar'/></a>&emsp;";
+			botones += "<a href=javascript:editarMateriaPrima('" + rowObject.codigo +"'); title='Editar'>";
 			botones +="<span class='ui-icon ui-icon-pencil'></span></a></div>&nbsp;";
 			botones += "<div style='display: inline-block;'>";
-			botones += "<a href=javascript:eliminarProducto('" + rowObject.codigo +"'); title='Eliminar'>";
-			//botones += "<img src='../../opera/img/cancel_16x16.png' border='0' title='Eliminar'/></a>&emsp;";
+			botones += "<a href=javascript:eliminarMateriaPrima('" + rowObject.codigo +"'); title='Eliminar'>";
 			botones +="<span class='ui-icon ui-icon-trash' ></span></a></div>";
 			botones += "</center>";
 		return botones;
@@ -24,7 +22,7 @@ $(document).ready(function(){
 	jQuery("#grilla_mantenimiento_materiasPrimas").jqGrid(
 		{
 			url:'listarMateriasPrimas.json',
-			dataType : 'json',
+			datatype : 'json',
 			mtype : 'POST',
 			colNames : ['Código','Descripción','Proveedor', 'Opciones'],
 			colModel : [ 
@@ -57,7 +55,7 @@ $(document).ready(function(){
 				}
 			],
 			rowNum : 10,
-			height: 240,
+			height: 270,
 			//width: '100%',
 			rowList : [ 10, 20, 30 ],
 			pager : '#pgrilla_mantenimiento_materiasPrimas',
@@ -79,7 +77,6 @@ function registrarMateriaPrima(){
 	var parametros=new Object();
 	parametros.codigoMateriaPrima=$("#txtCodigoMateriaPrima").val();
 	parametros.descripcion=$("#txtDescripcion").val();
-	alert("estoy en este punto");
 	
 	$.ajax({
 		url : "registrarMateriaPrima.json",
@@ -90,6 +87,20 @@ function registrarMateriaPrima(){
 		cache : false
 	}).done(function(jsondata){
 		alert("recibi respuesta");
+		actualizarListaMateriaPrima();
 	});
 }
 
+
+function editarMateriaPrima(){
+	
+}
+
+
+function eliminarMateriaPrima(){
+	
+}
+
+function actualizarListaMateriaPrima(){
+	$("#grilla_mantenimiento_materiasPrimas").jqGrid('setGridParam').trigger('reloadGrid');
+}

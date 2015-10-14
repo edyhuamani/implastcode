@@ -55,11 +55,11 @@ public class MateriaPrimaBUSImpl implements MateriaPrimaBUS {
 		
 	}
 
-	public List<MateriaPrimaBean> listarMateriasPrimas() {
+	public List<MateriaPrimaBean> listarMateriasPrimas(Integer pagina, Integer registros) {
 
 		List<MateriaPrimaBean> materiasPrimas=new ArrayList<MateriaPrimaBean>();
 		try{
-			materiasPrimas=materiaPrimaDAO.listarMateriasPrimas();
+			materiasPrimas=materiaPrimaDAO.listarMateriasPrimas(pagina,registros);
 		}catch (Exception e){
 			LOG.error(e.getMessage(),e);
 		}

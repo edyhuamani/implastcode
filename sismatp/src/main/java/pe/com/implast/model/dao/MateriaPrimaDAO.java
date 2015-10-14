@@ -14,7 +14,7 @@ public interface MateriaPrimaDAO {
 
 	void deleteMateriaPrima(int idMP);
 	
-	List<MateriaPrimaBean> listarMateriasPrimas();
+	List<MateriaPrimaBean> listarMateriasPrimas(Integer pagina, Integer registros);
 	
 	Integer totalMateriasPrimas();
 }

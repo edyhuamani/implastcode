@@ -68,12 +68,12 @@
 								<span>Proveedores</span>
 						</a></li>
 						<li><a
-							href="<%=request.getContextPath()%>/mantenimiento/parametro/mantenimientoParametros.htm">
-								<span>Par&aacute;metro</span>
+							href="<%=request.getContextPath()%>/mantenimiento/parametros.htm">
+								<span>Par&aacute;metros</span>
 						</a></li>
 						<li><a
-							href="<%=request.getContextPath()%>/mantenimiento/producto/mantenimiento-productos.htm">
-								<span>Colaboradores</span>
+							href="<%=request.getContextPath()%>/mantenimiento/operador.htm">
+								<span>Operador</span>
 						</a></li>
 						<li><a
 							href="<%=request.getContextPath()%>/mantenimiento/estructura/mantenimiento-estructuras.htm">

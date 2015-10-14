@@ -16,8 +16,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9" />
 <meta http-equiv="Expires" content="-1" />
 
-
-
 <title><tiles:insertAttribute name="title" /></title>
 
 <!-- menu api inicio -->
@@ -30,9 +28,13 @@
 <!-- <script type="text/javascript" src="<%=request.getContextPath()%>/jqgrid/jquery-1.11.0.min.js"></script>-->
 <script type="text/javascript" src="<%=request.getContextPath()%>/jqgrid/jquery.jqGrid.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/jqgrid/grid.locale-es.js"></script>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/jqgrid/ui.jqgrid.css" />
 <!-- jqgrid fin -->
 
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/jqgrid/ui.jqgrid.css" />
+
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/jqueryui/jquery-ui-1.11.4/themes/humanity/jquery-ui.theme.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/jqueryui/jquery-ui-1.11.4/jquery-ui.css" />
+<script type="text/javascript" src="<%=request.getContextPath()%>/jqueryui/jquery-ui-1.11.4/jquery-ui.js"></script>
 
 </head>
 <body>
