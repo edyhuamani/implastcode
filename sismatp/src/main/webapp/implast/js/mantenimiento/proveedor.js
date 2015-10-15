@@ -82,7 +82,13 @@ function registrarProveedor(){
 
 }
 
+function editarProveedor(){
+	
+}
 
+function eliminarProveedor(){
+	
+}
 
 
 

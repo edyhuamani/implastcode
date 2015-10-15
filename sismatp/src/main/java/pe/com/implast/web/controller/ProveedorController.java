@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import pe.com.implast.beans.ResponseListBean;
 import pe.com.implast.beans.ResponseObjectBean;
 import pe.com.implast.logic.business.ProveedorBUS;
-import pe.com.implast.model.beans.MateriaPrimaBean;
 import pe.com.implast.model.beans.ProveedorBean;
 import pe.com.implast.utils.OperadoresUtil;
 
