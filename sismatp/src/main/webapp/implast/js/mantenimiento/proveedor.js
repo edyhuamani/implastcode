@@ -33,9 +33,9 @@ $(document).ready(function(){
 						sortable : false,
 						resizable : false
 					},{
-						name : 'descripcion',
-						index : 'descripcion',
-						width : 300,
+						name : 'razonSocial',
+						index : 'razonSocial',
+						width : 350,
 						sortable : false,
 						resizable : false
 					},{

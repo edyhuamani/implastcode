@@ -66,7 +66,7 @@ public class ProveedorBUSImpl implements ProveedorBUS{
 	public List<ProveedorBean> listarProveedoresPaginado(Integer pagina,	Integer registros) {
 		List<ProveedorBean> response=new ArrayList<ProveedorBean>();
 		try{
-			
+			response=proveedorDAO.obtenerListaProveedores();
 		}catch (Exception e){
 			LOG.error(e.getMessage(),e);
 		}
@@ -76,7 +76,7 @@ public class ProveedorBUSImpl implements ProveedorBUS{
 	public Integer totalProveedores() {
 		Integer response=null;
 		try{
-			
+			response=proveedorDAO.totalProveedores();
 		}catch (Exception e){
 			LOG.error(e.getMessage(), e);
 		}

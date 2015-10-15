@@ -69,7 +69,6 @@ public class ProveedorController {
 		try{
 			listaProveedores=proveedorBUS.listarProveedoresPaginado(pagina,registros);
 			Integer totalRegistros = proveedorBUS.totalProveedores();
-			
 			response.setPage(pagina);
 			response.setRecords(totalRegistros);
 			response.setTotal(OperadoresUtil.obtenerCociente(totalRegistros, registros));
