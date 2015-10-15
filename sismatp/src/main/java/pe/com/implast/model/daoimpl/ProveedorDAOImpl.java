@@ -9,6 +9,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +23,9 @@ public class ProveedorDAOImpl  implements ProveedorDAO {
 	
 	@Autowired
 	SessionFactory sessionFactory;
+	
+	@Autowired
+	JdbcTemplate jdbcTemplate;
 	
 	@Transactional
 	public void createProveedor(ProveedorBean proveedor) {
@@ -84,6 +88,17 @@ public class ProveedorDAOImpl  implements ProveedorDAO {
 			LOG.error(e.getMessage(), e);
 		}
 		return proveedores;
+	}
+
+	public Integer totalProveedores() {
+		Integer response=null;
+		try{
+			String sql="Select count(*) from Proveedor";
+			response=jdbcTemplate.queryForObject(sql, Integer.class);
+		}catch (Exception e){
+			LOG.error(e.getMessage(), e);
+		}
+		return response;
 	}
 
 }

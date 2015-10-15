@@ -22,7 +22,7 @@
 		<div class="panel panel-default">
 			<form action="" id="frmProveedo">
 				<p>Registro Proveedores </p>
-				<fieldset style="height: 70px;width: auto;">
+				<fieldset style="height: 0 auto ;width: 0 auto;">
 					<legend>Ingreso de Datos</legend>
 					<table>
 						<tbody>
@@ -43,14 +43,14 @@
 			</form>
 		</div>
 		
-		<!-- grilla materia primas-->
+		<!-- grilla proveedor-->
 		<div class="ready">
 				<div>
 					<table id="grilla_mantenimiento_proveedor"></table>
 					<div id="pgrilla_mantenimiento_proveedor"></div>
 				</div>
 		</div>
-		<!-- fin grilla materias primas -->
+		<!-- fin grilla proveedor -->
 		
 	</div>
 </div>

@@ -4,17 +4,31 @@
 
 $(document).ready(function(){
 	
+	
+	var opciones = function(cellVal,options,rowObject){
+		
+		var botones = "<center>";		
+			botones += "<div style='display: inline-block;'>";
+			botones += "<a href=javascript:editarProveedor('" + rowObject.codigo +"'); title='Editar'>";
+			botones +="<span class='ui-icon ui-icon-pencil'></span></a></div>&nbsp;";
+			botones += "<div style='display: inline-block;'>";
+			botones += "<a href=javascript:eliminarProveedor('" + rowObject.codigo +"'); title='Eliminar'>";
+			botones +="<span class='ui-icon ui-icon-trash' ></span></a></div>";
+			botones += "</center>";
+		return botones;
+	};
+	
 	jQuery("#grilla_mantenimiento_proveedor").jqGrid(
 			
 			{
 				url:'listarProveedores.json',
 				datatype : 'json',
 				mtype : 'POST',
-				colNames : ['Código','Descripción','Proveedor', 'Opciones'],
+				colNames : ['Código','Descripción','Opciones'],
 				colModel : [ 
 					{
-						name : 'codigoMateriaPrima',
-						index : 'codigoMateriaPrima',
+						name : 'codigoProveedor',
+						index : 'codigoProveedor',
 						width : 65,
 						sortable : false,
 						resizable : false
@@ -25,14 +39,8 @@ $(document).ready(function(){
 						sortable : false,
 						resizable : false
 					},{
-						name : 'codigoProveedor',
-						index : 'codigoProveedor',
-						width : 100,
-						sortable : false,
-						resizable : false
-					},{
 						name : 'opciones',
-						index : 'codigoMateriaPrima',
+						index : 'codigoProveedor',
 						width : 60,
 						formatter:opciones,
 						sortable : false,

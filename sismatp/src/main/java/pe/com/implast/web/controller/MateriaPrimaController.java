@@ -76,7 +76,7 @@ public class MateriaPrimaController {
 			@RequestParam(value="descripcion",defaultValue=StringUtils.EMPTY ) String descripcion,
 			@RequestParam(value="codigoProveedor",defaultValue=StringUtils.EMPTY) String codigoProveedor
 			){
-		//List<MensajeValidacionBean> listaMensajesValidacionBeans = new ArrayList<>();
+		//List<MensajeValidacionBean> listaMensajesValidacionBeans = new ArrayList<MensajeValidacionBean>();
 		ResponseObjectBean<String> response=new ResponseObjectBean<String>();
 		try{
 			

@@ -15,4 +15,6 @@ public interface ProveedorDAO {
 	void deleteProveedor(int idProveedor);
 	
 	public List<ProveedorBean> obtenerListaProveedores();
+	
+	public Integer totalProveedores();
 }

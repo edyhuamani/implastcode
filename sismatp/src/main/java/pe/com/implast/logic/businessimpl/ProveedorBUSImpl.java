@@ -62,4 +62,24 @@ public class ProveedorBUSImpl implements ProveedorBUS{
 		}
 		return proveedores;
 	}
+
+	public List<ProveedorBean> listarProveedoresPaginado(Integer pagina,	Integer registros) {
+		List<ProveedorBean> response=new ArrayList<ProveedorBean>();
+		try{
+			
+		}catch (Exception e){
+			LOG.error(e.getMessage(),e);
+		}
+		return response;
+	}
+
+	public Integer totalProveedores() {
+		Integer response=null;
+		try{
+			
+		}catch (Exception e){
+			LOG.error(e.getMessage(), e);
+		}
+		return response;
+	}
 }
