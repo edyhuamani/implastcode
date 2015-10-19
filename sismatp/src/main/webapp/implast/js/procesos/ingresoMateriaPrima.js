@@ -19,9 +19,9 @@ $(document).ready(function(){
 	};
 	
 	jQuery("#grilla_mantenimiento_ingresoMateriaPrima").jqGrid({
-		url:'listarProveedores.json',
-		datatype : 'json',
-		mtype : 'POST',
+		//url:'listarProveedores.json',
+		//datatype : 'json',
+		//mtype : 'POST',
 		colNames : ['Código Materia Prima','Descripción','Opciones'],
 		colModel : [ 
 			{
@@ -87,6 +87,10 @@ function adicionarMateriaPrima(){
 		async : false,
 		cache : false
 	}).done(function(){
-		
+		actualizarListaIngresos();
 	});
+}
+
+function actualizarListaIngresos(){
+	$("#grilla_mantenimiento_ingresoMateriaPrima").jqGrid('setGridParam').trigger('reloadGrid');
 }

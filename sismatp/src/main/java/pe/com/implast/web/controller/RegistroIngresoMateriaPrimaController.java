@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import pe.com.implast.beans.ResponseObjectBean;
 import pe.com.implast.logic.business.MateriaPrimaBUS;
+import pe.com.implast.logic.business.RegistroMateriaPrimaBUS;
 import pe.com.implast.model.beans.MateriaPrimaBean;
 
 @Controller
@@ -22,6 +23,9 @@ public class RegistroIngresoMateriaPrimaController {
 	
 	@Autowired
 	MateriaPrimaBUS materiaPrimaBUS;
+	
+	@Autowired
+	RegistroMateriaPrimaBUS registroMateriaPrimaBUS;
 	
 	@RequestMapping(value="/procesos/ingresoMateriaPrima.htm",method={RequestMethod.GET})
 	public ModelAndView init(){
@@ -39,7 +43,6 @@ public class RegistroIngresoMateriaPrimaController {
 	}
 	
 	
-	//adicionarMateriaPrima.jon
 	
 	@RequestMapping(value="/procesos/adicionarMateriaPrima.json",method={RequestMethod.GET},produces="application/json")
 	public @ResponseBody ResponseObjectBean<String> adicionarMateriaPrima(
@@ -48,11 +51,13 @@ public class RegistroIngresoMateriaPrimaController {
 			){
 		ResponseObjectBean<String> response=new ResponseObjectBean<String>(); 
 		try{
-			
+			registroMateriaPrimaBUS.adicionarMateriaPrima();
 		}catch (Exception e){
 			LOG.error(e.getMessage()  , e);
 		}
 		return response;
 	}
+	
+	
 	
 }
