@@ -11,7 +11,7 @@
         <property name="codigoMateriaPrima" type="java.lang.String">
             <column name="CODIGOMATERIAPRIMA" />
         </property>
-        <property name="descripcion" type="java.lang.String">
+        <property name="descMateriaPrima" type="java.lang.String">
             <column name="DESCRIPCION" />
         </property>
         <property name="codigoProveedor" type="java.lang.String">

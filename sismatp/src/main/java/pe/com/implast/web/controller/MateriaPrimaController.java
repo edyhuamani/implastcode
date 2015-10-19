@@ -80,12 +80,10 @@ public class MateriaPrimaController {
 		ResponseObjectBean<String> response=new ResponseObjectBean<String>();
 		try{
 			
-			
-			
 			MateriaPrimaBean mp=new MateriaPrimaBean();
 			mp.setIdMateriaPrima(Integer.valueOf(codigoMateriaPrima));
 			mp.setCodigoMateriaPrima(codigoMateriaPrima);
-			mp.setDescripcion(descripcion);
+			mp.setDescMateriaPrima(descripcion);
 			mp.setCodigoProveedor(codigoProveedor);
 			materiaPrimaBUS.crearMateriaPrima(mp);
 			

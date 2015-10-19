@@ -33,8 +33,8 @@ $(document).ready(function(){
 					sortable : false,
 					resizable : false
 				},{
-					name : 'descripcion',
-					index : 'descripcion',
+					name : 'descMateriaPrima',
+					index : 'descMateriaPrima',
 					width : 300,
 					sortable : false,
 					resizable : false

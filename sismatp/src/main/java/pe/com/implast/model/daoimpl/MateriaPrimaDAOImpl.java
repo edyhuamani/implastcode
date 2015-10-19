@@ -104,7 +104,7 @@ public class MateriaPrimaDAOImpl implements MateriaPrimaDAO {
 				public MateriaPrimaBean mapRow(ResultSet result, int rownum)	throws SQLException {
 					MateriaPrimaBean materia=new MateriaPrimaBean();
 					materia.setCodigoMateriaPrima(result.getString("codigoMateriaPrima"));
-					materia.setDescripcion(result.getString("descripcion"));
+					materia.setDescMateriaPrima(result.getString("descripcion"));
 					materia.setCodigoProveedor(result.getString("codprv"));
 					return materia;
 				}
@@ -137,7 +137,7 @@ public class MateriaPrimaDAOImpl implements MateriaPrimaDAO {
 						throws SQLException {
 							MateriaPrimaBean materia=new MateriaPrimaBean();
 							materia.setCodigoMateriaPrima(result.getString("codigoMateriaPrima"));
-							materia.setDescripcion(result.getString("descripcion"));
+							materia.setDescMateriaPrima(result.getString("descripcion"));
 							materia.setCodigoProveedor(result.getString("codprv"));
 							return materia;
 				}

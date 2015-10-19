@@ -5,7 +5,7 @@ public class MateriaPrimaBean {
 
 	private int idMateriaPrima;
 	private String codigoMateriaPrima;
-	private String descripcion;
+	private String descMateriaPrima;
 	private String codigoProveedor;
 
 	public int getIdMateriaPrima() {
@@ -23,13 +23,13 @@ public class MateriaPrimaBean {
 	public void setCodigoMateriaPrima(String codigoMateriaPrima) {
 		this.codigoMateriaPrima = codigoMateriaPrima;
 	}
-	
-	public String getDescripcion() {
-		return descripcion;
+
+	public String getDescMateriaPrima() {
+		return descMateriaPrima;
 	}
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setDescMateriaPrima(String descMateriaPrima) {
+		this.descMateriaPrima = descMateriaPrima;
 	}
 
 	public String getCodigoProveedor() {
@@ -39,5 +39,5 @@ public class MateriaPrimaBean {
 	public void setCodigoProveedor(String codigoProveedor) {
 		this.codigoProveedor = codigoProveedor;
 	}
-	
+
 }
