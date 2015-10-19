@@ -57,7 +57,7 @@ public class MateriaPrimaController {
 		List<MateriaPrimaBean> listaMateriasPrimas=new ArrayList<MateriaPrimaBean>();
 		
 		try{
-			listaMateriasPrimas=materiaPrimaBUS.listarMateriasPrimas(pagina,registros);
+			listaMateriasPrimas=materiaPrimaBUS.listarMateriasPrimasPaginado(pagina,registros);
 			Integer totalRegistros = materiaPrimaBUS.totalMateriasPrimas();
 			response.setPage(pagina);
 			response.setRecords(totalRegistros);

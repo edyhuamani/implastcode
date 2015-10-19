@@ -78,6 +78,7 @@ function registrarProveedor(){
 		cache : false
 	}).done(function(jsondata){
 		alert("Recibi respuesta");
+		actualizarListaProveedores();
 	});
 
 }
@@ -88,6 +89,10 @@ function editarProveedor(){
 
 function eliminarProveedor(){
 	
+}
+
+function actualizarListaProveedores(){
+	$("#grilla_mantenimiento_proveedor").jqGrid('setGridParam').trigger('reloadGrid');
 }
 
 

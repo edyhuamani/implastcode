@@ -19,9 +19,6 @@
 			event.preventDefault();
 		});
 	});
-	
-
-	
 </script>
 
 <div id="body" style="margin-left: 0">

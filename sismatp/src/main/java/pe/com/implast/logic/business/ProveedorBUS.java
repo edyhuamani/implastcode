@@ -2,7 +2,6 @@ package pe.com.implast.logic.business;
 
 import java.util.List;
 
-import pe.com.implast.model.beans.MateriaPrimaBean;
 import pe.com.implast.model.beans.ProveedorBean;
 
 public interface ProveedorBUS {

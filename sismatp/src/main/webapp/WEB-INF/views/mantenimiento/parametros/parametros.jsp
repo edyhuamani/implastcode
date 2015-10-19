@@ -5,7 +5,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <div id="body" >
-
-	<p>Registro Mantenimiento Parámetros </p>
-
+	<div class="container">
+		<div class="row">	
+			<p>Registro Mantenimiento Parámetros </p>
+		</div>
+	</div>
 </div>

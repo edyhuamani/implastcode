@@ -5,6 +5,7 @@ import java.util.List;
 import pe.com.implast.model.beans.MateriaPrimaBean;
 
 public interface MateriaPrimaBUS {
+	
 	public void crearMateriaPrima(MateriaPrimaBean materiaPrima);
 
 	public void obtenerMateriaPrima(int idMateriaPrima);
@@ -13,7 +14,9 @@ public interface MateriaPrimaBUS {
 
 	public void eliminarMateriaPrima(int idMateriaPrima);
 	
-	public List<MateriaPrimaBean> listarMateriasPrimas(Integer pagina, Integer registros);
+	public List<MateriaPrimaBean> listarMaterias();
+	
+	public List<MateriaPrimaBean> listarMateriasPrimasPaginado(Integer pagina, Integer registros);
 	
 	public Integer totalMateriasPrimas();
 }

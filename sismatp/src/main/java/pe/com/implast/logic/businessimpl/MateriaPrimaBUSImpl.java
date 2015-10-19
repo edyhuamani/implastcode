@@ -55,11 +55,11 @@ public class MateriaPrimaBUSImpl implements MateriaPrimaBUS {
 		
 	}
 
-	public List<MateriaPrimaBean> listarMateriasPrimas(Integer pagina, Integer registros) {
+	public List<MateriaPrimaBean> listarMateriasPrimasPaginado(Integer pagina, Integer registros) {
 
 		List<MateriaPrimaBean> materiasPrimas=new ArrayList<MateriaPrimaBean>();
 		try{
-			materiasPrimas=materiaPrimaDAO.listarMateriasPrimas(pagina,registros);
+			materiasPrimas=materiaPrimaDAO.listarMateriasPrimasPaginado(pagina,registros);
 		}catch (Exception e){
 			LOG.error(e.getMessage(),e);
 		}
@@ -74,6 +74,16 @@ public class MateriaPrimaBUSImpl implements MateriaPrimaBUS {
 			LOG.error(e.getMessage(), e);
 		}
 		return totalMateriasPrimas;
+	}
+
+	public List<MateriaPrimaBean> listarMaterias() {
+		List<MateriaPrimaBean> materiasPrimas=null;
+		try{
+			materiasPrimas=materiaPrimaDAO.listarMateriasPrimas();
+		}catch (Exception e){
+			LOG.error(e.getMessage(), e);
+		}
+		return materiasPrimas;
 	}
 
 }

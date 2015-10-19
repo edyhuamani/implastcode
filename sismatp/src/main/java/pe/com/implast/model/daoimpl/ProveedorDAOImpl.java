@@ -1,5 +1,7 @@
 package pe.com.implast.model.daoimpl;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +12,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -99,6 +102,37 @@ public class ProveedorDAOImpl  implements ProveedorDAO {
 			LOG.error(e.getMessage(), e);
 		}
 		return response;
+	}
+
+	public List<ProveedorBean> obtenerListaProveedoresPaginado(Integer pagina,Integer registros) {
+		List<ProveedorBean> proveedores=null;
+		Integer inicioPagina=0;
+		if (pagina.intValue()==1){
+			pagina=pagina-1;
+			inicioPagina=pagina;
+		}else{
+			pagina-=1;
+			inicioPagina=pagina*registros;
+		}
+				
+		String sql="SELECT * FROM PROVEEDOR LIMIT 10 OFFSET ?";
+		try{
+			
+			proveedores=jdbcTemplate.query(sql,new Object[]{inicioPagina}, new RowMapper<ProveedorBean>(){
+
+				public ProveedorBean mapRow(ResultSet result, int rownum)
+						throws SQLException {
+						ProveedorBean proveedor=new ProveedorBean();
+						proveedor.setCodigoProveedor(result.getString("codigoProveedor"));
+						proveedor.setRazonSocial(result.getString("razonSocial"));
+						return proveedor;
+				}
+				
+			});
+		}catch (Exception e){
+			LOG.error(e.getMessage(), e);
+		}
+		return proveedores;
 	}
 
 }

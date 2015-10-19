@@ -16,5 +16,7 @@ public interface ProveedorDAO {
 	
 	public List<ProveedorBean> obtenerListaProveedores();
 	
+	public List<ProveedorBean> obtenerListaProveedoresPaginado(Integer Pagina,Integer registros);
+	
 	public Integer totalProveedores();
 }

@@ -1,16 +1,18 @@
 package pe.com.implast.model.daoimpl;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -83,15 +85,31 @@ public class MateriaPrimaDAOImpl implements MateriaPrimaDAO {
 	}
 	
 	@Transactional
-	public List<MateriaPrimaBean> listarMateriasPrimas(Integer pagina, Integer registros) {
+	public List<MateriaPrimaBean> listarMateriasPrimasPaginado(Integer pagina, Integer registros) {
 		
-		Integer inicio = (pagina - 1) * registros + 1;
-		Integer fin = inicio + registros - 1;
+		Integer inicioPagina=null;
+		pagina=pagina-1;
+		if (pagina==0){
+			inicioPagina=0;
+		}else {
+			inicioPagina=pagina*registros;
+		}
 		
 		List<MateriaPrimaBean> response=new ArrayList<MateriaPrimaBean>(); 
 		try{
-			Session session=sessionFactory.getCurrentSession();
-			response=session.createCriteria(MateriaPrimaBean.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+			
+			String sql="Select * from Materiaprima LIMIT 10 OFFSET ?";
+			
+			response=jdbcTemplate.query(sql,new Object[]{inicioPagina}, new RowMapper<MateriaPrimaBean>(){
+				public MateriaPrimaBean mapRow(ResultSet result, int rownum)	throws SQLException {
+					MateriaPrimaBean materia=new MateriaPrimaBean();
+					materia.setCodigoMateriaPrima(result.getString("codigoMateriaPrima"));
+					materia.setDescripcion(result.getString("descripcion"));
+					materia.setCodigoProveedor(result.getString("codprv"));
+					return materia;
+				}
+			});
+			
 		}catch (Exception e){
 			LOG.error(e.getMessage(), e);
 		}
@@ -108,6 +126,27 @@ public class MateriaPrimaDAOImpl implements MateriaPrimaDAO {
 			LOG.error(e.getMessage(),e);
 		}
 		return response;
+	}
+
+	public List<MateriaPrimaBean> listarMateriasPrimas() {
+		List<MateriaPrimaBean> materiasPrimas=new ArrayList<MateriaPrimaBean>();
+		String sql="SELECT * FROM MATERIAPRIMA ";
+		try{
+			materiasPrimas=jdbcTemplate.query(sql, new RowMapper<MateriaPrimaBean>(){
+				public MateriaPrimaBean mapRow(ResultSet result, int numrow)
+						throws SQLException {
+							MateriaPrimaBean materia=new MateriaPrimaBean();
+							materia.setCodigoMateriaPrima(result.getString("codigoMateriaPrima"));
+							materia.setDescripcion(result.getString("descripcion"));
+							materia.setCodigoProveedor(result.getString("codprv"));
+							return materia;
+				}
+				
+			});
+		}catch (Exception e){
+			LOG.error(e.getMessage(), e);
+		}
+		return materiasPrimas;
 	}
 
 }

@@ -66,7 +66,7 @@ public class ProveedorBUSImpl implements ProveedorBUS{
 	public List<ProveedorBean> listarProveedoresPaginado(Integer pagina,	Integer registros) {
 		List<ProveedorBean> response=new ArrayList<ProveedorBean>();
 		try{
-			response=proveedorDAO.obtenerListaProveedores();
+			response=proveedorDAO.obtenerListaProveedoresPaginado(pagina,registros);
 		}catch (Exception e){
 			LOG.error(e.getMessage(),e);
 		}
