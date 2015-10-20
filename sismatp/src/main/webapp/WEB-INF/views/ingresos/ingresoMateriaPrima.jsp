@@ -19,14 +19,13 @@
 							<td>
 								<select id="cmbMateriaPrima">
 									<c:forEach var="itemMateriaP" items="${materiasPrimas}">	
-										<option value="${itemMateriaP.codigoMateriaPrima}">${itemMateriaP.descripcion}</option>	
+										<option value="${itemMateriaP.codigoMateriaPrima}">${itemMateriaP.descMateriaPrima}</option>	
 									</c:forEach>
 								</select>
 							</td>
 							<td>
 								<input type="submit" value="Adicionar Materia Prima" id="btnAdicionarMateriaPrima"/>
 							</td>
-						
 						</tr>
 					</table>
 				</fieldset>

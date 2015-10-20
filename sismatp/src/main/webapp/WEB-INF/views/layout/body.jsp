@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 	
-	<div id="body" style="margin: 0 auto 0 auto;width: 800px;">
+	<div id="body" style="margin-left: 0">	
 		<div id="content">
 			<div class="ready">
 				<div id="divBienvenida">

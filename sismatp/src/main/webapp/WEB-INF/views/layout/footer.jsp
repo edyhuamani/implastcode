@@ -2,8 +2,10 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<div id="footer" style="margin-left: 0;bottom: auto;">
-		<!-- <div class="container">
+<br>
+<br>
+<div id="footer" style="margin-left: 0;">
+		<div class="container">
 			<div class="row" align="center">
 				<div class="panel panel-default">
 					<div class="center-block">
@@ -20,5 +22,5 @@
 				</div>
 			</div>
 
-		</div> -->
+		</div> 
 </div>

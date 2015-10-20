@@ -18,11 +18,11 @@ $(document).ready(function(){
 	return botones;
 	};
 	
-	jQuery("#grilla_mantenimiento_salidaMateriaPrima").jqGrid({
+	jQuery("#grilla_mantenimiento_produccion").jqGrid({
 		//url:'listarProveedores.json',
 		//datatype : 'json',
 		//mtype : 'POST',
-		colNames : ['Código Materia Prima','Descripción','Tolva','Pisoo','Abastecido','Consumo','Tolva','Piso','Opciones'],
+		colNames : ['Nro bobina','Peso Bruto','Tara','Peso Neto','Empalmes','P Probeta','Cantidad','Motivo','Opciones'],
 		colModel : [ 
 			{
 				name : 'codigoMateriaPrima',
@@ -87,7 +87,7 @@ $(document).ready(function(){
 		height: 270,
 		//width: '100%',
 		rowList : [ 10, 20, 30 ],
-		pager : '#pgrilla_mantenimiento_salidaMateriaPrima',
+		pager : '#pgrilla_mantenimiento_produccion',
 		sortname : 'id',
 		viewrecords : true,
 		sortorder : "desc",
