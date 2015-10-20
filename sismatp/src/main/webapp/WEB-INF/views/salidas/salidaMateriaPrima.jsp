@@ -6,62 +6,113 @@
 <script type="text/javascript"  src="<%=request.getContextPath()%>/implast/js/procesos/salidaMateriaPrima.js"></script>
 <script type="text/javascript"  src="<%=request.getContextPath()%>/implast/js/procesos/salidaProduccion.js"></script>
 
+<script type="text/javascript">
+	$(function() {
+    	
+		$( "#txtFechaOrdenTrabajo" ).datepicker();
+		
+		$( "#txtFechaProduccion" ).datepicker();
+		
+    	$( "#cmbTipoManga" )
+    	.selectmenu()
+    	.selectmenu("menuWidget")
+      	.addClass( "overflow" );
+
+    	$( "#cmbOperador" )
+    	.selectmenu()
+    	.selectmenu("menuWidget")
+      	.addClass( "overflow" );
+
+    	$( "#cmbTipoTurno" )
+    	.selectmenu()
+    	.selectmenu("menuWidget")
+      	.addClass( "overflow" );
+
+    	$( "#cmbCodigoMateriaPrima")
+    	.selectmenu()
+    	.selectmenu("menuWidget")
+      	.addClass( "overflow" );
+    	
+    	$("input[type=submit], input[type=button], button").button()
+    	.click(function(event) {
+    		event.preventDefault();
+    	});
+    	
+  	});
+</script>
+
 <div id="body">
 	<div class="container">
+		
 		<div class="row">
 			<h3>Registro de Salidas de Materias Primas</h3>
+			
 			<table>
 				<tr>
-					<td><label> Seleccione Materia Prima: </label></td>
+					<td><label>O.T :</label></td>
 					<td>
-						<select id="cmbCodigoMateriaPrima">
-								<c:forEach var="itemMateriaPrima" items="${materiasPrimas}">
-									<option value="itemMateriaPrima.codigoMateriaPrima">
-										${itemMateriaPrima.descMateriaPrima}</option>
-								</c:forEach>
-						</select>
-					</td>
-					<td>
-						<input type="button" value="Registrar Materia Prima" id="btnRegistrarMateriaPrima">
-					</td>
-				</tr>
-					
-				<tr>
-
-				</tr>
-				<tr>
-					<td>
-						<label>Operario:</label>
-					</td>
-					<td>
-						<select id="cmbOperador">
-							<c:forEach var="itemOperador" items="${listaOperadores}">
-								<option value="${itemOperador.codigoOperador}">
-									${itemOperador.nombreOperador}
-								</option>
-							</c:forEach>
-						</select>
+						<input type="text"  id="txtIdOrdenTrabajo">
 					</td>
 				</tr>
 				<tr>
+					<td><label>Fecha O.T :</label> </td>
 					<td>
-						<label>Supervisor:</label>
+						<input type="text" id="txtFechaOrdenTrabajo ">
 					</td>
-					<%-- <td>
-						<select id="cmbSupervisor">
-							<c:forEach  var="" items="">
-								<option>
-								</option>
-							</c:forEach>
-						</select>
-						
-					</td> --%>
 				</tr>
+				<tr>
+					<td><label>Tipo Manga:</label></td>
+					<td>
+						<select  id="cmbTipoManga">
+									<option>Lamina</option>
+									<option>Manga Cerrada</option>
+									<option>Manga Abierta 1 Lado</option>
+						</select>
+					</td>
+				</tr>
+				
 			</table>
 		</div>
 		
 		
-		<div >
+		<fieldset>
+			<div class="row">
+				<table>
+					<tr>
+						<td>
+							<label>Operario:</label>
+						</td>
+						<td>
+							<select id="cmbOperador">
+								<c:forEach var="itemOperador" items="${operadores}">
+									<option value="${itemOperador.codigoOperador}">
+										${itemOperador.nombreOperador}
+									</option>
+								</c:forEach>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Fecha de Producción:</label>
+						</td>
+						<td>
+							<input type="text" id="txtFechaProduccion"> 
+						</td>
+					</tr>
+					<tr>
+						<td><label>Turno:</label></td>
+						<td>
+							<select  id="cmbTipoTurno">
+										<option>A</option>
+										<option>B</option>
+										<option>C</option>
+							</select>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div >
 			<!-- grilla salida produccion -->
 				<div class="ready">
 					<div>
@@ -70,18 +121,41 @@
 					</div>
 				</div>
 			<!-- fin grilla salida produccion -->
-		</div>
+			</div>
+		</fieldset>
 		
-		<div >
-			<!-- grilla salida materia prima-->
-				<div class="ready">
-					<div>
-						<table id="grilla_mantenimiento_salidaMateriaPrima"></table>
-						<div id="pgrilla_mantenimiento_salidaMateriaPrima"></div>
+		
+		<fieldset>
+			<div class="row">
+				<table>
+					<tr>
+						<td><label> Seleccione Materia Prima: </label></td>
+						<td>
+							<select id="cmbCodigoMateriaPrima">
+										<c:forEach var="itemMateriaPrima" items="${materiasPrimas}">
+											<option value="itemMateriaPrima.codigoMateriaPrima">
+												${itemMateriaPrima.descMateriaPrima}</option>
+										</c:forEach>
+							</select>
+						</td>
+						<td>
+							<input type="button" value="Registrar Materia Prima" id="btnRegistrarMateriaPrima">
+						</td>
+					</tr>
+				</table>
+			</div>
+		
+			<div >
+				<!-- grilla salida materia prima-->
+					<div class="ready">
+						<div>
+							<table id="grilla_mantenimiento_salidaMateriaPrima"></table>
+							<div id="pgrilla_mantenimiento_salidaMateriaPrima"></div>
+						</div>
 					</div>
-				</div>
-			<!-- fin grilla salida materia prima -->
-		</div>
+				<!-- fin grilla salida materia prima -->
+			</div>
+		</fieldset>
 		
 	</div>
 </div>

@@ -69,8 +69,8 @@ public class OperadorDAOImpl implements OperadorDAO{
 				public OperadorBean mapRow(ResultSet rs, int rownum)
 						throws SQLException {
 					OperadorBean operador=new OperadorBean();
-					operador.setCodigoOperador(rs.getString(1));
-					operador.setNombreOperador(rs.getString(2));
+					operador.setCodigoOperador(rs.getString("codigoOperador"));
+					operador.setNombreOperador(rs.getString("nombreOperador"));
 					return operador;
 				}});
 		}catch (DataAccessException da){

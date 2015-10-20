@@ -13,8 +13,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import pe.com.implast.beans.ResponseObjectBean;
 import pe.com.implast.logic.business.MateriaPrimaBUS;
+import pe.com.implast.logic.business.OperadorBUS;
 import pe.com.implast.logic.business.RegistroMateriaPrimaBUS;
 import pe.com.implast.model.beans.MateriaPrimaBean;
+import pe.com.implast.model.beans.OperadorBean;
 
 @Controller
 public class RegistroIngresoMateriaPrimaController {
@@ -25,16 +27,22 @@ public class RegistroIngresoMateriaPrimaController {
 	MateriaPrimaBUS materiaPrimaBUS;
 	
 	@Autowired
+	OperadorBUS operadorBUS;
+	
+	@Autowired
 	RegistroMateriaPrimaBUS registroMateriaPrimaBUS;
 	
 	@RequestMapping(value="/procesos/ingresoMateriaPrima.htm",method={RequestMethod.GET})
 	public ModelAndView init(){
 		ModelAndView response=new ModelAndView();
 		List<MateriaPrimaBean> materiasPrimas=null; 
+		List<OperadorBean> operadores=null;
 		try{
 			String viewName="ingresoMateriaPrima";
 			materiasPrimas=materiaPrimaBUS.listarMaterias();
+			operadores=operadorBUS.listarOperador();
 			response.addObject("materiasPrimas", materiasPrimas);
+			response.addObject("operadores", operadores);
 			response.setViewName(viewName);
 		}catch(Exception e){
 			LOG.error(e.getMessage(),e);

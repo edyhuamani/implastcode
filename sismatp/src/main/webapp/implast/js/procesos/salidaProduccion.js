@@ -18,7 +18,7 @@ $(document).ready(function(){
 	return botones;
 	};
 	
-	jQuery("#grilla_mantenimiento_produccion").jqGrid({
+	jQuery("#grilla_mantenimiento_salidaProduccion").jqGrid({
 		//url:'listarProveedores.json',
 		//datatype : 'json',
 		//mtype : 'POST',
@@ -87,7 +87,7 @@ $(document).ready(function(){
 		height: 270,
 		//width: '100%',
 		rowList : [ 10, 20, 30 ],
-		pager : '#pgrilla_mantenimiento_produccion',
+		pager : '#pgrilla_mantenimiento_salidaProduccion',
 		sortname : 'id',
 		viewrecords : true,
 		sortorder : "desc",
@@ -129,5 +129,5 @@ function adicionarMateriaPrima(){
 }
 
 function actualizarListaIngresos(){
-	$("#grilla_mantenimiento_salidaMateriaPrima").jqGrid('setGridParam').trigger('reloadGrid');
+	$("#grilla_mantenimiento_salidaProduccion").jqGrid('setGridParam').trigger('reloadGrid');
 }
