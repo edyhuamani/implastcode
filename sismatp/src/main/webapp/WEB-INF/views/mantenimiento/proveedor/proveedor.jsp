@@ -21,7 +21,7 @@
 		
 		<div class="panel panel-default">
 			<form action="" id="frmProveedo">
-				<p>Registro Proveedores </p>
+				<p>Mantenimiento de  Proveedores </p>
 				<fieldset style="height: 0 auto ;width: 0 auto;">
 					<legend>Ingreso de Datos</legend>
 					<table>

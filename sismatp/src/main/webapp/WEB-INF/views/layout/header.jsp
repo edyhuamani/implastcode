@@ -76,24 +76,27 @@
 								<span>Operador</span>
 						</a></li>
 						<li><a
-							href="<%=request.getContextPath()%>/mantenimiento/estructura/mantenimiento-estructuras.htm">
-								<span>Estructuras</span>
+							href="<%=request.getContextPath()%>/mantenimiento/clientes.htm">
+								<span>Clientes</span>
 						</a></li>
 						<li><a
-							href="<%=request.getContextPath()%>/mantenimiento/crctr-especial/mantenimiento-crctr-especial.htm">
-								<span>Caracter Especial</span>
+							href="<%=request.getContextPath()%>/mantenimiento/maquinas.htm">
+								<span>Maquinas</span>
 						</a></li>
 						<li><a
-							href="<%=request.getContextPath()%>/mantenimiento/validacionIdentidadManual/validacionIdentidadManual.htm">
-								<span>Validacion Indentidad Manual</span>
+							href="<%=request.getContextPath()%>/mantenimiento/producto.htm">
+								<span>Producto</span>
 						</a></li>
+						<!-- 
 						<li><a
 							href="<%=request.getContextPath()%>/mantenimiento/validacionCaracterManual/validacionCaracterManual.htm">
 								<span>Validacion Caracter Manual</span>
 						</a></li>
 						<li><a
 							href="<%=request.getContextPath()%>/mantenimiento/catalogoColumn/mantenimiento-catalogoColumn.htm"><span>Catalogo
-									Columna</span> </a></li>
+									Columna</span> 
+						</a></li>
+						 -->
 					</ul>
 				</div></li>
 

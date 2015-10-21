@@ -10,6 +10,7 @@ public class ClienteBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private int idCliente;
+	private String codigoCliente;
 	private String razonSocial;
 	private String nombres;
 	private String apellidos;
