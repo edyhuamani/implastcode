@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import pe.com.implast.beans.MensajeValidacionBean;
 import pe.com.implast.beans.ResponseListBean;
 import pe.com.implast.beans.ResponseObjectBean;
 import pe.com.implast.logic.business.OperadorBUS;
@@ -67,6 +68,8 @@ public class OperadorController {
 			@RequestParam(value="nombreOperador",defaultValue=StringUtils.EMPTY) String nombreOperador
 			){
 		ResponseObjectBean<String> response=new ResponseObjectBean<String>();
+		List<MensajeValidacionBean> listaMensajesValidacionBeans = new ArrayList<MensajeValidacionBean>();
+		
 		try{
 			OperadorBean operador=new OperadorBean();
 			operador.setIdOperador(Integer.valueOf(codigoOperador));

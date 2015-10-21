@@ -14,6 +14,7 @@ public class ClienteBean implements Serializable {
 	private String razonSocial;
 	private String nombres;
 	private String apellidos;
+	private String ruc;
 
 	public int getIdCliente() {
 		return idCliente;
@@ -21,6 +22,14 @@ public class ClienteBean implements Serializable {
 
 	public void setIdCliente(int idCliente) {
 		this.idCliente = idCliente;
+	}
+
+	public String getCodigoCliente() {
+		return codigoCliente;
+	}
+
+	public void setCodigoCliente(String codigoCliente) {
+		this.codigoCliente = codigoCliente;
 	}
 
 	public String getRazonSocial() {
@@ -46,4 +55,13 @@ public class ClienteBean implements Serializable {
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
 	}
+
+	public String getRuc() {
+		return ruc;
+	}
+
+	public void setRuc(String ruc) {
+		this.ruc = ruc;
+	}
+
 }

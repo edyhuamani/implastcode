@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import pe.com.implast.logic.business.MateriaPrimaBUS;
 import pe.com.implast.logic.business.OperadorBUS;
+import pe.com.implast.model.beans.InformacionMateriaPrimaBean;
 import pe.com.implast.model.beans.MateriaPrimaBean;
 import pe.com.implast.model.beans.OperadorBean;
 
@@ -18,6 +19,9 @@ import pe.com.implast.model.beans.OperadorBean;
 public class RegistroSalidaMateriaPrimaController {
 	
 	private static final Logger LOG=Logger.getLogger(RegistroSalidaMateriaPrimaController.class); 
+	
+	List<InformacionMateriaPrimaBean> registroSalidasMateriasPrimas;
+	
 	
 	@Autowired
 	MateriaPrimaBUS materiaPrimaBUS;

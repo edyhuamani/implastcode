@@ -8,5 +8,12 @@
 	<div class="row">
 		<h4>Mantenimiento de Clientes</h4>
 		
+		<div class="ready">
+			<div>
+				<table id="grilla_mantenimiento_cliente"></table>
+				<div id="pgrilla_mantenimiento_cliente"></div>
+			</div>
+		</div>
+			
 	</div>
 </div>

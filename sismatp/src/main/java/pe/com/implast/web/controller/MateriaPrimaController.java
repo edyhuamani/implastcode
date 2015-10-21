@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import pe.com.implast.beans.MensajeValidacionBean;
 import pe.com.implast.beans.ResponseListBean;
 import pe.com.implast.beans.ResponseObjectBean;
 import pe.com.implast.logic.business.MateriaPrimaBUS;
@@ -76,7 +77,7 @@ public class MateriaPrimaController {
 			@RequestParam(value="descripcion",defaultValue=StringUtils.EMPTY ) String descripcion,
 			@RequestParam(value="codigoProveedor",defaultValue=StringUtils.EMPTY) String codigoProveedor
 			){
-		//List<MensajeValidacionBean> listaMensajesValidacionBeans = new ArrayList<MensajeValidacionBean>();
+		List<MensajeValidacionBean> listaMensajesValidacionBeans = new ArrayList<MensajeValidacionBean>();
 		ResponseObjectBean<String> response=new ResponseObjectBean<String>();
 		try{
 			

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import pe.com.implast.beans.MensajeValidacionBean;
 import pe.com.implast.beans.ResponseListBean;
 import pe.com.implast.beans.ResponseObjectBean;
 import pe.com.implast.logic.business.ProveedorBUS;
@@ -32,7 +33,7 @@ public class ProveedorController {
 		try{
 			viewName="proveedor";
 		}catch(Exception e){
-			LOG.error(e);
+			LOG.error(e.getMessage(),e);
 		}
 		return viewName;
 	}
@@ -45,6 +46,7 @@ public class ProveedorController {
 		@RequestParam(value="razonSocial",defaultValue=StringUtils.EMPTY)String razonSocial
 		){
 		
+		List<MensajeValidacionBean> listaMensajesValidacionBeans = new ArrayList<MensajeValidacionBean>();
 		ResponseObjectBean<String> response=new ResponseObjectBean<String>();
 		try{
 			ProveedorBean proveedor=new ProveedorBean();

@@ -10,8 +10,8 @@
 	
 	<div class="ready">
 		<div>
-			<table id="grilla_mantenimiento_producto"></table>
-			<div id="pgrilla_mantenimiento_producto"></div>
+			<table id="grilla_mantenimiento_maquina"></table>
+			<div id="pgrilla_mantenimiento_maquina"></div>
 		</div>
 	</div>
 </div>
