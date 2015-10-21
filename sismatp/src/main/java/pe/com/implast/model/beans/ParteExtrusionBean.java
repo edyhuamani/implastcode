@@ -16,7 +16,6 @@ public class ParteExtrusionBean {
 	private List<InformacionProduccionBean> listaProductos;
 	private String codigoOperador;
 	private String codigoSupervisor;
-	
 
 	public String getOrdenTrabajo() {
 		return ordenTrabajo;
