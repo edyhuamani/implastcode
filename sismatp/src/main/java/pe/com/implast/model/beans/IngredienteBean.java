@@ -1,6 +1,6 @@
 package pe.com.implast.model.beans;
 
-public class ComponenteBean {
+public class IngredienteBean {
 	private MateriaPrimaBean materiaPrima;
 	private int porcentaje;
 	private int cantidad;

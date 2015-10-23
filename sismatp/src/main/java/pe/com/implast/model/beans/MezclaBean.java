@@ -4,13 +4,13 @@ import java.util.List;
 
 public class MezclaBean {
 	
-	private List<ComponenteBean> ingredientes;
+	private List<IngredienteBean> ingredientes;
 
-	public List<ComponenteBean> getIngredientes() {
+	public List<IngredienteBean> getIngredientes() {
 		return ingredientes;
 	}
 
-	public void setIngredientes(List<ComponenteBean> ingredientes) {
+	public void setIngredientes(List<IngredienteBean> ingredientes) {
 		this.ingredientes = ingredientes;
 	}
 

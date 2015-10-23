@@ -22,7 +22,7 @@
 		
 	});
 </script>
-	<div id="body">
+	<div id="body" class="ready">
 		<div class="container">
 			<div class="row">
 				<h3>Registro de Ingreso de Materias Primas</h3>

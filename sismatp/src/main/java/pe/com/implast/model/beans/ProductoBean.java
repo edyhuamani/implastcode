@@ -12,7 +12,16 @@ public class ProductoBean implements Serializable {
 	private int idProducto;
 	private String codigoProducto;
 	private String descripcion;
+	private MezclaBean mezcla;
 	
+	public MezclaBean getMezcla() {
+		return mezcla;
+	}
+
+	public void setMezcla(MezclaBean mezcla) {
+		this.mezcla = mezcla;
+	}
+
 	public int getIdProducto() {
 		return idProducto;
 	}

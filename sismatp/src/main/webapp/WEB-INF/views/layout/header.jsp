@@ -54,7 +54,7 @@
 	
 <div id="tabs">
 	<div id="menu">
-		<ul class="menu">
+		<ul class="menu" style="z-index: 1000!important;">
 			<li style="width: 300px;"><a href="#" class="parent"
 				style="width: 260px;"><span style="text-align: center;">Mantenimiento</span></a>
 				<div>
@@ -201,7 +201,7 @@
 				</div></li>
 
 		</ul>
-	
+
 	</div>
 	<!-- No eliminar esta linea -->
 	<a href="http://apycom.com/" style="color: white;">Apycom jQuery Menus</a>

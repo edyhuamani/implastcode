@@ -59,7 +59,7 @@
   	});
 </script>
 
-<div id="body">
+<div id="body" class="ready">
 	
 	<div class="container">
 		
