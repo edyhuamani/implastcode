@@ -46,7 +46,7 @@ public class MateriaPrimaDAOImpl implements MateriaPrimaDAO {
 	}
 
 	@Transactional
-	public MateriaPrimaBean retrieveMateriaPrima(int idMP) {
+	public MateriaPrimaBean retrieveMateriaPrima(String idMP) {
 		
 		MateriaPrimaBean materiaPrima=null;
 		Session session=sessionFactory.getCurrentSession();

@@ -49,7 +49,7 @@
 									<td><label>Codigo Proveedor:</label></td>
 									
 									<td >
-										<select id="listProveedores"  style="font-size: 18px;width: 140px"> 
+										<select id="listProveedores"  style="font-size: 12px;width: 180px"> 
 											<c:forEach var="proveedor" items="${proveedores}">
 												<option value="${proveedor.codigoProveedor}">${proveedor.razonSocial} </option>
 											</c:forEach>

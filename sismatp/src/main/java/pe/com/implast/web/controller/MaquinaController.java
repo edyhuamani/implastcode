@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import pe.com.implast.beans.ResponseListBean;
+import pe.com.implast.beans.ResponseObjectBean;
 import pe.com.implast.logic.business.MaquinaBUS;
 import pe.com.implast.model.beans.MaquinaBean;
 import pe.com.implast.utils.OperadoresUtil;
@@ -53,6 +54,24 @@ public class MaquinaController {
 			response.setTotal(OperadoresUtil.obtenerCociente(totalRegistros, registros));
 			response.setRows(listaMaquinas);
 		}catch (Exception e){
+			LOG.error(e.getMessage(), e);
+		}
+		return response;
+	}
+	
+	
+	@RequestMapping(value="/mantenimiento/registrarMaquina.json",method={RequestMethod.GET,RequestMethod.POST})
+	public ResponseObjectBean<String> registrarMaquina(
+			@RequestParam(value="codigoMaquina",defaultValue="") String codigoMaquina,
+			@RequestParam(value="descMaquina",defaultValue="") String descMaquina
+			){
+		ResponseObjectBean<String> response=new ResponseObjectBean<String>(); 
+		try{
+			MaquinaBean maquina=new MaquinaBean();
+			maquina.setCodigoMaquina(codigoMaquina);
+			maquina.setDescMaquina(descMaquina);
+			maquinaBUS.crearMaquina(maquina);	
+		}catch(Exception e){
 			LOG.error(e.getMessage(), e);
 		}
 		return response;

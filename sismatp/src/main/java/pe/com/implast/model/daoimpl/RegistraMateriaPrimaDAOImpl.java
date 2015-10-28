@@ -17,7 +17,7 @@ public class RegistraMateriaPrimaDAOImpl implements RegistraMateriaPrimaDAO{
 	
 	public void registrarIngresoMateriaPrima() {
 		try{
-			
+			//jdbcTemplate.
 		}catch (Exception e){
 			LOG.error(e.getMessage(), e);
 		}

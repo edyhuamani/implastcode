@@ -8,7 +8,7 @@ public interface MateriaPrimaBUS {
 	
 	public void crearMateriaPrima(MateriaPrimaBean materiaPrima);
 
-	public void obtenerMateriaPrima(int idMateriaPrima);
+	public MateriaPrimaBean obtenerMateriaPrima(String idMateriaPrima);
 
 	public void actualizarMateriaPrima(MateriaPrimaBean materiaPrima);
 

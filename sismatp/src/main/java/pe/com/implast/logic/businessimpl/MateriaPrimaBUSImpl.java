@@ -25,16 +25,16 @@ public class MateriaPrimaBUSImpl implements MateriaPrimaBUS {
 		}catch(Exception e){
 			LOG.error(e.getMessage(),e);
 		}
-		
 	}
 
-	public void obtenerMateriaPrima(int idMateriaPrima) {
+	public MateriaPrimaBean obtenerMateriaPrima(String idMateriaPrima) {
+		MateriaPrimaBean materiaPrima=null;
 		try{
-			materiaPrimaDAO.retrieveMateriaPrima(idMateriaPrima);
+			materiaPrima=materiaPrimaDAO.retrieveMateriaPrima(idMateriaPrima);
 		}catch (Exception e){
 			LOG.error(e.getMessage(),e);
 		}
-		
+		return materiaPrima;
 	}
 
 	public void actualizarMateriaPrima(MateriaPrimaBean materiaPrima) {

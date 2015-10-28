@@ -14,6 +14,13 @@
     		event.preventDefault();
     	});
 		
+		$( "#cmbProveedor" )
+    	.selectmenu()
+    	.selectmenu("menuWidget")
+      	.addClass( "overflow" )
+		.css("font-size","12px");
+    	
+		
 		$( "#cmbMateriaPrima" )
     	.selectmenu()
     	.selectmenu("menuWidget")
@@ -26,8 +33,8 @@
 		<div class="container">
 			<div class="row">
 				<h3>Registro de Ingreso de Materias Primas</h3>
+				
 				<fieldset>
-					
 					<table>
 						<tr>
 							<td><label>Documento de Ingreso:</label></td>
@@ -42,6 +49,17 @@
 							</td>
 						</tr>
 						<tr>
+							<td><label>Proveedor:</label></td>
+							<td>
+								<select  id="cmbProveedor">
+									<c:forEach var="proveedorItem" items="${proveedores}">
+										<option value="${proveedorItem.codigoProveedor} ">${proveedorItem.razonSocial} </option>
+									</c:forEach>
+								</select>
+							</td>
+						</tr>
+						
+						<tr>
 							<td><label>Seleccione Materia Prima:</label></td>
 						
 							<td>
@@ -51,6 +69,11 @@
 									</c:forEach>
 								</select>
 							</td>
+							
+							<td><label>Cantidad</label></td>
+							
+							<td><input type="text" id="txtCantidadIngreso"></td>
+								
 							<td>
 								<input type="submit" value="Adicionar Materia Prima" id="btnAdicionarMateriaPrima"/>
 							</td>

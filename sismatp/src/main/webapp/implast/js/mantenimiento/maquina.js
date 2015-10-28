@@ -8,10 +8,10 @@ $(document).ready(function(){
 		
 		var botones = "<center>";		
 			botones += "<div style='display: inline-block;'>";
-			botones += "<a href=javascript:editarProveedor('" + rowObject.codigo +"'); title='Editar'>";
+			botones += "<a href=javascript:editarMaquina('" + rowObject.codigo +"'); title='Editar'>";
 			botones +="<span class='ui-icon ui-icon-pencil'></span></a></div>&nbsp;";
 			botones += "<div style='display: inline-block;'>";
-			botones += "<a href=javascript:eliminarProveedor('" + rowObject.codigo +"'); title='Eliminar'>";
+			botones += "<a href=javascript:eliminarMaquina('" + rowObject.codigo +"'); title='Eliminar'>";
 			botones +="<span class='ui-icon ui-icon-trash' ></span></a></div>";
 			botones += "</center>";
 		return botones;
@@ -39,7 +39,7 @@ $(document).ready(function(){
 						resizable : false
 					},{
 						name : 'opciones',
-						index : 'codigoProveedor',
+						index : 'codigoMaquina',
 						width : 60,
 						formatter:opciones,
 						sortable : false,
@@ -62,3 +62,22 @@ $(document).ready(function(){
 		registrarProveedor();
 	});
 });
+
+
+
+function registrarProveedor(){
+	_txtCodigoMaquina=$().val();
+	_txtDescripMaquina=$().val();
+	var parametros=new Object();
+	parametros.codigoMaquina=_txtCodigoMaquina;
+	parametros.descMaquina=_txtDescripMaquina;
+	$.ajax({
+		url:"registrarMaquina.json",
+		data:parametros,
+		dataType:"json",
+		async:false,
+		cache:false
+	}).done(function(){
+		alert("");
+	}); 	
+}

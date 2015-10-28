@@ -22,7 +22,7 @@ $(document).ready(function(){
 		//url:'listarProveedores.json',
 		//datatype : 'json',
 		//mtype : 'POST',
-		colNames : ['Código Materia Prima','Descripción','Opciones'],
+		colNames : ['Código Materia Prima','Descripción','Cantidad','Opciones'],
 		colModel : [ 
 			{
 				name : 'codigoMateriaPrima',
@@ -33,6 +33,12 @@ $(document).ready(function(){
 			},{
 				name : 'descMateriaPrima',
 				index : 'descMateriaPrima',
+				width : 350,
+				sortable : false,
+				resizable : false
+			},{
+				name : 'cantidad',
+				index : 'cantidad',
 				width : 350,
 				sortable : false,
 				resizable : false
@@ -77,8 +83,9 @@ function eliminarMateriaPrima(){
 
 function adicionarMateriaPrima(){
 	var parametros=new Object();
-	parametros=$("#").val();
-	
+	parametros.codigoMateriaPrima=$("#cmbMateriaPrima").val();
+	parametros.cantidadMateriaPrima=$("#txtCantidadPrimaria").val();
+	alert("alert");
 	$.ajax({
 		url : 'adicionarMateriaPrima.json',
 		data : parametros,
@@ -92,5 +99,14 @@ function adicionarMateriaPrima(){
 }
 
 function actualizarListaIngresos(){
-	$("#grilla_mantenimiento_ingresoMateriaPrima").jqGrid('setGridParam').trigger('reloadGrid');
+    //$("#grilla_mantenimiento_ingresoMateriaPrima").jqGrid('setGridParam').trigger('reloadGrid');
+	$("#grilla_mantenimiento_ingresoMateriaPrima").jqGrid('setGridParam',
+		{
+			url : 'recargar-grilla-adicionarMateriaPrima.json',
+			datatype : 'json', 
+			mtype : 'POST',
+			page : 1
+	}).trigger('reloadGrid');
+	
+	
 }

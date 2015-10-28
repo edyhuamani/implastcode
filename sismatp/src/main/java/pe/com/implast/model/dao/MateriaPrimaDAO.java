@@ -8,7 +8,7 @@ public interface MateriaPrimaDAO {
 	
 	void createMateriaPrima(MateriaPrimaBean mprima);
 
-	MateriaPrimaBean retrieveMateriaPrima(int idMP);
+	MateriaPrimaBean retrieveMateriaPrima(String idMP);
 
 	void updateMateriaPrima(MateriaPrimaBean mprima);
 
