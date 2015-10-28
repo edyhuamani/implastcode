@@ -11,6 +11,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -45,20 +46,28 @@ public class MateriaPrimaDAOImpl implements MateriaPrimaDAO {
 		}	
 	}
 
-	@Transactional
 	public MateriaPrimaBean retrieveMateriaPrima(String idMP) {
 		
 		MateriaPrimaBean materiaPrima=null;
-		Session session=sessionFactory.getCurrentSession();
+		String sql="Select * from Materiaprima where codigoMateriaPrima=?";
 		try {
-			session.beginTransaction();
-			materiaPrima=(MateriaPrimaBean) session.get(MateriaPrimaBean.class, idMP);
-		}catch (HibernateException he){
-			LOG.error(he.getMessage(),he);
+				materiaPrima=jdbcTemplate.queryForObject(sql, new Object[] {idMP},new RowMapper<MateriaPrimaBean>(){
+
+				public MateriaPrimaBean mapRow(ResultSet result, int rownum)
+						throws SQLException {
+					MateriaPrimaBean materiaPrima=new MateriaPrimaBean();
+					materiaPrima.setCodigoMateriaPrima(result.getString("codigoMateriaPrima"));
+					materiaPrima.setDescMateriaPrima(result.getString("descripcion"));
+					materiaPrima.setCodigoProveedor(result.getString("codPrv"));
+					return materiaPrima;
+				}
+				
+			});
+		}catch (DataAccessException de){
+			LOG.error(de.getMessage(),de);
 		}catch(Exception e){
 			LOG.error(e.getMessage(),e);
 		}finally{
-			session.close();
 		}
 		return materiaPrima;
 	}

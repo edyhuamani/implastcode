@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script type="text/javascript"  src="<%=request.getContextPath()%>/implast/js/procesos/salidaMezcla.js"></script>
 <script type="text/javascript"  src="<%=request.getContextPath()%>/implast/js/procesos/salidaMateriaPrima.js"></script>
 <script type="text/javascript"  src="<%=request.getContextPath()%>/implast/js/procesos/salidaProduccion.js"></script>
 
@@ -165,6 +166,19 @@
 		<!-- grilla salida produccion -->
 				<div class="ready">
 					<div>
+						<table id="grilla_mantenimiento_salidaMezcla"></table>
+						<div id="pgrilla_mantenimiento_salidaMezcla"></div>
+					</div>
+				</div>
+		<!-- fin grilla salida produccion -->
+		</div>
+		
+		<input type="button" value="Agregar Productos">
+		
+		<div >
+		<!-- grilla salida produccion -->
+				<div class="ready">
+					<div>
 						<table id="grilla_mantenimiento_salidaProduccion"></table>
 						<div id="pgrilla_mantenimiento_salidaProduccion"></div>
 					</div>
@@ -193,6 +207,8 @@
 						</tr>
 					</table>
 				</div>
+		
+				<input type="button" value="Registrar Materia Prima">
 		
 				<div >
 					<!-- grilla salida materia prima-->

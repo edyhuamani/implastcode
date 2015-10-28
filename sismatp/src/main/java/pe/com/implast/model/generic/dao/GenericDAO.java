@@ -1,6 +1,6 @@
 package pe.com.implast.model.generic.dao;
 
-public interface GenericDAO<T> {
+public interface GenericDAO<T,E> {
 	
 	public void insertar(T t);
 	

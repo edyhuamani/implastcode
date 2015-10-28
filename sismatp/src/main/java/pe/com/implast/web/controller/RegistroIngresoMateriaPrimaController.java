@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.ws.rs.core.MediaType;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -43,7 +44,7 @@ public class RegistroIngresoMateriaPrimaController {
 	@Autowired
 	RegistroMateriaPrimaBUS registroMateriaPrimaBUS;
 	
-	private List<IngresoMateriaPrimaBean> listMateriasPrimas;
+	private List<IngresoMateriaPrimaBean> listMateriasPrimas=new ArrayList<IngresoMateriaPrimaBean>();
 	
 	@RequestMapping(value="/procesos/ingresoMateriaPrima.htm",method={RequestMethod.GET})
 	public ModelAndView init(){
@@ -70,20 +71,21 @@ public class RegistroIngresoMateriaPrimaController {
 	
 	@RequestMapping(value="/procesos/adicionarMateriaPrima.json",method={RequestMethod.GET,RequestMethod.POST},produces=MediaType.APPLICATION_JSON)
 	public @ResponseBody ResponseObjectBean<String> adicionarMateriaPrima(
-			@RequestParam(value="codigoMateriaPrima") String codigoMateriaPrima,
-			@RequestParam(value="cantidadMateriaPrima") String cantidadMateriaPrima
+			@RequestParam(value="codigoMateriaPrima",defaultValue=StringUtils.EMPTY) String codigoMateriaPrima,
+			@RequestParam(value="cantidadMateriaPrima",defaultValue=StringUtils.EMPTY) String cantidadMateriaPrima
 			){
 		ResponseObjectBean<String> response=new ResponseObjectBean<String>(); 
 		List<MensajeValidacionBean> listaMensajesValidacionBeans = new ArrayList<MensajeValidacionBean>();
-		
+		MateriaPrimaBean materiaPrima=null;
 		try{
 
 			IngresoMateriaPrimaBean ingresoMatP=new IngresoMateriaPrimaBean();
-			materiaPrimaBUS.obtenerMateriaPrima(codigoMateriaPrima);
+			materiaPrima=materiaPrimaBUS.obtenerMateriaPrima(codigoMateriaPrima);
 			ingresoMatP.setCodigoMateriaPrima(codigoMateriaPrima);
+			ingresoMatP.setDescMateriaPrima(materiaPrima.getDescMateriaPrima());
 			ingresoMatP.setCantidad(Integer.valueOf(cantidadMateriaPrima).intValue());
 			listMateriasPrimas.add(ingresoMatP);
-			
+
 		}catch (Exception e){
 			LOG.error(e.getMessage() , e);
 		}
@@ -91,7 +93,7 @@ public class RegistroIngresoMateriaPrimaController {
 	}
 	
 	
-	@RequestMapping(value="/procesos/recargar-grilla-adicionarMateriaPrima.json",method={RequestMethod.GET})
+	@RequestMapping(value="/procesos/recargar-grilla-adicionarMateriaPrima.json",method={RequestMethod.GET,RequestMethod.POST},produces=MediaType.APPLICATION_JSON)
 	public @ResponseBody ResponseListBean<IngresoMateriaPrimaBean> recargaGrillaMateriaPrima(){
 		ResponseListBean<IngresoMateriaPrimaBean> response=new ResponseListBean<IngresoMateriaPrimaBean>();
 		try{

@@ -1,10 +1,12 @@
 package pe.com.implast.model.generic.daoimpl;
 
+import java.io.Serializable;
+
 import org.apache.log4j.Logger;
 
 import pe.com.implast.model.generic.dao.GenericDAO;
 
-public class GenericDAOImpl<T> implements GenericDAO<T> {
+public class GenericDAOImpl<T extends Serializable,E> implements GenericDAO<T,E> {
 
 	private static final Logger LOG=Logger.getLogger(GenericDAOImpl.class);
 	

@@ -72,7 +72,7 @@
 							
 							<td><label>Cantidad</label></td>
 							
-							<td><input type="text" id="txtCantidadIngreso"></td>
+							<td><input type="text" id="txtCantidadIngresoMP"></td>
 								
 							<td>
 								<input type="submit" value="Adicionar Materia Prima" id="btnAdicionarMateriaPrima"/>

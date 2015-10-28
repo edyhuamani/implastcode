@@ -18,11 +18,11 @@ $(document).ready(function(){
 	return botones;
 	};
 	
-	jQuery("#grilla_mantenimiento_ingresoMateriaPrima").jqGrid({
+	jQuery("#grilla_mantenimiento_salidaMezcla").jqGrid({
 		//url:'listarProveedores.json',
 		//datatype : 'json',
 		//mtype : 'POST',
-		colNames : ['Código Materia Prima','Descripción','Cantidad','Opciones'],
+		colNames : ['Código Materia Prima','Descripción','Tolva','Pisoo','Abastecido','Consumo','Tolva','Piso','Opciones'],
 		colModel : [ 
 			{
 				name : 'codigoMateriaPrima',
@@ -37,11 +37,42 @@ $(document).ready(function(){
 				sortable : false,
 				resizable : false
 			},{
-				name : 'cantidad',
-				index : 'cantidad',
+				name : 'tolvaInicial',
+				index : 'tolvaInicial',
+				width : 120,
+				sortable : false,
+				resizable : false
+			},{
+				name : 'pisoInicial',
+				index : 'pisoInicial',
+				width : 120,
+				sortable : false,
+				resizable : false
+			},{
+				name : 'abastecido',
+				index : 'abastecido',
+				width : 120,
+				sortable : false,
+				resizable : false
+			},{
+				name : 'consumo',
+				index : 'consumo',
+				width : 120,
+				sortable : false,
+				resizable : false
+			},{
+				name : 'tolvaFinal',
+				index : 'tolvaFinal',
 				width : 350,
 				sortable : false,
 				resizable : false
+			},{
+				name : 'pisoFinal',
+				index : 'pisoFinal',
+				width : 120,
+				sortable : false,
+				resizable : false
+			
 			},{
 				name : 'opciones',
 				index : 'codigoMateriaPrima',
@@ -56,7 +87,7 @@ $(document).ready(function(){
 		height: 270,
 		//width: '100%',
 		rowList : [ 10, 20, 30 ],
-		pager : '#pgrilla_mantenimiento_ingresoMateriaPrima',
+		pager : '#pgrilla_mantenimiento_salidaMezcla',
 		sortname : 'id',
 		viewrecords : true,
 		sortorder : "desc",
@@ -83,8 +114,8 @@ function eliminarMateriaPrima(){
 
 function adicionarMateriaPrima(){
 	var parametros=new Object();
-	parametros.codigoMateriaPrima=$("#cmbMateriaPrima").val();
-	parametros.cantidadMateriaPrima=$("#txtCantidadIngresoMP").val();
+	parametros=$("#").val();
+	
 	$.ajax({
 		url : 'adicionarMateriaPrima.json',
 		data : parametros,
@@ -98,13 +129,5 @@ function adicionarMateriaPrima(){
 }
 
 function actualizarListaIngresos(){
-    $("#grilla_mantenimiento_ingresoMateriaPrima").jqGrid('setGridParam',
-		{
-			url : 'recargar-grilla-adicionarMateriaPrima.json',
-			datatype : 'json', 
-			mtype : 'POST',
-			page : 1
-	}).trigger('reloadGrid');
-	
-	
+	$("#grilla_mantenimiento_salidaMateriaPrima").jqGrid('setGridParam').trigger('reloadGrid');
 }
