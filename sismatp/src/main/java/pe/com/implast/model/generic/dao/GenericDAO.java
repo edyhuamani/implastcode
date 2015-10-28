@@ -4,7 +4,7 @@ public interface GenericDAO<T,E> {
 	
 	public void insertar(T t);
 	
-	public T get(String id);
+	public T obtener(String id);
 	
 	public void actualizar(T t);
 	

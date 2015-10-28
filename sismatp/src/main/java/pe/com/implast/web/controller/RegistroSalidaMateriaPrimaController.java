@@ -38,6 +38,7 @@ public class RegistroSalidaMateriaPrimaController {
 			String viewName="salidaMateriaPrima";
 			materiasPrimas=materiaPrimaBUS.listarMaterias();
 			operadores=operadorBUS.listarOperador();
+			
 			response.addObject("materiasPrimas", materiasPrimas);
 			response.addObject("operadores", operadores);
 			response.setViewName(viewName);

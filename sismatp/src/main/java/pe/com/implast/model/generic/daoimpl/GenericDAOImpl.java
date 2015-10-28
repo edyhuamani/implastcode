@@ -18,7 +18,7 @@ public class GenericDAOImpl<T extends Serializable,E> implements GenericDAO<T,E>
 		}
 	}
 
-	public T get(String id) {
+	public T obtener(String id) {
 		T t=null;
 		
 		try{

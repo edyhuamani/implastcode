@@ -9,10 +9,10 @@ $(document).ready(function(){
 		
 	var botones = "<center>";		
 			botones += "<div style='display: inline-block;'>";
-			botones += "<a href=javascript:editarMateriaPrima('" + rowObject.codigoMateriaPrima +"'); title='Editar'>";
+			botones += "<a href=javascript:editarMateriaPrimaMezcla('" + rowObject.codigoMateriaPrima +"'); title='Editar'>";
 			botones +="<span class='ui-icon ui-icon-pencil'></span></a></div>&nbsp;";
 			botones += "<div style='display: inline-block;'>";
-			botones += "<a href=javascript:eliminarMateriaPrima('" + rowObject.codigoMateriaPrima +"'); title='Eliminar'>";
+			botones += "<a href=javascript:eliminarMateriaPrimaMezcla('" + rowObject.codigoMateriaPrima +"'); title='Eliminar'>";
 			botones +="<span class='ui-icon ui-icon-trash' ></span></a></div>";
 			botones += "</center>";
 	return botones;
@@ -22,7 +22,7 @@ $(document).ready(function(){
 		//url:'listarProveedores.json',
 		//datatype : 'json',
 		//mtype : 'POST',
-		colNames : ['Código Materia Prima','Descripción','Tolva','Pisoo','Abastecido','Consumo','Tolva','Piso','Opciones'],
+		colNames : ['Código Materia Prima','Descripción','Porcentaje','Cantidad','Opciones'],
 		colModel : [ 
 			{
 				name : 'codigoMateriaPrima',
@@ -37,42 +37,17 @@ $(document).ready(function(){
 				sortable : false,
 				resizable : false
 			},{
-				name : 'tolvaInicial',
-				index : 'tolvaInicial',
+				name : 'porcentaje',
+				index : 'porcentaje',
 				width : 120,
 				sortable : false,
 				resizable : false
 			},{
-				name : 'pisoInicial',
-				index : 'pisoInicial',
+				name : 'cantidad',
+				index : 'cantidad',
 				width : 120,
 				sortable : false,
 				resizable : false
-			},{
-				name : 'abastecido',
-				index : 'abastecido',
-				width : 120,
-				sortable : false,
-				resizable : false
-			},{
-				name : 'consumo',
-				index : 'consumo',
-				width : 120,
-				sortable : false,
-				resizable : false
-			},{
-				name : 'tolvaFinal',
-				index : 'tolvaFinal',
-				width : 350,
-				sortable : false,
-				resizable : false
-			},{
-				name : 'pisoFinal',
-				index : 'pisoFinal',
-				width : 120,
-				sortable : false,
-				resizable : false
-			
 			},{
 				name : 'opciones',
 				index : 'codigoMateriaPrima',
