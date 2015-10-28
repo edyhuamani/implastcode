@@ -8,8 +8,8 @@ import pe.com.implast.logic.business.RegSalidaExtrusionBUS;
 public class RegSalidaExtrusionBUSImpl implements RegSalidaExtrusionBUS {
 
 	public void registraSalidaExtrusion() {
-		// TODO Auto-generated method stub
 		
 	}
+
 
 }
