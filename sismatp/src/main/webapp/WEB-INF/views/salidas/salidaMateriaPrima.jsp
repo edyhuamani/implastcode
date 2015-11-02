@@ -31,6 +31,12 @@
     	.selectmenu("menuWidget")
       	.addClass( "overflow" );
     	
+    	$( "#cmbTratado" )
+    	.selectmenu()
+    	.selectmenu("menuWidget")
+      	.addClass( "overflow" );
+
+    	
     	$( "#cmbCliente" )
     	.selectmenu()
     	.selectmenu("menuWidget")
@@ -68,8 +74,6 @@
 		$('#txtAncho').change(function() {
 		    $('#txtAncho').val( Math.round($('#txtAncho').val() * 100) / 100 );
 		});
-
-		
 		
   	});
 </script>
@@ -154,16 +158,18 @@
 				<tr>
 					<!-- Tratado -->
 					<td><label style="width: 120px;" >Tratado:</label></td>
-					<!-- 
+					
 					<td>
-						<select  id="cmbProducto" style="width: 300px;">
-									<option>Lamina</option>
-									<option>Manga Cerrada</option>
-									<option>Manga Abierta 1 Lado</option>
+						<select  id="cmbTratado" style="width: 300px;">
+									<option>Total</option>
+									<option>Fraccionado</option>
+									<option>Ninguno</option>
+									<option>1 Cara</option>
+									<option>2 Cara</option>
 						</select>
 					</td>
-					 -->
-					<td><input type="text" id="txtTratado"></td>
+					
+					<!-- <td><input type="text" id="txtTratado"></td> -->
 
 					
 					<!-- Solapa-->
@@ -207,15 +213,15 @@
 				<tr>
 					<!-- Max-->
 					<td ><label style="width: 120px;">Max :</label> </td>
-					<td><input type="text" id="txtMaxProduccion"></td>
+					<td><input type="text" id="txtMaxProduccion" value="0.00"></td>
 
 					<!-- Min -->
 					<td ><label style="width:150px;margin-left: 10px;">Min :</label> </td>
-					<td><input type="text" id="txtMinProduccion"></td>
+					<td><input type="text" id="txtMinProduccion" value="0.00"></td>
 					
 					<!-- Tratado -->
 					<td><label style="width: 150px;margin-left: 10px;">Scrap maximo:</label></td>
-					<td><input type="text" id="txtScrapMaximo"></td>
+					<td><input type="text" id="txtScrapMaximo" value="0.00"></td>
 				</tr>
 				
 				<tr>

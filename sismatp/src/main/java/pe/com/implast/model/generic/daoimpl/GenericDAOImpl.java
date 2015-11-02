@@ -1,6 +1,7 @@
 package pe.com.implast.model.generic.daoimpl;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
@@ -43,6 +44,11 @@ public class GenericDAOImpl<T extends Serializable,E> implements GenericDAO<T,E>
 		}catch (Exception e){
 			LOG.error(e.getMessage(), e);
 		}
+	}
+
+	public List<T> listarBeans() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

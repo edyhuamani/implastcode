@@ -2,6 +2,7 @@ package pe.com.implast.logic.businessimpl;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import pe.com.implast.logic.business.MaquinaBUS;
@@ -11,6 +12,8 @@ import pe.com.implast.model.beans.MaquinaBean;
 @Service
 public class MaquinaBUSImpl implements MaquinaBUS{
 
+	private static final Logger LOG=Logger.getLogger(MaquinaBUSImpl.class);
+	
 	public void crearMaquina(MaquinaBean maquina) {
 		// TODO Auto-generated method stub
 		
@@ -38,8 +41,13 @@ public class MaquinaBUSImpl implements MaquinaBUS{
 	}
 
 	public List<MaquinaBean> obtenerListaMaquinas() {
-		// TODO Auto-generated method stub
-		return null;
+		List<MaquinaBean> response=null;
+		try{
+			
+		}catch (Exception e){
+			LOG.error(e.getMessage(), e);
+		}
+		return response;
 	}
 
 	public Integer totalMaquinas() {
