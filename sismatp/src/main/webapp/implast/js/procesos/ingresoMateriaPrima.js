@@ -27,7 +27,7 @@ $(document).ready(function(){
 			{
 				name : 'codigoMateriaPrima',
 				index : 'codigoMateriaPrima',
-				width : 65,
+				width : 90,
 				sortable : false,
 				resizable : false
 			},{
@@ -39,7 +39,7 @@ $(document).ready(function(){
 			},{
 				name : 'cantidad',
 				index : 'cantidad',
-				width : 350,
+				width : 150,
 				sortable : false,
 				resizable : false
 			},{
@@ -85,6 +85,7 @@ function adicionarMateriaPrima(){
 	var parametros=new Object();
 	parametros.codigoMateriaPrima=$("#cmbMateriaPrima").val();
 	parametros.cantidadMateriaPrima=$("#txtCantidadIngresoMP").val();
+	
 	$.ajax({
 		url : 'adicionarMateriaPrima.json',
 		data : parametros,

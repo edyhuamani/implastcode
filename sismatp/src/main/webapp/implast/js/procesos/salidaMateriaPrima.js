@@ -22,7 +22,7 @@ $(document).ready(function(){
 		//url:'listarProveedores.json',
 		//datatype : 'json',
 		//mtype : 'POST',
-		colNames : ['Código Materia Prima','Descripción','Tolva','Pisoo','Abastecido','Consumo','Tolva','Piso','Opciones'],
+		colNames : ['Cod. Materia Prima','Descripción','Tolva','Piso','Abastecido','Consumo','Tolva','Piso','Opciones'],
 		colModel : [ 
 			{
 				name : 'codigoMateriaPrima',
@@ -63,7 +63,7 @@ $(document).ready(function(){
 			},{
 				name : 'tolvaFinal',
 				index : 'tolvaFinal',
-				width : 350,
+				width : 120,
 				sortable : false,
 				resizable : false
 			},{
@@ -99,14 +99,25 @@ $(document).ready(function(){
 		adicionarMateriaPrima();
 	});
 	
-	
+	$("#btnRegistrarSalida ").click(function(){
+		registrarSalidaExtrusionCabecera(); 
+	});
 	
 });
+
+
+
+function registrarSalidaExtrusionCabecera(){
+
+	var parametros=new Object();
+	$.ajax({
+		
+	});
+}
 
 function editarMateriaPrima(){
 	
 }
-
 
 function eliminarMateriaPrima(){
 	

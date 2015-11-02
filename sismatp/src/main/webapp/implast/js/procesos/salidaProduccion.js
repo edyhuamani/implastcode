@@ -63,7 +63,7 @@ $(document).ready(function(){
 			},{
 				name : 'tolvaFinal',
 				index : 'tolvaFinal',
-				width : 350,
+				width : 120,
 				sortable : false,
 				resizable : false
 			},{

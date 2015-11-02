@@ -7,7 +7,7 @@
 <script type="text/javascript">
 	$(function(){
 		
-		$( "#txtFechaDocumento" ).datepicker();
+		$( "#txtFechaDocumento" ).datepicker({ dateFormat: 'dd-mm-yy' });
 		
 		$("input[type=submit], input[type=button], button").button()
     	.click(function(event) {
@@ -17,9 +17,7 @@
 		$( "#cmbProveedor" )
     	.selectmenu()
     	.selectmenu("menuWidget")
-      	.addClass( "overflow" )
-		.css("font-size","12px");
-    	
+      	.addClass( "overflow" );
 		
 		$( "#cmbMateriaPrima" )
     	.selectmenu()
@@ -29,78 +27,85 @@
 		
 	});
 </script>
-	<div id="body" class="ready">
+	
+<div id="body" class="ready">
 		<div class="container">
-			<div class="row">
-				<h3>Registro de Ingreso de Materias Primas</h3>
 				
-				<fieldset>
-					<table>
-						<tr>
-							<td><label>Documento de Ingreso:</label></td>
-							<td>
-								<input type="text" id="txtDocumentoIngreso">
-							</td>
-							<td>
-								<label>Fecha:</label>
-							</td>
-							<td>
-								<input type="text" id="txtFechaDocumento">
-							</td>
-						</tr>
-						<tr>
-							<td><label>Proveedor:</label></td>
-							<td>
-								<select  id="cmbProveedor">
-									<c:forEach var="proveedorItem" items="${proveedores}">
-										<option value="${proveedorItem.codigoProveedor} ">${proveedorItem.razonSocial} </option>
-									</c:forEach>
-								</select>
-							</td>
-						</tr>
-						
-						<tr>
-							<td><label>Seleccione Materia Prima:</label></td>
-						
-							<td>
-								<select id="cmbMateriaPrima" style="width: 180px;">
-									<c:forEach var="itemMateriaP" items="${materiasPrimas}">	
-										<option value="${itemMateriaP.codigoMateriaPrima}">${itemMateriaP.descMateriaPrima}</option>	
-									</c:forEach>
-								</select>
-							</td>
+				<div class="row">
+					<h3>Registro de Ingreso de Materias Primas</h3>
+					
+						<table>
+							<tr>
+								<td><label style="width: 200px;">Documento de Ingreso:</label></td>
+								<td>
+									<input type="text" id="txtDocumentoIngreso" style="width: 200px;">
+								</td>
+								<td>
+									<label style="width: 150px;margin-left: 10px">Fecha:</label>
+								</td>
+								<td>
+									<input type="text" id="txtFechaDocumento"  style="z-index: 900!important;"> 
+								</td>
+							</tr>
+							<tr>
+								<td><label style="width: 200px;">Proveedor:</label></td>
+								<td>
+									<select  id="cmbProveedor" style="width:250px;font-size:14px;height: auto;">
+										<c:forEach var="proveedorItem" items="${proveedores}">
+											<option value="${proveedorItem.codigoProveedor} ">${proveedorItem.razonSocial} </option>
+										</c:forEach>
+									</select>
+								</td>
+								<td></td>
+								<td></td>
+							</tr>
 							
-							<td><label>Cantidad</label></td>
+							<tr>
+								<td><label style="width: 120px;">Materia Prima:</label></td>
 							
-							<td><input type="text" id="txtCantidadIngresoMP"></td>
+								<td>
+									<select id="cmbMateriaPrima" style="width:250px;font-size: 14px;height: auto;">
+										<c:forEach var="itemMateriaP" items="${materiasPrimas}">	
+											<option value="${itemMateriaP.codigoMateriaPrima}">${itemMateriaP.descMateriaPrima}</option>	
+										</c:forEach>
+									</select>
+								</td>
 								
-							<td>
-								<input type="submit" value="Adicionar Materia Prima" id="btnAdicionarMateriaPrima"/>
-							</td>
-						</tr>
-						<tr>
-							<td><input type="submit" value="Rgistrar Ingreso"></td>
-							<td><input type="submit" value="Cancelar"></td>
-						</tr>
-					</table>
+								<td><label style="width: 150px;margin-left: 10px">Cantidad :</label></td>
+								
+								<td><input type="text" id="txtCantidadIngresoMP"></td>
+									
+								<td>
+									<input type="submit" value="Adicionar Materia Prima" id="btnAdicionarMateriaPrima" style="margin-left: 10px"/>
+								</td>
+							</tr>
+						</table>
 					
-					
-				</fieldset>
-				
-			</div>
-			
-			<div>
-			<!-- grilla proveedor-->
-				<div class="ready">
+				</div>
+
+				<br>
+				<br>
+				<!-- grilla proveedor-->
+				<div class="ready" style="z-index: -1!important;position: relative;">
 					<div>
 						<table id="grilla_mantenimiento_ingresoMateriaPrima"></table>
 						<div id="pgrilla_mantenimiento_ingresoMateriaPrima"></div>
 					</div>
 				</div>
-			<!-- fin grilla proveedor -->
-			</div>
-			
+				<!-- fin grilla proveedor -->
+				
+				<br>
+				<br>
+				<div>
+						<table>
+							<tr>
+								<td><input type="submit" value="Registrar Ingreso"></td>
+								<td><input type="submit" value="Cancelar"></td>
+							</tr>
+						</table>
+					
+				</div>	
 		</div>
-	</div>
+</div>
 
 

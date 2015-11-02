@@ -10,11 +10,11 @@
 <script type="text/javascript">
 	$(function() {
     	
-		$( "#txtFechaOrdenTrabajo" ).datepicker();
+		$( "#txtFechaOrdenTrabajo" ).datepicker({ dateFormat: 'dd/mm/yy' });
 		
-		$( "#txtFechaProduccion" ).datepicker();
+		$( "#txtFechaProduccion" ).datepicker({ dateFormat: 'dd/mm/yy' });
 		
-		$( "#txtFechaEntrega" ).datepicker();
+		$( "#txtFechaEntrega" ).datepicker({ dateFormat: 'dd/mm/yy' });
 		
     	$( "#cmbTipoManga" )
     	.selectmenu()
@@ -36,7 +36,6 @@
     	.selectmenu("menuWidget")
       	.addClass( "overflow" );
     	
-    	
     	$( "#cmbOperador" )
     	.selectmenu()
     	.selectmenu("menuWidget")
@@ -57,6 +56,21 @@
     		event.preventDefault();
     	});
     	
+    	<!--Numeric-->
+		$('#txtAncho').change(function() {
+		    $('#txtAncho').val( Math.round($('#txtAncho').val() * 100) / 100 );
+		});
+
+		$('#txtEspesor').change(function() {
+		    $('#txtEspesor').val( Math.round($('#txtEspesor').val() * 100) / 100 );
+		});
+
+		$('#txtAncho').change(function() {
+		    $('#txtAncho').val( Math.round($('#txtAncho').val() * 100) / 100 );
+		});
+
+		
+		
   	});
 </script>
 
@@ -68,17 +82,28 @@
 			<h3>Registro de Salidas de Materias Primas</h3>
 			
 			<table>
+				
 				<tr>
-					<td><label>O.T :</label></td>
+					<!--Orden de Trabajo-->
+					<td ><label style="width: 120px;">O.T :</label></td>
 					<td><input type="text"  id="txtIdOrdenTrabajo"></td>
 				
-					<td><label>Fecha O.T :</label> </td>
-					<td><input type="text" id="txtFechaOrdenTrabajo"></td>
+					<!-- Fecha orden de Trabajo-->
+					<td ><label style="width: 150px;margin-left: 10px;">Fecha O.T :</label> </td>
+					<td><input type="text" id="txtFechaOrdenTrabajo" style="z-index: 900!important;"></td>
 
-					<td><label>Fecha Entrega :</label> </td>
+					<!-- fecha Entrega -->
+					<td ><label style="width: 150px;margin-left: 10px;">Fecha Entrega :</label> </td>
 					<td><input type="text" id="txtFechaEntrega"></td>
+				</tr>
+				
+				<tr>
+					<!-- SAP -->
+					<td><label style="width: 120px;">SAP :</label></td>
+					<td><input type="text"  id="txtSAP"></td>
 					
-					<td><label>Maquina:</label></td>
+					<!-- Maquina -->
+					<td ><label style="width: 150px;margin-left: 10px;">Maquina:</label></td>
 					<td>
 						<select  id="cmbMaquina" style="width: 300px;">
 									<option>Lamina</option>
@@ -86,10 +111,15 @@
 									<option>Manga Abierta 1 Lado</option>
 						</select>
 					</td>
+					
+					<!-- Status -->
+					<td ><label style="width: 120px;margin-left: 10px;" >Status:</label></td>
+					<td><input type="text"  id="txtStatus"></td>
 				</tr>
 				
 				<tr>
-					<td><label>Cliente:</label></td>
+					<!-- Cliente -->
+					<td><label style="width: 120px;">Cliente:</label></td>
 					<td>
 						<select  id="cmbCliente" style="width: 300px;">
 									<option>Lamina</option>
@@ -97,7 +127,11 @@
 									<option>Manga Abierta 1 Lado</option>
 						</select>
 					</td>
-					<td><label>Producto:</label></td>
+				</tr>
+				
+				<tr>
+					<!-- Producto -->
+					<td><label style="width: 120px;">Producto:</label></td>
 					<td>
 						<select  id="cmbProducto" style="width: 300px;">
 									<option>Lamina</option>
@@ -105,10 +139,87 @@
 									<option>Manga Abierta 1 Lado</option>
 						</select>
 					</td>
+					
+					<!-- Ancho-->
+					<td ><label style="width: 150px;margin-left: 10px;">Ancho :</label> </td>
+					<td><input type="text" id="txtAncho" ></td>
+
+					<!-- Espesor -->
+					<td ><label style="width: 150px;margin-left: 10px;">Espesor :</label> </td>
+					<td><input type="text" id="txtEspesor" value="0.00"></td>
+				</tr>
+				
+				
+				
+				<tr>
+					<!-- Tratado -->
+					<td><label style="width: 120px;" >Tratado:</label></td>
+					<!-- 
+					<td>
+						<select  id="cmbProducto" style="width: 300px;">
+									<option>Lamina</option>
+									<option>Manga Cerrada</option>
+									<option>Manga Abierta 1 Lado</option>
+						</select>
+					</td>
+					 -->
+					<td><input type="text" id="txtTratado"></td>
+
+					
+					<!-- Solapa-->
+					<td ><label style="width: 150px;margin-left: 10px;">Solapa :</label> </td>
+					<td><input type="text" id="txtSolapa"></td>
+
+					<!-- Fuelle -->
+					<td ><label style="width: 150px;margin-left: 10px;">Fuelle :</label> </td>
+					<td><input type="text" id="txtFuelle"></td>
+				</tr>
+				
+				
+				<tr>
+					<!-- Gr.m.lin -->
+					<td><label style="width: 120px;">Gr/m.lin:</label></td>
+					<td><input type="text" id="txtGrMin" value="0.00"></td>
+					
+					<!-- Max-->
+					<td ><label style="width: 150px;margin-left: 10px;">Max :</label></td>
+					<td><input type="text" id="txtMax" value="0.00"></td>
+
+					<!-- Min -->
+					<td ><label style="width: 150px;margin-left: 10px;">Min :</label></td>
+					<td><input type="text" id="txtMin" value="0.00"></td>
+				</tr>
+				
+			
+			</table>
+			
+			
+			<div >
+			<!-- grilla salida produccion -->
+				<div class="ready" style="z-index: -1!important;">
+						<table id="grilla_mantenimiento_salidaMezcla"></table>
+						<div id="pgrilla_mantenimiento_salidaMezcla"></div>
+				</div>
+			<!-- fin grilla salida produccion -->
+			</div>
+			
+			<table>
+				<tr>
+					<!-- Max-->
+					<td ><label style="width: 120px;">Max :</label> </td>
+					<td><input type="text" id="txtMaxProduccion"></td>
+
+					<!-- Min -->
+					<td ><label style="width:150px;margin-left: 10px;">Min :</label> </td>
+					<td><input type="text" id="txtMinProduccion"></td>
+					
+					<!-- Tratado -->
+					<td><label style="width: 150px;margin-left: 10px;">Scrap maximo:</label></td>
+					<td><input type="text" id="txtScrapMaximo"></td>
 				</tr>
 				
 				<tr>
-					<td><label>Tipo Manga:</label></td>
+					<td><label style="width: 120px;">Tipo Manga:</label></td>
 					<td>
 						<select  id="cmbTipoManga" style="width: 300px;">
 									<option>Lamina</option>
@@ -117,13 +228,23 @@
 						</select>
 					</td>
 				</tr>
-				<tr>
-					<td><input type="button" value="Registrar Salida"> </td>
-					
-					<td><input type="button" value="Cancelar"> </td>
-				</tr>
 			</table>
+			<br>
+			<br>
+			
+			<table>
+				<tr>
+					<td><input type="button" value="Registrar Salida" id="btnRegistrarSalida"> </td>
+					
+					<td><input type="button" value="Cancelar" id="btnCancelarSalida">  </td>
+				</tr>
+			</table>	
+			
+			
 		</div>
+		
+		<br>
+		<br>
 		
 		<div class="row">
 				<table>
@@ -146,7 +267,7 @@
 							<label>Fecha de Producción:</label>
 						</td>
 						<td>
-							<input type="text" id="txtFechaProduccion"> 
+							<input type="text" id="txtFechaProduccion" style="z-index: 900!important"> 
 						</td>
 					</tr>
 					<tr>
@@ -162,26 +283,15 @@
 				</table>
 		</div>
 		
-		<div >
-		<!-- grilla salida produccion -->
-				<div class="ready">
-					<div>
-						<table id="grilla_mantenimiento_salidaMezcla"></table>
-						<div id="pgrilla_mantenimiento_salidaMezcla"></div>
-					</div>
-				</div>
-		<!-- fin grilla salida produccion -->
-		</div>
+	
 		
 		<input type="button" value="Agregar Productos">
 		
 		<div >
 		<!-- grilla salida produccion -->
-				<div class="ready">
-					<div>
+				<div class="ready" style="z-index: -1!important;">
 						<table id="grilla_mantenimiento_salidaProduccion"></table>
 						<div id="pgrilla_mantenimiento_salidaProduccion"></div>
-					</div>
 				</div>
 		<!-- fin grilla salida produccion -->
 		</div>
@@ -212,11 +322,11 @@
 		
 				<div >
 					<!-- grilla salida materia prima-->
-						<div class="ready">
-							<div>
+						<div class="ready" style="z-index: -1!important;">
+							
 								<table id="grilla_mantenimiento_salidaMateriaPrima"></table>
 								<div id="pgrilla_mantenimiento_salidaMateriaPrima"></div>
-							</div>
+							
 						</div>
 					<!-- fin grilla salida materia prima -->
 				</div>

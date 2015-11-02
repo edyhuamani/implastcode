@@ -27,7 +27,7 @@ $(document).ready(function(){
 			{
 				name : 'codigoMateriaPrima',
 				index : 'codigoMateriaPrima',
-				width : 65,
+				width : 120,
 				sortable : false,
 				resizable : false
 			},{
