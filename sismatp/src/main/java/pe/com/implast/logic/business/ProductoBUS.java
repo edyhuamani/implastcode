@@ -1,5 +1,7 @@
 package pe.com.implast.logic.business;
 
+import java.util.List;
+
 import pe.com.implast.model.beans.ProductoBean;
 
 public interface ProductoBUS {
@@ -11,4 +13,6 @@ public interface ProductoBUS {
 	public void actualizarProducto(ProductoBean producto);
 
 	public void eliminarProducto(int idProducto);	
+	
+	public List<ProductoBean> listarProductos();
 }

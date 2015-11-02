@@ -57,7 +57,7 @@ public class MaquinaDAOImpl implements MaquinaDAO{
 						throws SQLException {
 						MaquinaBean maquina=new MaquinaBean();
 						maquina.setCodigoMaquina(result.getString("codigo_maquina"));
-						maquina.setDescMaquina(result.getString("desc_maquina"));
+						maquina.setDescMaquina(result.getString("descrip_maquina"));
 					return maquina;
 				}
 			});
