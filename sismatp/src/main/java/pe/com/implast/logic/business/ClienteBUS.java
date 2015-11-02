@@ -3,7 +3,6 @@ package pe.com.implast.logic.business;
 import java.util.List;
 
 import pe.com.implast.model.beans.ClienteBean;
-import pe.com.implast.model.beans.MaquinaBean;
 
 public interface ClienteBUS {
 	
@@ -15,9 +14,9 @@ public interface ClienteBUS {
 
 	public void eliminarCliente(int idCliente);	
 	
-	public List<MaquinaBean> listarClientesPaginado(Integer pagina, Integer registros);
+	public List<ClienteBean> listarClientesPaginado(Integer pagina, Integer registros);
 
-	public List<MaquinaBean> obtenerListaClientes();
+	public List<ClienteBean> obtenerListaClientes();
 	
 	public Integer totalClientes();
 

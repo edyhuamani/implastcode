@@ -110,9 +110,9 @@
 					<td ><label style="width: 150px;margin-left: 10px;">Maquina:</label></td>
 					<td>
 						<select  id="cmbMaquina" style="width: 300px;">
-									<option>Lamina</option>
-									<option>Manga Cerrada</option>
-									<option>Manga Abierta 1 Lado</option>
+								<c:forEach var="itemMaquina" items="${maquinas}">
+									<option value="${itemMaquina.descMaquina}">${itemMaquina.codigoMaquina}</option>
+								</c:forEach>
 						</select>
 					</td>
 					
@@ -126,9 +126,9 @@
 					<td><label style="width: 120px;">Cliente:</label></td>
 					<td>
 						<select  id="cmbCliente" style="width: 300px;">
+								<c:forEach var="itemCliente" items="${clientes}">
 									<option>Lamina</option>
-									<option>Manga Cerrada</option>
-									<option>Manga Abierta 1 Lado</option>
+								</c:forEach>	
 						</select>
 					</td>
 				</tr>
@@ -138,9 +138,11 @@
 					<td><label style="width: 120px;">Producto:</label></td>
 					<td>
 						<select  id="cmbProducto" style="width: 300px;">
+								<c:forEach var="itemProducto" items="${productos}">	
 									<option>Lamina</option>
 									<option>Manga Cerrada</option>
 									<option>Manga Abierta 1 Lado</option>
+								</c:forEach>	
 						</select>
 					</td>
 					

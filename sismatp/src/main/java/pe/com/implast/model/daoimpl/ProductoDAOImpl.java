@@ -52,9 +52,9 @@ public class ProductoDAOImpl implements ProductoDAO{
 		
 	}
 
-	public List<ProductoBean> listarBeans() {
+	public List<ProductoBean> listar() {
 		List<ProductoBean> productos=null;
-		String sql="select * from productos";
+		String sql="select * from producto";
 		try{
 			productos=jdbcTemplate.query(sql, new RowMapper<ProductoBean>(){
 				public ProductoBean mapRow(ResultSet result, int rownum)

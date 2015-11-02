@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import pe.com.implast.logic.business.ClienteBUS;
 import pe.com.implast.logic.business.MaquinaBUS;
 import pe.com.implast.logic.business.MateriaPrimaBUS;
 import pe.com.implast.logic.business.OperadorBUS;
 import pe.com.implast.logic.business.ProductoBUS;
+import pe.com.implast.model.beans.ClienteBean;
 import pe.com.implast.model.beans.InformacionMateriaPrimaBean;
 import pe.com.implast.model.beans.MaquinaBean;
 import pe.com.implast.model.beans.MateriaPrimaBean;
@@ -38,6 +40,9 @@ public class RegistroSalidaMateriaPrimaController {
 	@Autowired
 	ProductoBUS productoBUS;
 	
+	@Autowired
+	ClienteBUS clienteBUS;
+	
 	@RequestMapping(value="/procesos/salidaMateriaPrima.htm",method={RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView init(){
 		ModelAndView response=new ModelAndView();
@@ -45,6 +50,8 @@ public class RegistroSalidaMateriaPrimaController {
 		List<OperadorBean> operadores=null;
 		List<MaquinaBean> maquinas=null;
 		List<ProductoBean> productos=null;
+		List<ClienteBean> clientes=null;
+		
 		try{
 			String viewName="salidaMateriaPrima";
 			
@@ -52,7 +59,7 @@ public class RegistroSalidaMateriaPrimaController {
 			operadores=operadorBUS.listarOperador();
 			maquinas=maquinaBUS.obtenerListaMaquinas();
 			productos=productoBUS.listarProductos();
-			
+			clientes=clienteBUS.obtenerListaClientes();
 			response.addObject("materiasPrimas", materiasPrimas);
 			response.addObject("operadores", operadores);
 			response.addObject("maquinas", maquinas);

@@ -12,6 +12,6 @@ public interface GenericDAO<T, E> {
 
 	void eliminar(String id);
 
-	List<T> listarBeans();
+	List<T> listar();
 }
 

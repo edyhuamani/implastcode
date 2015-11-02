@@ -47,7 +47,7 @@ public class MaquinaDAOImpl implements MaquinaDAO{
 		
 	}
 
-	public List<MaquinaBean> listarBeans() {
+	public List<MaquinaBean> listar() {
 		List<MaquinaBean> maquinas=null;
 		
 		String sql="select * from maquinas";

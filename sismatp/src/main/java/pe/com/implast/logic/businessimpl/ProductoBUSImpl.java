@@ -41,7 +41,7 @@ public class ProductoBUSImpl implements ProductoBUS{
 	public List<ProductoBean> listarProductos() {
 		List<ProductoBean> productos=null;
 		try{
-			productos=productoDAO.listarBeans();
+			productos=productoDAO.listar();
 		}catch (Exception e){
 			LOG.error(e.getMessage(), e);
 		}

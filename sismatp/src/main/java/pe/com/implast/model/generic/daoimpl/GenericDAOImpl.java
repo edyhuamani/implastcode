@@ -46,7 +46,7 @@ public class GenericDAOImpl<T extends Serializable,E> implements GenericDAO<T,E>
 		}
 	}
 
-	public List<T> listarBeans() {
+	public List<T> listar() {
 		// TODO Auto-generated method stub
 		return null;
 	}
