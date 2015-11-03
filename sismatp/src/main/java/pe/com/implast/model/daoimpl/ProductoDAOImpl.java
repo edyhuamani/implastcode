@@ -13,6 +13,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
+import pe.com.implast.model.beans.MateriaPrimaBean;
 import pe.com.implast.model.beans.ProductoBean;
 import pe.com.implast.model.dao.ProductoDAO;
 
@@ -54,14 +55,14 @@ public class ProductoDAOImpl implements ProductoDAO{
 
 	public List<ProductoBean> listar() {
 		List<ProductoBean> productos=null;
-		String sql="select * from producto";
+		String sql="select cod_prod,desc_prod from producto";
 		try{
 			productos=jdbcTemplate.query(sql, new RowMapper<ProductoBean>(){
 				public ProductoBean mapRow(ResultSet result, int rownum)
 						throws SQLException {
 						ProductoBean producto=new ProductoBean();
-						producto.setCodigoProducto(result.getString("codigo_producto"));
-						producto.setDescripcion(result.getString("descrip_producto"));
+						producto.setCodigoProducto(result.getString("cod_prod"));
+						producto.setDescripcion(result.getString("desc_prod"));
 						return producto;
 				}
 			});
@@ -70,6 +71,39 @@ public class ProductoDAOImpl implements ProductoDAO{
 		}
 		return productos;
 	}
+
+	public List<ProductoBean> listarProductosPaginado(Integer pagina,
+			Integer registros) {
+		List<ProductoBean> productos=null;
+		String sql="select cod_prod,desc_prod  from producto LIMIT 10 OFFSET ? ";
+		try{
+			productos=jdbcTemplate.query(sql, new Object[]{}, new RowMapper<ProductoBean>(){
+
+				public ProductoBean mapRow(ResultSet result, int rownum)
+						throws SQLException {
+						ProductoBean producto=new ProductoBean();
+						producto.setCodigoProducto(result.getString("cod_prod"));
+						producto.setDescripcion(result.getString("desc_prod"));					
+						return producto;
+				}
+			});
+		}catch(Exception e){
+			LOG.error(e.getMessage(),e);
+		}
+		return productos;
+	}
+
+	public Integer totalProductos() {
+		Integer response=null;
+		String sql="Select count(1) from Productos";
+		try{
+			response=jdbcTemplate.queryForObject(sql, Integer.class);
+		}catch (Exception e){
+			LOG.error(e.getMessage(), e);
+		}
+		return response;
+	}
+
 
 	
 

@@ -6,13 +6,18 @@ import pe.com.implast.model.beans.ProductoBean;
 
 public interface ProductoBUS {
 	
-	public void crearProducto(ProductoBean producto);
+	void crearProducto(ProductoBean producto);
 
-	public ProductoBean obtenerCliente(int idProducto);
+	ProductoBean obtenerCliente(int idProducto);
 
-	public void actualizarProducto(ProductoBean producto);
+	void actualizarProducto(ProductoBean producto);
 
-	public void eliminarProducto(int idProducto);	
+	void eliminarProducto(int idProducto);
+
+	List<ProductoBean> listarProductos();
+
+	List<ProductoBean> listarProductosPaginado(Integer pagina, Integer registros);
+
+	Integer totalMateriasPrimas();
 	
-	public List<ProductoBean> listarProductos();
 }

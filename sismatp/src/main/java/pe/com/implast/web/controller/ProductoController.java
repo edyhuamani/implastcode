@@ -6,6 +6,7 @@ import java.util.List;
 import javax.ws.rs.core.MediaType;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import pe.com.implast.beans.ResponseListBean;
+import pe.com.implast.logic.business.ProductoBUS;
 import pe.com.implast.model.beans.MateriaPrimaBean;
 import pe.com.implast.model.beans.ProductoBean;
 
@@ -21,6 +23,9 @@ import pe.com.implast.model.beans.ProductoBean;
 public class ProductoController {
 	
 	private static final Logger LOG=Logger.getLogger(ProductoController.class);  
+	
+	@Autowired
+	ProductoBUS productoBUS;
 	
 	@RequestMapping(value="/mantenimiento/producto.htm",method={RequestMethod.GET})
 	public ModelAndView init(){
@@ -43,7 +48,7 @@ public class ProductoController {
 		List<ProductoBean> listarProductos=new ArrayList<ProductoBean>();
 		
 		try{
-//			listarProductos=materiaPrimaBUS.listarMateriasPrimasPaginado(pagina,registros);
+			listarProductos=productoBUS.listarProductosPaginado(pagina,registros);
 //			Integer totalRegistros = materiaPrimaBUS.totalMateriasPrimas();
 //			response.setPage(pagina);
 //			response.setRecords(totalRegistros);

@@ -3,7 +3,6 @@
  */
 $(document).ready(function(){
 	
-	
 	var opciones = function(cellVal,options,rowObject){
 		
 		var botones = "<center>";		
@@ -20,7 +19,7 @@ $(document).ready(function(){
 	jQuery("#grilla_mantenimiento_maquina").jqGrid(
 			
 			{
-				url:'listarProveedores.json',
+				url:'listarMaquinas.json',
 				datatype : 'json',
 				mtype : 'POST',
 				colNames : ['Código Maquina','Descripción Maquina','Opciones'],

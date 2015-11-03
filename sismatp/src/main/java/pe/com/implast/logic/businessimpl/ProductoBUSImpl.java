@@ -48,4 +48,20 @@ public class ProductoBUSImpl implements ProductoBUS{
 		return productos;
 	}
 
+	public List<ProductoBean> listarProductosPaginado(Integer pagina,
+			Integer registros) {
+		List<ProductoBean> productos=null;
+		try{
+			productos=productoDAO.listarProductosPaginado(pagina, registros);
+		}catch (Exception e){
+			LOG.error(e.getMessage(), e);
+		}
+		return productos;
+	}
+
+	public Integer totalMateriasPrimas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
