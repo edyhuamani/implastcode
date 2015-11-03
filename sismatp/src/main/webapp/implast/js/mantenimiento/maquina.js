@@ -85,7 +85,8 @@ function registrarMaquina(){
 			dataType:"json",
 			async:false,
 			cache:false
-		}).done(function(data){
+		}).done(function(){
+			alert("respuesta correcta")
 			actualizarListaMaquina();
 		}); 	
 	} else {

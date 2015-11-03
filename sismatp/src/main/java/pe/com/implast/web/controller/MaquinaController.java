@@ -3,6 +3,8 @@ package pe.com.implast.web.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ws.rs.core.MediaType;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,7 +40,7 @@ public class MaquinaController {
 		return response;
 	}
 	
-	@RequestMapping(value="/mantenimiento/listarMaquinas.json",method={RequestMethod.POST,RequestMethod.GET},produces="application/json")
+	@RequestMapping(value="/mantenimiento/listarMaquinas.json",method={RequestMethod.POST,RequestMethod.GET},produces=MediaType.APPLICATION_JSON)
 	public @ResponseBody ResponseListBean<MaquinaBean> listarProveedores(
 			@RequestParam(value="page",defaultValue="1") Integer pagina,
 			@RequestParam(value="rows",defaultValue="10")Integer registros 
@@ -63,7 +65,7 @@ public class MaquinaController {
 	}
 	
 	
-	@RequestMapping(value="/mantenimiento/registrarMaquina.json",method={RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value="/mantenimiento/registrarMaquina.json",method={RequestMethod.GET,RequestMethod.POST},produces=MediaType.APPLICATION_JSON)
 	public ResponseObjectBean<String> registrarMaquina(
 			@RequestParam(value="codigoMaquina",defaultValue="") String codigoMaquina,
 			@RequestParam(value="descMaquina",defaultValue="") String descMaquina
