@@ -49,6 +49,9 @@ public class MaquinaController {
 		try{
 			listaMaquinas=maquinaBUS.listarMaquinasPaginado(pagina,registros);
 			Integer totalRegistros = maquinaBUS.totalMaquinas();
+			if (totalRegistros==null){
+				totalRegistros=0;
+			}
 			response.setPage(pagina);
 			response.setRecords(totalRegistros);
 			response.setTotal(OperadoresUtil.obtenerCociente(totalRegistros, registros));

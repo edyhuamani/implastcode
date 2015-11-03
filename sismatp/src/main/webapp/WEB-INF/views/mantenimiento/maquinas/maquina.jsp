@@ -21,9 +21,9 @@ $(function() {
 
 </script>
 <div class="container">
+
 	<div class="row">
-	
-		<p>Matenimiento de Maquinas</p>
+		<p>Mantenimiento de Maquinas</p>
 	</div>
 	
 	<div class="ready">
@@ -31,18 +31,21 @@ $(function() {
 		<table>
 			<tr>
 				<td><label>Código Maquina</label></td>
-				<td><input type="text" id="txtCodigoMaquina"></td>
+				<td><input type="text" id="txtCodigoMaquina" style="margin-left: 10px"></td>
 			</tr>
 			<tr>
 				<td><label>Descripcion Maquina:</label></td>
-				<td><input type="text" id="txtDescripcionMaquina"></td>
+				<td><input type="text" id="txtDescripcionMaquina" style="margin-left: 10px"></td>
 			</tr>
+			<tr></tr>
 			<tr>
-				<td><input type="submit" value="Registrar Maquina"></td>
-				<td><input type="submit" value="Cancelar"></td>
+				<td><input type="submit" value="Registrar Maquina" id="btnRegistrarMaquina"></td>
+				<td><input type="submit" value="Cancelar" id="btnCancelarMaquina"></td>
 			</tr>
 		</table>
 		</fieldset>
+		<br>
+		<br>
 		<div>
 			<table id="grilla_mantenimiento_maquina"></table>
 			<div id="pgrilla_mantenimiento_maquina"></div>

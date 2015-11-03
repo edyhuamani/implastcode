@@ -26,10 +26,11 @@ public class MaquinaDAOImpl implements MaquinaDAO{
 	
 	public void insertar(MaquinaBean maq) {
 		try{
-			SimpleJdbcInsert simpleJdbc=new SimpleJdbcInsert(jdbcTemplate.getDataSource());
+			SimpleJdbcInsert simpleJdbc=new SimpleJdbcInsert(jdbcTemplate.getDataSource()).withTableName("maquina").usingGeneratedKeyColumns("id_maq");
 			Map<String,Object> params=new HashMap<String, Object>();
 			params.put("cod_maq", maq.getCodigoMaquina());
 			params.put("desc_maq", maq.getDescMaquina());
+			simpleJdbc.compile();
 			simpleJdbc.execute(params);
 		}catch(Exception e){
 			LOG.error(e.getMessage(), e);
@@ -76,7 +77,7 @@ public class MaquinaDAOImpl implements MaquinaDAO{
 			Integer registros) {
 
 		List<MaquinaBean> maquinas=null;
-		String sql="Select cod_maq,desc_maq from Maquinas LIMIT 10 OFFSET ?";
+		String sql="Select cod_maq,desc_maq from Maquina LIMIT 10 OFFSET ?";
 		
 		Integer inicioPagina=null;
 		pagina=pagina-1;

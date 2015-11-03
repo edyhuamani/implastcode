@@ -88,7 +88,6 @@ public class MateriaPrimaController {
 			mp.setCodigoProveedor(codigoProveedor);
 			materiaPrimaBUS.crearMateriaPrima(mp);
 			
-			
 		}catch(Exception e){
 			LOG.error(e.getMessage(),e);
 		}

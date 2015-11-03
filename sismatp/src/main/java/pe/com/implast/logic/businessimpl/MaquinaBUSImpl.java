@@ -46,7 +46,7 @@ public class MaquinaBUSImpl implements MaquinaBUS{
 			Integer registros) {
 		List<MaquinaBean> response=null;
 		try{
-			
+			response=maquinaDAO.listarMaquinaPaginado(pagina, registros);
 		}catch (Exception e){
 			LOG.error(e.getMessage(), e);
 		}

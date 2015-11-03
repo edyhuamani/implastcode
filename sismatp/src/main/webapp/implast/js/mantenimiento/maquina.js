@@ -7,10 +7,10 @@ $(document).ready(function(){
 		
 		var botones = "<center>";		
 			botones += "<div style='display: inline-block;'>";
-			botones += "<a href=javascript:editarMaquina('" + rowObject.codigo +"'); title='Editar'>";
+			botones += "<a href=javascript:editarMaquina('" + rowObject.codigoMaquina +"'); title='Editar'>";
 			botones +="<span class='ui-icon ui-icon-pencil'></span></a></div>&nbsp;";
 			botones += "<div style='display: inline-block;'>";
-			botones += "<a href=javascript:eliminarMaquina('" + rowObject.codigo +"'); title='Eliminar'>";
+			botones += "<a href=javascript:eliminarMaquina('" + rowObject.codigoMaquina +"'); title='Eliminar'>";
 			botones +="<span class='ui-icon ui-icon-trash' ></span></a></div>";
 			botones += "</center>";
 		return botones;
@@ -27,7 +27,7 @@ $(document).ready(function(){
 					{
 						name : 'codigoMaquina',
 						index : 'codigoMaquina',
-						width : 65,
+						width : 95,
 						sortable : false,
 						resizable : false
 					},{
@@ -57,26 +57,48 @@ $(document).ready(function(){
 				scrollOffset: 0 //Not space column last
 		});
 	
-	$("#btnRegistrarProveedor").click(function(){
-		registrarProveedor();
+	$("#btnRegistrarMaquina").click(function(){
+		registrarMaquina();
 	});
+	
+	$("#btnCancelarRegistro").click(function(){
+		cancelarRegistro();
+	});
+
+	
 });
 
 
 
-function registrarProveedor(){
-	_txtCodigoMaquina=$().val();
-	_txtDescripMaquina=$().val();
-	var parametros=new Object();
-	parametros.codigoMaquina=_txtCodigoMaquina;
-	parametros.descMaquina=_txtDescripMaquina;
-	$.ajax({
-		url:"registrarMaquina.json",
-		data:parametros,
-		dataType:"json",
-		async:false,
-		cache:false
-	}).done(function(){
-		alert("");
-	}); 	
+function registrarMaquina(){
+	
+	_txtCodigoMaquina=$("#txtCodigoMaquina").val();
+	_txtDescripMaquina=$("#txtDescripcionMaquina").val();
+	if ((_txtCodigoMaquina!=null && _txtCodigoMaquina.length>0 )  || (_txtDescripMaquina!=null && _txtDescripMaquina.length>0)) {
+		var parametros=new Object();
+		parametros.codigoMaquina=_txtCodigoMaquina;
+		parametros.descMaquina=_txtDescripMaquina;
+	 
+		$.ajax({
+			url:"registrarMaquina.json",
+			data:parametros,
+			dataType:"json",
+			async:false,
+			cache:false
+		}).done(function(data){
+			actualizarListaMaquina();
+		}); 	
+	} else {
+		alert("Debe de ingresar campos requeridos...");
+	}
+}
+
+
+function cancelarRegistro(){
+	$("#txtCodigoMaquina").val("");
+	$("#txtDescripcionMaquina").val("");
+}
+
+function actualizarListaMaquina(){
+	$("#grilla_mantenimiento_maquina").jqGrid('setGridParam').trigger('reloadGrid');
 }
