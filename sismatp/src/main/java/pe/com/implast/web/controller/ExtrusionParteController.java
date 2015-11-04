@@ -63,7 +63,7 @@ public class ExtrusionParteController {
 		List<ProductoBean> productos=null;
 		List<ClienteBean> clientes=null;
 		try{
-			String viewName="salidaMateriaPrima";
+			String viewName="parteExtrusionCabecera";
 			materiasPrimas=materiaPrimaBUS.listarMaterias();
 			operadores=operadorBUS.listarOperador();
 			maquinas=maquinaBUS.obtenerListaMaquinas();

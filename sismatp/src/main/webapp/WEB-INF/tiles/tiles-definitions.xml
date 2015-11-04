@@ -21,7 +21,6 @@
 		<put-attribute name="body" value="/WEB-INF/views/layout/body.jsp" />
 	</definition>
 
-
 	<!-- mantenimiento -->
 	<definition name="materiaPrima" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/mantenimiento/materiaPrima/materiaPrima.jsp" />
@@ -64,11 +63,15 @@
 	<definition name="ingresoMateriaPrima" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/ingresos/ingresoMateriaPrima.jsp" />
 	</definition>
-
-	<definition name="salidaMateriaPrima" extends="baseLayout">
-		<put-attribute name="body" value="/WEB-INF/views/salidas/salidaMateriaPrima.jsp" />
+	
+	<!-- extrusion proceso -->
+	<definition name="parteExtrusionCabecera" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/salidas/extrusion/parteExtrusionCabecera.jsp" />
 	</definition>
 
+	<definition name="parteExtrusionDetalle" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/salidas/extrusion/parteExtrusionDetalle.jsp" />
+	</definition>
 
 
     
