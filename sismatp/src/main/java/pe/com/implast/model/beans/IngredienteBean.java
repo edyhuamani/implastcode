@@ -2,25 +2,30 @@ package pe.com.implast.model.beans;
 
 public class IngredienteBean {
 	private MateriaPrimaBean materiaPrima;
-	private int porcentaje;
-	private int cantidad;
+	private double porcentaje;
+	private double cantidad;
 	
+	public double getPorcentaje() {
+		return porcentaje;
+	}
+
+	public void setPorcentaje(double porcentaje) {
+		this.porcentaje = porcentaje;
+	}
+
+	public double getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(double cantidad) {
+		this.cantidad = cantidad;
+	}
+
 	public MateriaPrimaBean getMateriaPrima() {
 		return materiaPrima;
 	}
+
 	public void setMateriaPrima(MateriaPrimaBean materiaPrima) {
 		this.materiaPrima = materiaPrima;
-	}
-	public int getPorcentaje() {
-		return porcentaje;
-	}
-	public void setPorcentaje(int porcentaje) {
-		this.porcentaje = porcentaje;
-	}
-	public int getCantidad() {
-		return cantidad;
-	}
-	public void setCantidad(int cantidad) {
-		this.cantidad = cantidad;
 	}
 }

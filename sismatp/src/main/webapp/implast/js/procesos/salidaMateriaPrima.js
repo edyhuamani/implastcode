@@ -110,8 +110,36 @@ $(document).ready(function(){
 function registrarSalidaExtrusionCabecera(){
 
 	var parametros=new Object();
+	parametros.ordenTrabajo=$("#txtIdOrdenTrabajo").val();
+	parametros.fecOrdenTrabajo=$("#txtFechaOrdenTrabajo").val();
+	parametros.fecEntrega=$("#txtFechaEntrega").val();
+	parametros.codSap=$("#txtSAP").val();
+	parametros.codMaquina=$("#cmbMaquina").val();
+	parametros.status=$("#txtStatus").val();
+	parametros.codCliente=$("#cmbCliente").val();
+	parametros.codProducto=$("#cmbProducto").val();
+	parametros.ancho=$("#txtAncho").val();
+	parametros.espesor=$("#txtEspesor").val();
+	parametros.codMaquina=$("#cmbTratado").val();
+	parametros.solapa=$("#txtSolapa").val();
+	parametros.fuelle=$("#txtFuelle").val();
+	parametros.grMin=$("#txtGrMin").val();
+	parametros.max=$("#txtMax").val();
+	parametros.min=$("#txtMin").val();
+	parametros.maxProd=$("#txtMaxProduccion").val();
+	parametros.minProd=$("#txtMinProduccion").val();
+	parametros.scrap=$("#txtScrapMaximo").val();
+	parametros.codTipoManga=$("#cmbTipoManga").val();
+	
 	$.ajax({
-		
+		url:"registrarParteExtrusion.json",
+		data:parametros,
+		dataType:"json",
+		type:"POST",
+		cache:false,
+		async:false,
+	}).done(function(jsonData){
+		alert("Se registro extrusion");
 	});
 }
 
@@ -122,6 +150,7 @@ function editarMateriaPrima(){
 function eliminarMateriaPrima(){
 	
 }
+
 
 function adicionarMateriaPrima(){
 	var parametros=new Object();

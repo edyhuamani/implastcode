@@ -7,15 +7,124 @@ public class ParteExtrusionBean {
 	private String ordenTrabajo;
 	private String fechaOT;
 	private String fechaEntrega;
-	private String codigoMaquinaria;
+	private String codigoMaquina;
 	private String codigoCliente;
+	private String codigoSap; 
 	private String status;
 	private String horaInicio;
 	private String horaFin;
+	private MezclaBean mezcla;
 	private List<InformacionMateriaPrimaBean> listaMateriasPrimas;
 	private List<InformacionProduccionBean> listaProductos;
 	private String codigoOperador;
 	private String codigoSupervisor;
+	private String ancho;
+	private String espesor;
+	private String tratado;
+	private String solapa;
+	private String fuelle;
+	private String minimo;
+	private String maximo;
+	private String minimoProduccion;
+	private String maximoProduccion;
+	private String scrap;
+	private String codigoTipoManga;
+
+	public String getCodigoSap() {
+		return codigoSap;
+	}
+
+	public void setCodigoSap(String codigoSap) {
+		this.codigoSap = codigoSap;
+	}
+
+	public String getAncho() {
+		return ancho;
+	}
+
+	public void setAncho(String ancho) {
+		this.ancho = ancho;
+	}
+
+	public String getEspesor() {
+		return espesor;
+	}
+
+	public void setEspesor(String espesor) {
+		this.espesor = espesor;
+	}
+
+	public String getTratado() {
+		return tratado;
+	}
+
+	public void setTratado(String tratado) {
+		this.tratado = tratado;
+	}
+
+	public String getSolapa() {
+		return solapa;
+	}
+
+	public void setSolapa(String solapa) {
+		this.solapa = solapa;
+	}
+
+	public String getFuelle() {
+		return fuelle;
+	}
+
+	public void setFuelle(String fuelle) {
+		this.fuelle = fuelle;
+	}
+
+	public String getMinimo() {
+		return minimo;
+	}
+
+	public void setMinimo(String minimo) {
+		this.minimo = minimo;
+	}
+
+	public String getMaximo() {
+		return maximo;
+	}
+
+	public void setMaximo(String maximo) {
+		this.maximo = maximo;
+	}
+
+	public String getMinimoProduccion() {
+		return minimoProduccion;
+	}
+
+	public void setMinimoProduccion(String minimoProduccion) {
+		this.minimoProduccion = minimoProduccion;
+	}
+
+	public String getMaximoProduccion() {
+		return maximoProduccion;
+	}
+
+	public void setMaximoProduccion(String maximoProduccion) {
+		this.maximoProduccion = maximoProduccion;
+	}
+
+	public String getScrap() {
+		return scrap;
+	}
+
+	public void setScrap(String scrap) {
+		this.scrap = scrap;
+	}
+
+	public String getCodigoTipoManga() {
+		return codigoTipoManga;
+	}
+
+	public void setCodigoTipoManga(String codigoTipoManga) {
+		this.codigoTipoManga = codigoTipoManga;
+	}
 
 	public String getOrdenTrabajo() {
 		return ordenTrabajo;
@@ -23,6 +132,22 @@ public class ParteExtrusionBean {
 
 	public void setOrdenTrabajo(String ordenTrabajo) {
 		this.ordenTrabajo = ordenTrabajo;
+	}
+
+	public String getCodigoMaquina() {
+		return codigoMaquina;
+	}
+
+	public void setCodigoMaquina(String codigoMaquina) {
+		this.codigoMaquina = codigoMaquina;
+	}
+
+	public MezclaBean getMezcla() {
+		return mezcla;
+	}
+
+	public void setMezcla(MezclaBean mezcla) {
+		this.mezcla = mezcla;
 	}
 
 	public String getFechaOT() {
@@ -41,14 +166,9 @@ public class ParteExtrusionBean {
 		this.fechaEntrega = fechaEntrega;
 	}
 
-	public String getCodigoMaquinaria() {
-		return codigoMaquinaria;
-	}
 
-	public void setCodigoMaquinaria(String codigoMaquinaria) {
-		this.codigoMaquinaria = codigoMaquinaria;
-	}
-
+	
+	
 	public String getCodigoCliente() {
 		return codigoCliente;
 	}
