@@ -31,7 +31,6 @@ public class MateriaPrimaDAOImpl implements MateriaPrimaDAO {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	
-	
 	@Transactional
 	public void createMateriaPrima(MateriaPrimaBean mprima) {
 		
@@ -49,16 +48,16 @@ public class MateriaPrimaDAOImpl implements MateriaPrimaDAO {
 	public MateriaPrimaBean retrieveMateriaPrima(String idMP) {
 		
 		MateriaPrimaBean materiaPrima=null;
-		String sql="Select * from Materiaprima where codigoMateriaPrima=?";
+		String sql="Select * from Materiaprima where cod_matp=?";
 		try {
 				materiaPrima=jdbcTemplate.queryForObject(sql, new Object[] {idMP},new RowMapper<MateriaPrimaBean>(){
 
 				public MateriaPrimaBean mapRow(ResultSet result, int rownum)
 						throws SQLException {
 					MateriaPrimaBean materiaPrima=new MateriaPrimaBean();
-					materiaPrima.setCodigoMateriaPrima(result.getString("codigoMateriaPrima"));
-					materiaPrima.setDescMateriaPrima(result.getString("descripcion"));
-					materiaPrima.setCodigoProveedor(result.getString("codPrv"));
+					materiaPrima.setCodigoMateriaPrima(result.getString("COD_MATP"));
+					materiaPrima.setDescMateriaPrima(result.getString("DESC_MATP"));
+					materiaPrima.setCodigoProveedor(result.getString("COD_PRV"));
 					return materiaPrima;
 				}
 				
@@ -112,9 +111,9 @@ public class MateriaPrimaDAOImpl implements MateriaPrimaDAO {
 			response=jdbcTemplate.query(sql,new Object[]{inicioPagina}, new RowMapper<MateriaPrimaBean>(){
 				public MateriaPrimaBean mapRow(ResultSet result, int rownum)	throws SQLException {
 					MateriaPrimaBean materia=new MateriaPrimaBean();
-					materia.setCodigoMateriaPrima(result.getString("codigoMateriaPrima"));
-					materia.setDescMateriaPrima(result.getString("descripcion"));
-					materia.setCodigoProveedor(result.getString("codprv"));
+					materia.setCodigoMateriaPrima(result.getString("COD_MATP"));
+					materia.setDescMateriaPrima(result.getString("DESC_MATP"));
+					materia.setCodigoProveedor(result.getString("COD_PRV"));
 					return materia;
 				}
 			});
@@ -139,15 +138,15 @@ public class MateriaPrimaDAOImpl implements MateriaPrimaDAO {
 
 	public List<MateriaPrimaBean> listarMateriasPrimas() {
 		List<MateriaPrimaBean> materiasPrimas=new ArrayList<MateriaPrimaBean>();
-		String sql="SELECT * FROM MATERIAPRIMA ";
+		String sql="SELECT COD_MATP,DESC_MATP,COD_PRV FROM MATERIAPRIMA ORDER BY DESC_MATP";
 		try{
 			materiasPrimas=jdbcTemplate.query(sql, new RowMapper<MateriaPrimaBean>(){
 				public MateriaPrimaBean mapRow(ResultSet result, int numrow)
 						throws SQLException {
 							MateriaPrimaBean materia=new MateriaPrimaBean();
-							materia.setCodigoMateriaPrima(result.getString("codigoMateriaPrima"));
-							materia.setDescMateriaPrima(result.getString("descripcion"));
-							materia.setCodigoProveedor(result.getString("codprv"));
+							materia.setCodigoMateriaPrima(result.getString("COD_MATP"));
+							materia.setDescMateriaPrima(result.getString("DESC_MATP"));
+							materia.setCodigoProveedor(result.getString("COD_PRV"));
 							return materia;
 				}
 				

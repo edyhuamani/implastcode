@@ -2,11 +2,15 @@ package pe.com.implast.web.controller;
 
 import java.util.List;
 
+import javax.ws.rs.core.MediaType;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import pe.com.implast.logic.business.ClienteBUS;
@@ -22,9 +26,9 @@ import pe.com.implast.model.beans.OperadorBean;
 import pe.com.implast.model.beans.ProductoBean;
 
 @Controller
-public class RegistroSalidaMateriaPrimaController {
+public class ExtrusionParteController {
 	
-	private static final Logger LOG=Logger.getLogger(RegistroSalidaMateriaPrimaController.class); 
+	private static final Logger LOG=Logger.getLogger(ExtrusionParteController.class); 
 	
 	List<InformacionMateriaPrimaBean> registroSalidasMateriasPrimas;
 	
@@ -70,4 +74,10 @@ public class RegistroSalidaMateriaPrimaController {
 		return response;
 	}
 
+	
+	@RequestMapping(value="/procesos/registrarParteExtrusion.json",method={RequestMethod.GET,RequestMethod.POST},produces=MediaType.APPLICATION_JSON)
+	public @ResponseBody void registroParteExtrusion(
+			){
+		
+	}
 }

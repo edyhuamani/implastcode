@@ -5,17 +5,17 @@
 <hibernate-mapping>
     <class name="pe.com.implast.model.beans.MateriaPrimaBean" table="MATERIAPRIMA">
         <id name="idMateriaPrima" type="int">
-            <column name="IDMATERIAPRIMA" />
+            <column name="ID_MATP" />
             <generator class="assigned" />
         </id>
         <property name="codigoMateriaPrima" type="java.lang.String">
-            <column name="CODIGOMATERIAPRIMA" />
+            <column name="COD_MATP" />
         </property>
         <property name="descMateriaPrima" type="java.lang.String">
-            <column name="DESCRIPCION" />
+            <column name="DESC_MATP" />
         </property>
         <property name="codigoProveedor" type="java.lang.String">
-            <column name="CODPRV" />
+            <column name="COD_PRV" />
         </property>
     </class>
 </hibernate-mapping>

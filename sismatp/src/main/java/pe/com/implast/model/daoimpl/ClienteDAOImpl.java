@@ -70,7 +70,7 @@ public class ClienteDAOImpl implements ClienteDAO{
 
 	public List<ClienteBean> listarClientes() {
 		List<ClienteBean> clientes=null;
-		String sql="Select cod_cli,raz_soc_cli,ruc_cli from Cliente";
+		String sql="Select cod_cli,raz_soc_cli,ruc_cli from Cliente order by raz_soc_cli";
 		try{
 				clientes=jdbcTemplate.query(sql, new RowMapper<ClienteBean>(){
 				public ClienteBean mapRow(ResultSet result, int rownum)

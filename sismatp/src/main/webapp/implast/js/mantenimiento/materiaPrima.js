@@ -86,7 +86,6 @@ function registrarMateriaPrima(){
 		async : false,
 		cache : false
 	}).done(function(jsondata){
-		alert("recibi respuesta");
 		actualizarListaMateriaPrima();
 	});
 }

@@ -28,14 +28,14 @@
 						<tbody>
 							<tr>
 								<td><label>Código Proveedor:</label></td>
-								<td><input type="text" id="txtCodigoProveedor"></td>
+								<td><input type="text" id="txtCodigoProveedor" style="margin-left: 15px"></td>
 							</tr>
 							<tr>
 								<td><label>Razón Social (Nombre):</label></td>
-								<td><input type="text" id="txtNombreRazonSocial"></td>
+								<td><input type="text" id="txtNombreRazonSocial" style="margin-left: 15px;width: 350px;"></td>
 							</tr>
 							<tr>
-								<td><input type="button" id="btnRegistrarProveedor" title="Registrar" value="Registrar" /></td>
+								<td><input type="button" id="btnRegistrarProveedor" title="Registrar" value="Registrar Proveedor" /></td>
 							</tr>
 						</tbody>
 					</table>
