@@ -30,17 +30,23 @@ $(function() {
 							<table>
 								<tr>
 									<td><label>Codigo Operador:</label></td>
-									<td><input type="text" id="txtCodigoOperador"></td>
+									<td><input type="text" id="txtCodigoOperador" style="margin-left: 15px;"></td>
 								</tr>
 								<tr>
 									<td><label>Nombre Operador:</label></td>
-									<td><input type="text" id="txtNombreOperador"></td>
+									<td><input type="text" id="txtNombreOperador" style="margin-left: 15px;"></td>
 								</tr>
 							</table>
+							<br>
+							
 							<input type="submit" id="btnRegistrarOperador" value="Registrar Operador">
+							<input type="submit" id="btnCancelarRegistro" value="Cancelar Registro">
+							
+							
 					</form>
 			</fieldset>
 			
+			<br>
 			
 			<!-- grilla proveedor-->
 			<fieldset>

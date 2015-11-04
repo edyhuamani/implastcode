@@ -78,7 +78,7 @@ function registrarMaquina(){
 		var parametros=new Object();
 		parametros.codigoMaquina=_txtCodigoMaquina;
 		parametros.descMaquina=_txtDescripMaquina;
-	 
+		
 		$.ajax({
 			url:"registrarMaquina.json",
 			data:parametros,
@@ -91,6 +91,7 @@ function registrarMaquina(){
 		}); 	
 	} else {
 		alert("Debe de ingresar campos requeridos...");
+		 
 	}
 }
 

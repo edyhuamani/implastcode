@@ -15,6 +15,9 @@ public class ClienteBean implements Serializable {
 	private String nombres;
 	private String apellidos;
 	private String ruc;
+	private String telefono;
+	
+
 
 	public int getIdCliente() {
 		return idCliente;
@@ -62,6 +65,14 @@ public class ClienteBean implements Serializable {
 
 	public void setRuc(String ruc) {
 		this.ruc = ruc;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
 
 }

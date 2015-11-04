@@ -6,14 +6,18 @@ import pe.com.implast.model.beans.ClienteBean;
 
 public interface ClienteDAO {
 	
-	public void crearCliente(ClienteBean cliente);
-	
-	public ClienteBean obtenerCliente(int idCliente);			
-	
-	public void actualizarCliente(ClienteBean cliente);
+	void crearCliente(ClienteBean cliente);
 
-	public void eliminarCliente(int idCliente);
-	
-	public List<ClienteBean> listarClientes();
+	ClienteBean obtenerCliente(int idCliente);
+
+	void actualizarCliente(ClienteBean cliente);
+
+	void eliminarCliente(int idCliente);
+
+	List<ClienteBean> listarClientes();
+
+	List<ClienteBean> listarClientesPaginado(Integer pagina,Integer registros);
+
+	Integer totalClientes();
 
 }

@@ -19,7 +19,11 @@ public class ClienteBUSImpl implements ClienteBUS {
 	ClienteDAO clienteDAO;
 	
 	public void crearCliente(ClienteBean cliente) {
-		
+		try{
+			clienteDAO.crearCliente(cliente);
+		}catch (Exception e){
+			LOG.error(e.getMessage(), e);
+		}
 	}
 
 	public ClienteBean obtenerCliente(int idCliente) {
@@ -36,7 +40,13 @@ public class ClienteBUSImpl implements ClienteBUS {
 
 	public List<ClienteBean> listarClientesPaginado(Integer pagina,
 			Integer registros) {
-		return null;
+		List<ClienteBean> clientes=null;
+		try{
+			clientes=clienteDAO.listarClientesPaginado(pagina, registros);
+		}catch(Exception e){
+			LOG.error(e.getMessage(), e);
+		}
+		return clientes;
 	}
 
 	public List<ClienteBean> obtenerListaClientes() {
@@ -50,12 +60,13 @@ public class ClienteBUSImpl implements ClienteBUS {
 	}
 
 	public Integer totalClientes() {
+		Integer response=0;
 		try{
-			
+			response=clienteDAO.totalClientes();
 		}catch(Exception e){
-			
+			LOG.error(e.getMessage(), e);
 		}
-		return null;
+		return response;
 	}
 
 }

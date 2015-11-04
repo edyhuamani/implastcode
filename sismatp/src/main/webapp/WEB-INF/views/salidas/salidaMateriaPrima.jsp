@@ -111,7 +111,7 @@
 					<td>
 						<select  id="cmbMaquina" style="width: 300px;">
 								<c:forEach var="itemMaquina" items="${maquinas}">
-									<option value="${itemMaquina.descMaquina}">${itemMaquina.codigoMaquina}</option>
+									<option value="${itemMaquina.codigoMaquina}">${itemMaquina.descMaquina}</option>
 								</c:forEach>
 						</select>
 					</td>
@@ -127,7 +127,7 @@
 					<td>
 						<select  id="cmbCliente" style="width: 300px;">
 								<c:forEach var="itemCliente" items="${clientes}">
-									<option>Lamina</option>
+									<option value="${itemCliente.codigoCliente}">${itemCliente.razonSocial}</option>
 								</c:forEach>	
 						</select>
 					</td>

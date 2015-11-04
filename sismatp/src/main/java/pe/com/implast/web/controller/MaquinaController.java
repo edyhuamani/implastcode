@@ -66,7 +66,7 @@ public class MaquinaController {
 	
 	
 	@RequestMapping(value="/mantenimiento/registrarMaquina.json",method={RequestMethod.GET,RequestMethod.POST},produces=MediaType.APPLICATION_JSON)
-	public ResponseObjectBean<String> registrarMaquina(
+	public  @ResponseBody ResponseObjectBean<String> registrarMaquina(
 			@RequestParam(value="codigoMaquina",defaultValue="") String codigoMaquina,
 			@RequestParam(value="descMaquina",defaultValue="") String descMaquina
 			){

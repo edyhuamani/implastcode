@@ -51,10 +51,8 @@ public class RegistroSalidaMateriaPrimaController {
 		List<MaquinaBean> maquinas=null;
 		List<ProductoBean> productos=null;
 		List<ClienteBean> clientes=null;
-		
 		try{
 			String viewName="salidaMateriaPrima";
-			
 			materiasPrimas=materiaPrimaBUS.listarMaterias();
 			operadores=operadorBUS.listarOperador();
 			maquinas=maquinaBUS.obtenerListaMaquinas();
@@ -64,7 +62,7 @@ public class RegistroSalidaMateriaPrimaController {
 			response.addObject("operadores", operadores);
 			response.addObject("maquinas", maquinas);
 			response.addObject("productos", productos);
-			
+			response.addObject("clientes", clientes);
 			response.setViewName(viewName);
 		}catch(Exception e){
 			LOG.error(e);

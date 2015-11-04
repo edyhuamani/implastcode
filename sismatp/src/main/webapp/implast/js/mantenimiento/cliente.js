@@ -4,31 +4,29 @@
 
 $(document).ready(function(){
 	
-	
 	var opciones = function(cellVal,options,rowObject){
 		
 		var botones = "<center>";		
 			botones += "<div style='display: inline-block;'>";
-			botones += "<a href=javascript:editarProveedor('" + rowObject.codigo +"'); title='Editar'>";
+			botones += "<a href=javascript:editarCliente('" + rowObject.codigoCliente +"'); title='Editar'>";
 			botones +="<span class='ui-icon ui-icon-pencil'></span></a></div>&nbsp;";
 			botones += "<div style='display: inline-block;'>";
-			botones += "<a href=javascript:eliminarProveedor('" + rowObject.codigo +"'); title='Eliminar'>";
+			botones += "<a href=javascript:eliminarCliente('" + rowObject.codigoCliente +"'); title='Eliminar'>";
 			botones +="<span class='ui-icon ui-icon-trash' ></span></a></div>";
 			botones += "</center>";
 		return botones;
 	};
 	
 	jQuery("#grilla_mantenimiento_cliente").jqGrid(
-			
 			{
-				url:'listarProveedores.json',
+				url:'listarClientes.json',
 				datatype : 'json',
 				mtype : 'POST',
-				colNames : ['Código','Descripción','Opciones'],
+				colNames : ['Código Cliente','Razon Social','Ruc Cliente','Opciones'],
 				colModel : [ 
 					{
-						name : 'codigoProveedor',
-						index : 'codigoProveedor',
+						name : 'codigoCliente',
+						index : 'codigoCliente',
 						width : 65,
 						sortable : false,
 						resizable : false
@@ -39,8 +37,14 @@ $(document).ready(function(){
 						sortable : false,
 						resizable : false
 					},{
+						name : 'ruc',
+						index : 'ruc',
+						width : 200,
+						sortable : false,
+						resizable : false
+					},{
 						name : 'opciones',
-						index : 'codigoProveedor',
+						index : 'codigoCliente',
 						width : 60,
 						formatter:opciones,
 						sortable : false,
@@ -59,7 +63,47 @@ $(document).ready(function(){
 				scrollOffset: 0 //Not space column last
 		});
 	
-	$("#btnRegistrarProveedor").click(function(){
-		registrarProveedor();
+	$("#btnRegistrarCliente").click(function(){
+		registrarCliente();
 	});
 });
+
+
+function registrarCliente(){
+	
+	$("#inputFields input").each(function(){
+	    if ($.trim($(this).val()).length == 0){
+	        $(this).addClass("highlight");
+	        isFormValid = false;
+	        $(this).focus();
+	    }
+	    else{
+	        $(this).removeClass("highlight");
+	    }
+	});
+	
+	
+	var parametros=new Object();
+	parametros.codigoCliente=$("#txtCodigoCliente").val();
+	parametros.razonSocial=$("#txtRazonSocial").val();
+	parametros.rucCliente=$("#txtRucCliente").val();
+	parametros.telefono=$("#txtTelefono").val();
+	parametros.nombreContacto=$("#txtNombreContacto").val();
+	parametros.apellidosContacto=$("#txtApellidosContacto").val();
+	
+	$.ajax({
+		url:"registrarCliente.json",
+		data : parametros,
+		dataType:"json",
+		type:"POST",
+		cache:false,
+		async:false	
+	}).done(function(jsondata){
+		actualizarGrillaCliente();
+	});
+	
+	
+	function actualizarGrillaCliente(){
+		$("#grilla_mantenimiento_cliente").jqGrid('setGridParam').trigger('reloadGrid');
+	}
+}

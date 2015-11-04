@@ -56,7 +56,7 @@ public class MaquinaDAOImpl implements MaquinaDAO{
 	public List<MaquinaBean> listar() {
 		List<MaquinaBean> maquinas=null;
 		
-		String sql="Select cod_maq,desc_maq from Maquinas";
+		String sql="Select cod_maq,desc_maq from Maquina";
 		try{
 			maquinas=jdbcTemplate.query(sql, new RowMapper<MaquinaBean>(){
 				public MaquinaBean mapRow(ResultSet result, int rownum)

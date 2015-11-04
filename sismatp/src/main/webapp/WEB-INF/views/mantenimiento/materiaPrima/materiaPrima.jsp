@@ -37,19 +37,19 @@
 							<tbody>
 								<tr>
 									<td><label>Código Materia Prima: </label></td>
-									<td><input type="text" id="txtCodigoMateriaPrima" /></td>
+									<td><input type="text" id="txtCodigoMateriaPrima"  style="margin-left: 15px;"/></td>
 								</tr>
 								
 								<tr>
 									<td><label>Descripción:</label></td>
-									<td><input type="text" id="txtDescripcion"  maxlength="250" /></td>
+									<td><input type="text" id="txtDescripcion"  maxlength="250" style="margin-left: 15px;"/></td>
 								</tr>
 								
 								<tr>
 									<td><label>Codigo Proveedor:</label></td>
 									
 									<td >
-										<select id="listProveedores"  style="font-size: 12px;width: 180px"> 
+										<select id="listProveedores"  style="font-size: 12px;width: 180px;margin-left: 15px;"> 
 											<c:forEach var="proveedor" items="${proveedores}">
 												<option value="${proveedor.codigoProveedor}">${proveedor.razonSocial} </option>
 											</c:forEach>
