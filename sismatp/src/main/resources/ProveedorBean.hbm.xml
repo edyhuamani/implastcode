@@ -5,14 +5,14 @@
 <hibernate-mapping>
     <class name="pe.com.implast.model.beans.ProveedorBean" table="PROVEEDOR">
         <id name="idProveedor" type="int">
-            <column name="IDPROVEEDOR" />
+            <column name="ID_PRV" />
             <generator class="assigned" />
         </id>
         <property name="codigoProveedor" type="java.lang.String">
-            <column name="CODIGOPROVEEDOR" />
+            <column name="COD_PRV" />
         </property>
         <property name="razonSocial" type="java.lang.String">
-            <column name="RAZONSOCIAL" />
+            <column name="RAZ_SOC_PRV" />
         </property>
     </class>
 </hibernate-mapping>
