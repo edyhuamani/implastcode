@@ -13,6 +13,7 @@ public class ParteExtrusionBean {
 	private String status;
 	private String horaInicio;
 	private String horaFin;
+	private String codigoProducto;
 	private MezclaBean mezcla;
 	private List<InformacionMateriaPrimaBean> listaMateriasPrimas;
 	private List<InformacionProduccionBean> listaProductos;
@@ -23,8 +24,9 @@ public class ParteExtrusionBean {
 	private String tratado;
 	private String solapa;
 	private String fuelle;
-	private String minimo;
-	private String maximo;
+	private String grMLin;
+	private String minimoMateriaPrima;
+	private String maximoMateriaPrima;
 	private String minimoProduccion;
 	private String maximoProduccion;
 	private String scrap;
@@ -54,6 +56,14 @@ public class ParteExtrusionBean {
 		this.espesor = espesor;
 	}
 
+	public String getCodigoProducto() {
+		return codigoProducto;
+	}
+
+	public void setCodigoProducto(String codigoProducto) {
+		this.codigoProducto = codigoProducto;
+	}
+
 	public String getTratado() {
 		return tratado;
 	}
@@ -76,22 +86,6 @@ public class ParteExtrusionBean {
 
 	public void setFuelle(String fuelle) {
 		this.fuelle = fuelle;
-	}
-
-	public String getMinimo() {
-		return minimo;
-	}
-
-	public void setMinimo(String minimo) {
-		this.minimo = minimo;
-	}
-
-	public String getMaximo() {
-		return maximo;
-	}
-
-	public void setMaximo(String maximo) {
-		this.maximo = maximo;
 	}
 
 	public String getMinimoProduccion() {
@@ -166,9 +160,6 @@ public class ParteExtrusionBean {
 		this.fechaEntrega = fechaEntrega;
 	}
 
-
-	
-	
 	public String getCodigoCliente() {
 		return codigoCliente;
 	}
@@ -233,5 +224,31 @@ public class ParteExtrusionBean {
 	public void setCodigoSupervisor(String codigoSupervisor) {
 		this.codigoSupervisor = codigoSupervisor;
 	}
+	
+	public String getMinimoMateriaPrima() {
+		return minimoMateriaPrima;
+	}
+
+	public void setMinimoMateriaPrima(String minimoMateriaPrima) {
+		this.minimoMateriaPrima = minimoMateriaPrima;
+	}
+
+	public String getMaximoMateriaPrima() {
+		return maximoMateriaPrima;
+	}
+
+	public void setMaximoMateriaPrima(String maximoMateriaPrima) {
+		this.maximoMateriaPrima = maximoMateriaPrima;
+	}
+	
+	public String getGrMLin() {
+		return grMLin;
+	}
+
+	public void setGrMLin(String grMLin) {
+		this.grMLin = grMLin;
+	}
+
+
 
 }

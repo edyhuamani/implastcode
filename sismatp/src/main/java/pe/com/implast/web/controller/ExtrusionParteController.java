@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ws.rs.core.MediaType;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -83,27 +84,26 @@ public class ExtrusionParteController {
 	
 	@RequestMapping(value="/procesos/registrarParteExtrusion.json",method={RequestMethod.GET,RequestMethod.POST},produces=MediaType.APPLICATION_JSON)
 	public @ResponseBody ResponseObjectBean<String> registroParteExtrusion(
-		@RequestParam(value="ordenTrabajo")String ordenTrabajo,
-		@RequestParam(value="fecOrdenTrabajo")String fecOrdenTrabajo,
-		@RequestParam(value="fecEntrega") String fecEntrega,
-		@RequestParam(value="codSap") String sap,
-		@RequestParam(value="codMaquina")String codMaquina,
-		@RequestParam(value="status") String status,
-		@RequestParam(value="codCliente") String codCliente,
-		@RequestParam(value="codProducto") String codProducto,
-		@RequestParam(value="ancho") String ancho,
-		@RequestParam(value="espesor") String espesor,
-		@RequestParam(value="tratado") String tratado,
-		@RequestParam(value="solapa") String solapa,
-		@RequestParam(value="fuelle") String fuelle,
-		@RequestParam(value="grMin") String grMin,
-		@RequestParam(value="max") String max,
-		@RequestParam(value="min") String min,
-		@RequestParam(value="maxProd") String maxProd,
-		@RequestParam(value="minProd") String minProd,
-		@RequestParam(value="scrap") String scrap,
-		@RequestParam(value="codTipoManga") String codTipoManga
-		
+		@RequestParam(value="ordenTrabajo",defaultValue=StringUtils.EMPTY)String ordenTrabajo,
+		@RequestParam(value="fecOrdenTrabajo",defaultValue=StringUtils.EMPTY)String fecOrdenTrabajo,
+		@RequestParam(value="fecEntrega",defaultValue=StringUtils.EMPTY) String fecEntrega,
+		@RequestParam(value="codSap",defaultValue=StringUtils.EMPTY) String sap,
+		@RequestParam(value="codMaquina",defaultValue=StringUtils.EMPTY)String codMaquina,
+		@RequestParam(value="status",defaultValue=StringUtils.EMPTY) String status,
+		@RequestParam(value="codCliente",defaultValue=StringUtils.EMPTY) String codCliente,
+		@RequestParam(value="codProducto",defaultValue=StringUtils.EMPTY) String codProducto,
+		@RequestParam(value="ancho",defaultValue=StringUtils.EMPTY) String ancho,
+		@RequestParam(value="espesor",defaultValue=StringUtils.EMPTY) String espesor,
+		@RequestParam(value="tratado",defaultValue=StringUtils.EMPTY) String tratado,
+		@RequestParam(value="solapa",defaultValue=StringUtils.EMPTY) String solapa,
+		@RequestParam(value="fuelle",defaultValue=StringUtils.EMPTY) String fuelle,
+		@RequestParam(value="grMin",defaultValue=StringUtils.EMPTY) String grMin,
+		@RequestParam(value="max",defaultValue=StringUtils.EMPTY) String max,
+		@RequestParam(value="min",defaultValue=StringUtils.EMPTY) String min,
+		@RequestParam(value="maxProd",defaultValue=StringUtils.EMPTY) String maxProd,
+		@RequestParam(value="minProd",defaultValue=StringUtils.EMPTY) String minProd,
+		@RequestParam(value="scrap",defaultValue=StringUtils.EMPTY) String scrap,
+		@RequestParam(value="codTipoManga",defaultValue=StringUtils.EMPTY) String codTipoManga
 		
 			){
 			ResponseObjectBean<String> response=new ResponseObjectBean<String>();
@@ -116,11 +116,23 @@ public class ExtrusionParteController {
 				extrusionParte.setCodigoMaquina(codMaquina);
 				extrusionParte.setStatus(status);
 				extrusionParte.setCodigoCliente(codCliente);
-				
+				extrusionParte.setCodigoProducto(codProducto);
+				extrusionParte.setAncho(ancho);
+				extrusionParte.setEspesor(espesor);
+				extrusionParte.setTratado(tratado);
+				extrusionParte.setSolapa(solapa);
+				extrusionParte.setFuelle(fuelle);
+				extrusionParte.setGrMLin(grMin);
+				extrusionParte.setMaximoMateriaPrima(max);
+				extrusionParte.setMinimoMateriaPrima(min);
+				extrusionParte.setMaximoProduccion(maxProd);
+				extrusionParte.setMinimoProduccion(minProd);
+				extrusionParte.setScrap(scrap);
+				extrusionParte.setCodigoTipoManga(codTipoManga);
 				extrusionParteDAO.registraSalidaExtrusion(extrusionParte);
 				
 			}catch (Exception e){
-				
+				LOG.error(e.getMessage(), e);
 			}
 			return response;
 	}

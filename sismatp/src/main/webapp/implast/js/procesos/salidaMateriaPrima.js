@@ -99,7 +99,7 @@ $(document).ready(function(){
 		adicionarMateriaPrima();
 	});
 	
-	$("#btnRegistrarSalida ").click(function(){
+	$("#btnRegistrarSalida").click(function(){
 		registrarSalidaExtrusionCabecera(); 
 	});
 	
