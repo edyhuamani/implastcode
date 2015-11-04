@@ -8,6 +8,25 @@
 		<div class="row">
 			<p>Mantenimiento de Producto</p>
 			
+				<form id="frmInputProducto">
+					<table>
+						<tbody>
+						<tr>
+							<td><label>Código Producto:</label></td>
+							<td><input type="text" id="txtCodigoProducto"></td>
+						</tr>
+						<tr>
+							<td><label>Descripción Producto</label></td>
+							<td><input type="text" id="txtDescripcionProducto"></td>
+						</tr>
+						</tbody>
+					</table>
+					<br>
+					<input type="button" value="Registrar Producto">
+					<input type="button" value="Cancelar Registro">
+				</form>
+				
+				<br>
 				<div class="ready">
 					<div>
 						<table id="grilla_mantenimiento_producto"></table>
