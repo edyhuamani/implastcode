@@ -93,3 +93,9 @@ registrarProducto=function(){
 	}
 };
 
+function actualizarListaProducto(){
+	$("#grilla_mantenimiento_producto").jqGrid('setGridParam').trigger('reloadGrid');
+}
+
+
+
