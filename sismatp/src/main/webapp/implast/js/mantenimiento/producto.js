@@ -1,9 +1,7 @@
 /**
  * 
  */
-
 $(document).ready(function(){
-	
 	
 	var opciones = function(cellVal,options,rowObject){
 		
@@ -59,7 +57,15 @@ $(document).ready(function(){
 				scrollOffset: 0 //Not space column last
 		});
 	
-	$("#btnRegistrarProveedor").click(function(){
-		registrarProveedor();
+	
+	
+	$("#btnRegistrarProducto").click(function(){
+		registrarProducto();
 	});
+	
+	$("#btnAdicionarMatPrimaIngrediente").click(function(){
+		adicionarMateriaPrimaIngrediente();
+	}); 
 });
+
+

@@ -48,7 +48,7 @@ public class MateriaPrimaDAOImpl implements MateriaPrimaDAO {
 	public MateriaPrimaBean retrieveMateriaPrima(String idMP) {
 		
 		MateriaPrimaBean materiaPrima=null;
-		String sql="Select * from Materiaprima where cod_matp=?";
+		String sql="Select COD_MATP,DESC_MATP,COD_PRV from Materiaprima where cod_matp=?";
 		try {
 				materiaPrima=jdbcTemplate.queryForObject(sql, new Object[] {idMP},new RowMapper<MateriaPrimaBean>(){
 

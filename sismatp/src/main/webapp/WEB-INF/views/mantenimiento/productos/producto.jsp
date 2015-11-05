@@ -11,7 +11,6 @@
 		.selectmenu()
 		.selectmenu("menuWidget")
 	  	.addClass( "overflow" );
-
 		    
 		$("input[type=submit], input[type=button], button").button()
 		.click(function(event) {
@@ -28,11 +27,11 @@
 						<tbody>
 						<tr>
 							<td><label style="width: 150px;">Código Producto:</label></td>
-							<td><input type="text" id="txtCodigoProducto" style="margin-left:10px; "></td>
+							<td><input type="text" id="txtCodigoProducto" style="margin-left:10px;" ></td>
 						</tr>
 						<tr>
 							<td><label style="width: 150px">Descripción Producto:</label></td>
-							<td><input type="text" id="txtDescripcionProducto" style="margin-left: 10px;"></td>
+							<td><input type="text" id="txtDescripcionProducto" style="margin-left: 10px;" ></td>
 						</tr>
 						</tbody>
 					</table>
@@ -48,9 +47,9 @@
 								<tr>
 									<td>Materia Prima:</td>
 									<td>
-										<select id="cmbMateriaPrimaP" >
+										<select id="cmbMateriaPrimaP"  style="margin-left:10px;">
 											<c:forEach var="itemMateriaPrima" items="${materiasPrimas}">
-												<option value="${itemMateriaPrima.codigoMateriaPrima}">${itemMateriaPrima.descMateriaPrima}</option>
+												<option value="${itemMateriaPrima.codigoMateriaPrima}"  style="margin-left:10px;">${itemMateriaPrima.descMateriaPrima}</option>
 											</c:forEach>
 										</select>
 									</td>
@@ -58,20 +57,21 @@
 								</tr>
 								<tr>
 									<td>Porcentaje:</td>
-									<td><input type="text" id="txtPorcenMateriaP" style="margin-left:10px;"></td>
+									<td><input type="text" id="txtPorcenMateriaPrima" style="margin-left:10px;" value="0.00"></td>
 								</tr>
 								<tr>
 									<td>Cantidad:</td>
-									<td><input type="text" id="txtCantMateriaP" style="margin-left:10px;"></td>
+									<td><input type="text" id="txtCantMateriaPrima" style="margin-left:10px;" value="0.00"></td>
 								</tr>
 							</tbody>
 						</table>
 					</fieldset>
 				</form>
 				
-				<input type="button" value="Registrar Mat.Prima en Mezcla" id="btnAdicionarMatPrimaMezcla">
-				<input type="button" value="Cancelar" id="">
+				<input type="button" value="Registrar Mat.Prima en Mezcla" id="btnAdicionarMatPrimaIngrediente">
+				<input type="button" value="Cancelar" id="cancelarRegistroIngrediente">
 
+				<br>
 				<br>
 				<div class="ready">
 					<div>
@@ -79,10 +79,10 @@
 						<div id="pgrilla_mantenimiento_mezcla"></div>
 					</div>
 				</div>
-				
+				<br>
 				<input type="button" value="Registrar Producto">
 				<input type="button" value="Cancelar Registro">
-				
+				<br>
 				<br>
 				<div class="ready">
 					<div>
