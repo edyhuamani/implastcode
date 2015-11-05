@@ -19,7 +19,12 @@ public class ProductoBUSImpl implements ProductoBUS{
 	ProductoDAO productoDAO;
 
 	public void crearProducto(ProductoBean producto) {
-		// TODO Auto-generated method stub
+		
+		try{
+			productoDAO.insertar(producto);
+		}catch (Exception e){
+			LOG.error(e.getMessage(), e);
+		}
 		
 	}
 

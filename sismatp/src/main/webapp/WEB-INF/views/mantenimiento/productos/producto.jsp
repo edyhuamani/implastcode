@@ -69,7 +69,7 @@
 				</form>
 				
 				<input type="button" value="Registrar Mat.Prima en Mezcla" id="btnAdicionarMatPrimaIngrediente">
-				<input type="button" value="Cancelar" id="cancelarRegistroIngrediente">
+				<input type="button" value="Cancelar" id="btnCancelarRegistroIngrediente">
 
 				<br>
 				<br>
@@ -80,8 +80,8 @@
 					</div>
 				</div>
 				<br>
-				<input type="button" value="Registrar Producto">
-				<input type="button" value="Cancelar Registro">
+				<input type="button" value="Registrar Producto" id="btnRegistrarProducto">
+				<input type="button" value="Cancelar Registro" id="btnCancelarRegistroProducto">
 				<br>
 				<br>
 				<div class="ready">

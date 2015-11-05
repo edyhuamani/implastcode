@@ -19,26 +19,26 @@ $(document).ready(function(){
 	jQuery("#grilla_mantenimiento_producto").jqGrid(
 			
 			{
-				url:'listarProveedores.json',
+				url:'listarProductos.json',
 				datatype : 'json',
 				mtype : 'POST',
-				colNames : ['Código','Descripción','Opciones'],
+				colNames : ['Código Producto','Descripción','Opciones'],
 				colModel : [ 
 					{
-						name : 'codigoProveedor',
-						index : 'codigoProveedor',
+						name : 'codigoProducto',
+						index : 'codigoProducto',
 						width : 65,
 						sortable : false,
 						resizable : false
 					},{
-						name : 'razonSocial',
-						index : 'razonSocial',
+						name : 'descripcion',
+						index : 'descripcion',
 						width : 350,
 						sortable : false,
 						resizable : false
 					},{
 						name : 'opciones',
-						index : 'codigoProveedor',
+						index : 'codigoProducto',
 						width : 60,
 						formatter:opciones,
 						sortable : false,
@@ -70,9 +70,26 @@ $(document).ready(function(){
 
 
 registrarProducto=function(){
-
-	alert("producto");	
 	
+	var codigoProducto=$("#txtCodigoProducto").val();
+	var descripProducto=$("#txtDescripcionProducto").val();
 	
+	if (codigoProducto.length>0 && descripProducto.length>0){
+		
+		var parametros=new Object();
+		parametros.codProducto=codigoProducto;
+		parametros.descProducto=descripProducto;
+		
+		$.ajax({
+			url:'registrarProducto.json',
+			data:parametros,
+			dataType:'json',
+			type:'POST',
+			cache:false,
+			async:false
+		}).done(function(jsonData){
+			alert("registrado..");
+		});
+	}
 };
 

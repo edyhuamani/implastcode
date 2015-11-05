@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import pe.com.implast.beans.ResponseListBean;
+import pe.com.implast.beans.ResponseObjectBean;
 import pe.com.implast.logic.business.MateriaPrimaBUS;
 import pe.com.implast.logic.business.ProductoBUS;
 import pe.com.implast.model.beans.IngredienteBean;
 import pe.com.implast.model.beans.MateriaPrimaBean;
+import pe.com.implast.model.beans.MezclaBean;
 import pe.com.implast.model.beans.ProductoBean;
 
 @Controller
@@ -104,6 +106,29 @@ public class ProductoController {
 		ResponseListBean<IngredienteBean> response=new ResponseListBean<IngredienteBean>();
 		try{
 			response.setRows(ingredientes);
+		}catch (Exception e){
+			LOG.error(e.getMessage(), e);
+		}
+		return response;
+	}
+	
+	@RequestMapping(value="/mantenimiento/registrarProducto.json",method={RequestMethod.GET,RequestMethod.POST},produces=MediaType.APPLICATION_JSON)
+	public @ResponseBody ResponseObjectBean<String> registrarProducto(
+			@RequestParam(value="codProducto",defaultValue=StringUtils.EMPTY) String codProducto,
+			@RequestParam(value="descProducto",defaultValue=StringUtils.EMPTY) String descProducto
+			
+			){
+		ResponseObjectBean<String> response=new ResponseObjectBean<String>();
+		try{
+			MezclaBean mezcla=new MezclaBean(); 
+			mezcla.setIngredientes(ingredientes);
+			ProductoBean producto=new ProductoBean();
+			producto.setCodigoProducto(codProducto);
+			producto.setDescripcion(descProducto);
+			producto.setMezcla(mezcla);
+			productoBUS.crearProducto(producto);
+			// limpieza 
+			ingredientes.clear();
 		}catch (Exception e){
 			LOG.error(e.getMessage(), e);
 		}

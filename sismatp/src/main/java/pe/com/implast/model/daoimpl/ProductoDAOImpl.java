@@ -1,19 +1,25 @@
 package pe.com.implast.model.daoimpl;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
+import javax.sql.DataSource;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionDefinition;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.support.DefaultTransactionDefinition;
 
-import pe.com.implast.model.beans.MateriaPrimaBean;
+import pe.com.implast.model.beans.IngredienteBean;
 import pe.com.implast.model.beans.ProductoBean;
 import pe.com.implast.model.dao.ProductoDAO;
 
@@ -25,19 +31,59 @@ public class ProductoDAOImpl implements ProductoDAO{
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	
-	public void insertar(ProductoBean t) {
+	@Autowired
+	DataSource dataSource;
+	
+	@Autowired
+	PlatformTransactionManager txManager;
+	
+	public void insertar(final ProductoBean producto) {
+
+		TransactionDefinition def=new DefaultTransactionDefinition();
+		TransactionStatus status=txManager.getTransaction(def);
+
 		try{
-			SimpleJdbcInsert simpleJdbc=new SimpleJdbcInsert(jdbcTemplate.getDataSource());
-			Map<String,Object> params=new HashMap<String ,Object>();
-			//params.put(key, value);
-			//params.put(key, value);
-			simpleJdbc.execute(params);
 			
+			String sql_insert_header="INSERT INTO PRODUCTO(ID_PROD,COD_PROD,DESC_PROD) VALUES(DEFAULT,?,?)";
+			
+			Object[]  args=new Object[]{producto.getCodigoProducto(),producto.getDescripcion()};
+			
+			String sql_insert_detail="INSERT INTO MEZCLA(ID_MEZ,COD_PROD,COD_MATP,PORC_MEZC,CANT_MEZC) VALUES(DEFAULT,?,?,?,?)";
+			
+			/** producto **/
+			jdbcTemplate.update(sql_insert_header, args);
+			
+			
+			/** mezcla **/
+			jdbcTemplate.batchUpdate(sql_insert_detail,new BatchPreparedStatementSetter() {
+				
+				public void setValues(PreparedStatement ps, int i) throws SQLException {
+					
+					IngredienteBean ingrediente=producto.getMezcla().getIngredientes().get(i);
+					ps.setString(1, producto.getCodigoProducto());
+					ps.setString(2, ingrediente.getMateriaPrima().getCodigoMateriaPrima());
+					ps.setDouble(3, ingrediente.getPorcentaje());
+					ps.setDouble(4, ingrediente.getCantidad());
+				}
+				
+				public int getBatchSize() {
+					return producto.getMezcla().getIngredientes().size();
+				}
+			});
+			
+			
+			txManager.commit(status);
+			
+			
+		}catch(DataAccessException de){
+			txManager.rollback(status);
+			LOG.error(de.getMessage(), de);
 		}catch (Exception e){
 			LOG.error(e.getMessage(), e);
 		}
 	}
 
+	
 	public ProductoBean obtener(String id) {
 		// TODO Auto-generated method stub
 		return null;
@@ -55,14 +101,14 @@ public class ProductoDAOImpl implements ProductoDAO{
 
 	public List<ProductoBean> listar() {
 		List<ProductoBean> productos=null;
-		String sql="select cod_prod,desc_prod from producto";
+		String sql="select cod_prod,desc_prod from producto order by desc_prod";
 		try{
 			productos=jdbcTemplate.query(sql, new RowMapper<ProductoBean>(){
 				public ProductoBean mapRow(ResultSet result, int rownum)
 						throws SQLException {
 						ProductoBean producto=new ProductoBean();
-						producto.setCodigoProducto(result.getString("cod_prod"));
-						producto.setDescripcion(result.getString("desc_prod"));
+						producto.setCodigoProducto(result.getString("COD_PROD"));
+						producto.setDescripcion(result.getString("DESC_PROD"));
 						return producto;
 				}
 			});
@@ -82,8 +128,8 @@ public class ProductoDAOImpl implements ProductoDAO{
 				public ProductoBean mapRow(ResultSet result, int rownum)
 						throws SQLException {
 						ProductoBean producto=new ProductoBean();
-						producto.setCodigoProducto(result.getString("cod_prod"));
-						producto.setDescripcion(result.getString("desc_prod"));					
+						producto.setCodigoProducto(result.getString("COD_PROD"));
+						producto.setDescripcion(result.getString("DESC_PROD"));					
 						return producto;
 				}
 			});
