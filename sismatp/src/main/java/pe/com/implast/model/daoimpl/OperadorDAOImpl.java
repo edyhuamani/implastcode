@@ -25,12 +25,11 @@ public class OperadorDAOImpl implements OperadorDAO{
 
 	public void createOperador(OperadorBean operador) {
 		try{
-			String sql="insert into operador(idOperador,codigoOperador,nombreOperador) values (?,?,?)";
-			jdbcTemplate.update(sql,operador.getIdOperador(),operador.getCodigoOperador(),operador.getNombreOperador());
+			String sql="insert into operador(ID_OPE,COD_OPE,NOM_OPE) values (DEFAULT,?,?)";
+			jdbcTemplate.update(sql,operador.getCodigoOperador(),operador.getNombreOperador());
 		}catch (Exception e){
 			LOG.error(e.getMessage(), e);
 		}
-		
 	}
 
 	public OperadorBean retrieveOperador(int idOperador) {
@@ -63,14 +62,14 @@ public class OperadorDAOImpl implements OperadorDAO{
 	public List<OperadorBean> obtenerListaOperador() {
 		List<OperadorBean> operadores=null;
 		try{
-			String sql="select * from operador";
+			String sql="Select COD_OPE,NOM_OPE from operador";
 			operadores=jdbcTemplate.query(sql, new RowMapper<OperadorBean>(){
 
 				public OperadorBean mapRow(ResultSet rs, int rownum)
 						throws SQLException {
 					OperadorBean operador=new OperadorBean();
-					operador.setCodigoOperador(rs.getString("codigoOperador"));
-					operador.setNombreOperador(rs.getString("nombreOperador"));
+					operador.setCodigoOperador(rs.getString("COD_OPE"));
+					operador.setNombreOperador(rs.getString("NOM_OPE"));
 					return operador;
 				}});
 		}catch (DataAccessException da){
@@ -92,13 +91,13 @@ public class OperadorDAOImpl implements OperadorDAO{
 			pagina=pagina-1;
 			inicioPagina=pagina*registros;
 		}
-		String sql="SELECT * FROM OPERADOR LIMIT 10 OFFSET ?";
+		String sql="SELECT COD_OPE,NOM_OPE FROM OPERADOR LIMIT 10 OFFSET ?";
 		try{
 			operadores=jdbcTemplate.query(sql, new Object[] {inicioPagina}, new RowMapper<OperadorBean>() {
 				public OperadorBean mapRow(ResultSet result, int rownum) throws SQLException {
 					OperadorBean operador=new OperadorBean();
-					operador.setCodigoOperador(result.getString("codigoOperador"));
-					operador.setNombreOperador(result.getString("nombreOperador"));
+					operador.setCodigoOperador(result.getString("COD_OPE"));
+					operador.setNombreOperador(result.getString("NOM_OPE"));
 					return operador;
 				}
 			});

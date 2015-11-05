@@ -115,16 +115,16 @@ public class ProveedorDAOImpl  implements ProveedorDAO {
 			inicioPagina=pagina*registros;
 		}
 				
-		String sql="SELECT * FROM PROVEEDOR LIMIT 10 OFFSET ?";
+		String sql="SELECT COD_PRV,RAZ_SOC_PRV FROM PROVEEDOR LIMIT 10 OFFSET ?";
 		try{
-			
 			proveedores=jdbcTemplate.query(sql,new Object[]{inicioPagina}, new RowMapper<ProveedorBean>(){
 
 				public ProveedorBean mapRow(ResultSet result, int rownum)
 						throws SQLException {
 						ProveedorBean proveedor=new ProveedorBean();
-						proveedor.setCodigoProveedor(result.getString("codigoProveedor"));
-						proveedor.setRazonSocial(result.getString("razonSocial"));
+						proveedor.setCodigoProveedor(result.getString("COD_PRV"));
+						proveedor.setRazonSocial(result.getString("RAZ_SOC_PRV"));
+			
 						return proveedor;
 				}
 				

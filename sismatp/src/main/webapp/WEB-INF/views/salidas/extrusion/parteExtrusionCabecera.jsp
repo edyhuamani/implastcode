@@ -83,7 +83,7 @@
 	<div class="container">
 		
 		<div class="row">
-			<h3>Registro de Salidas de Materias Primas</h3>
+			<h3>Extrusion Parte (Cabecera) </h3>
 			
 			<table>
 				

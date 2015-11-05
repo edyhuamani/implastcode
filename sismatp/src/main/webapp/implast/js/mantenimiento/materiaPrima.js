@@ -74,20 +74,28 @@ $(document).ready(function(){
 
 function registrarMateriaPrima(){
 	
-	var parametros=new Object();
-	parametros.codigoMateriaPrima=$("#txtCodigoMateriaPrima").val();
-	parametros.descripcion=$("#txtDescripcion").val();
+	var codigoMateriaPrima=$("#txtCodigoMateriaPrima").val();
+	var descripMateriaPrima=$("#txtDescripcion").val();
 	
-	$.ajax({
-		url : "registrarMateriaPrima.json",
-		data : parametros,
-		dataType: 'json',
-		type : 'POST',
-		async : false,
-		cache : false
-	}).done(function(jsondata){
-		actualizarListaMateriaPrima();
-	});
+	if (codigoMateriaPrima.length>0 && descripMateriaPrima.length>0){ 
+	
+		var parametros=new Object();
+		parametros.codigoMateriaPrima=$("#txtCodigoMateriaPrima").val();
+		parametros.descripcion=$("#txtDescripcion").val();
+		
+		$.ajax({
+			url : "registrarMateriaPrima.json",
+			data : parametros,
+			dataType: 'json',
+			type : 'POST',
+			async : false,
+			cache : false
+		}).done(function(jsondata){
+			actualizarListaMateriaPrima();
+		});
+	}else {
+		alert("Faltan los datos requeridos");
+	}	
 }
 
 
