@@ -48,11 +48,11 @@ public class ProductoDAOImpl implements ProductoDAO{
 			
 			Object[]  args=new Object[]{producto.getCodigoProducto(),producto.getDescripcion()};
 			
-			String sql_insert_detail="INSERT INTO MEZCLA(ID_MEZ,COD_PROD,COD_MATP,PORC_MEZC,CANT_MEZC) VALUES(DEFAULT,?,?,?,?)";
-			
 			/** producto **/
 			jdbcTemplate.update(sql_insert_header, args);
 			
+			
+			String sql_insert_detail="INSERT INTO MEZCLA(ID_MEZ,COD_PROD,COD_MATP,PORC_MEZC,CANT_MEZC) VALUES(DEFAULT,?,?,?,?)";
 			
 			/** mezcla **/
 			jdbcTemplate.batchUpdate(sql_insert_detail,new BatchPreparedStatementSetter() {
@@ -70,7 +70,6 @@ public class ProductoDAOImpl implements ProductoDAO{
 					return producto.getMezcla().getIngredientes().size();
 				}
 			});
-			
 			
 			txManager.commit(status);
 			
@@ -121,9 +120,18 @@ public class ProductoDAOImpl implements ProductoDAO{
 	public List<ProductoBean> listarProductosPaginado(Integer pagina,
 			Integer registros) {
 		List<ProductoBean> productos=null;
+		Integer numeropagina=0;
+		
+		if (pagina==1){
+			numeropagina=pagina-1;
+		}else{
+			numeropagina=(pagina-1)*registros;
+			numeropagina+=1;
+		}
+		
 		String sql="select cod_prod,desc_prod  from producto LIMIT 10 OFFSET ? ";
 		try{
-			productos=jdbcTemplate.query(sql, new Object[]{}, new RowMapper<ProductoBean>(){
+			productos=jdbcTemplate.query(sql, new Object[]{numeropagina}, new RowMapper<ProductoBean>(){
 
 				public ProductoBean mapRow(ResultSet result, int rownum)
 						throws SQLException {
@@ -141,7 +149,7 @@ public class ProductoDAOImpl implements ProductoDAO{
 
 	public Integer totalProductos() {
 		Integer response=null;
-		String sql="Select count(1) from Productos";
+		String sql="Select count(1) from Producto";
 		try{
 			response=jdbcTemplate.queryForObject(sql, Integer.class);
 		}catch (Exception e){

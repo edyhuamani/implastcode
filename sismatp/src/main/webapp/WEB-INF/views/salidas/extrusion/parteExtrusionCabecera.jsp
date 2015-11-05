@@ -139,9 +139,7 @@
 					<td>
 						<select  id="cmbProducto" style="width: 300px;">
 								<c:forEach var="itemProducto" items="${productos}">	
-									<option>Lamina</option>
-									<option>Manga Cerrada</option>
-									<option>Manga Abierta 1 Lado</option>
+									<option value="${itemProducto.codigoProducto}">${itemProducto.descripcion}</option>
 								</c:forEach>	
 						</select>
 					</td>

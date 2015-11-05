@@ -26,7 +26,9 @@ public class OperadorDAOImpl implements OperadorDAO{
 	public void createOperador(OperadorBean operador) {
 		try{
 			String sql="insert into operador(ID_OPE,COD_OPE,NOM_OPE) values (DEFAULT,?,?)";
+			
 			jdbcTemplate.update(sql,operador.getCodigoOperador(),operador.getNombreOperador());
+			 
 		}catch (Exception e){
 			LOG.error(e.getMessage(), e);
 		}
