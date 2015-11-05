@@ -4,6 +4,77 @@
 
 $(document).ready(function(){
 	
+    	
+		$( "#txtFechaOrdenTrabajo" ).datepicker({ dateFormat: 'dd/mm/yy' });
+		
+		$( "#txtFechaProduccion" ).datepicker({ dateFormat: 'dd/mm/yy' });
+		
+		$( "#txtFechaEntrega" ).datepicker({ dateFormat: 'dd/mm/yy' });
+		
+		$( "#cmbTipoManga" )
+    	.selectmenu()
+    	.selectmenu("menuWidget")
+      	.addClass( "overflow" );
+
+    	$( "#cmbMaquina" )
+    	.selectmenu()
+    	.selectmenu("menuWidget")
+      	.addClass( "overflow" );
+    	
+    	$( "#cmbProducto" )
+    	.selectmenu({
+    		change:function(event,ui){seleccionarProducto();}
+    	})
+    	.selectmenu("menuWidget")
+      	.addClass( "overflow" );
+    	
+    	$( "#cmbTratado" )
+    	.selectmenu()
+    	.selectmenu("menuWidget")
+      	.addClass( "overflow" );
+
+    	
+    	$( "#cmbCliente" )
+    	.selectmenu()
+    	.selectmenu("menuWidget")
+      	.addClass( "overflow" );
+    	
+    	$( "#cmbOperador" )
+    	.selectmenu()
+    	.selectmenu("menuWidget")
+      	.addClass( "overflow" );
+
+    	$( "#cmbTipoTurno" )
+    	.selectmenu()
+    	.selectmenu("menuWidget")
+      	.addClass( "overflow" );
+
+    	$( "#cmbCodigoMateriaPrima")
+    	.selectmenu()
+    	.selectmenu("menuWidget")
+      	.addClass( "overflow" );
+    	
+    	$("input[type=submit], input[type=button], button").button()
+    	.click(function(event) {
+    		event.preventDefault();
+    	});
+    	
+		$('#txtAncho').change(function() {
+		    $('#txtAncho').val( Math.round($('#txtAncho').val() * 100) / 100 );
+		});
+
+		$('#txtEspesor').change(function() {
+		    $('#txtEspesor').val( Math.round($('#txtEspesor').val() * 100) / 100 );
+		});
+
+		$('#txtAncho').change(function() {
+		    $('#txtAncho').val( Math.round($('#txtAncho').val() * 100) / 100 );
+		});
+		
+		
+		
+
+	
 	
 	var opciones = function(cellVal,options,rowObject){
 		
@@ -95,6 +166,7 @@ $(document).ready(function(){
 	});
 	
 	
+	
 	$("#btnAdicionarMateriaPrima").click(function(){
 		adicionarMateriaPrima();
 	});
@@ -106,7 +178,9 @@ $(document).ready(function(){
 });
 
 
-
+function seleccionarProducto(){
+	seleccionarMezcla();
+}
 function registrarSalidaExtrusionCabecera(){
 
 	var parametros=new Object();
@@ -149,6 +223,10 @@ function editarMateriaPrima(){
 
 function eliminarMateriaPrima(){
 	
+}
+
+function seleccionarMezcla(){
+	alert("seleccion de mezcla");
 }
 
 

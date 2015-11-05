@@ -3,80 +3,28 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script type="text/javascript"  src="<%=request.getContextPath()%>/implast/js/procesos/extrusionRegistro/parteExtrusion.js"></script>
 <script type="text/javascript"  src="<%=request.getContextPath()%>/implast/js/procesos/salidaMezcla.js"></script>
-<script type="text/javascript"  src="<%=request.getContextPath()%>/implast/js/procesos/salidaMateriaPrima.js"></script>
 <script type="text/javascript"  src="<%=request.getContextPath()%>/implast/js/procesos/salidaProduccion.js"></script>
 
-<script type="text/javascript">
-	$(function() {
-    	
-		$( "#txtFechaOrdenTrabajo" ).datepicker({ dateFormat: 'dd/mm/yy' });
-		
-		$( "#txtFechaProduccion" ).datepicker({ dateFormat: 'dd/mm/yy' });
-		
-		$( "#txtFechaEntrega" ).datepicker({ dateFormat: 'dd/mm/yy' });
-		
-    	$( "#cmbTipoManga" )
-    	.selectmenu()
-    	.selectmenu("menuWidget")
-      	.addClass( "overflow" );
 
-    	$( "#cmbMaquina" )
-    	.selectmenu()
-    	.selectmenu("menuWidget")
-      	.addClass( "overflow" );
-    	
-    	$( "#cmbProducto" )
-    	.selectmenu()
-    	.selectmenu("menuWidget")
-      	.addClass( "overflow" );
-    	
-    	$( "#cmbTratado" )
-    	.selectmenu()
-    	.selectmenu("menuWidget")
-      	.addClass( "overflow" );
 
-    	
-    	$( "#cmbCliente" )
-    	.selectmenu()
-    	.selectmenu("menuWidget")
-      	.addClass( "overflow" );
-    	
-    	$( "#cmbOperador" )
-    	.selectmenu()
-    	.selectmenu("menuWidget")
-      	.addClass( "overflow" );
+<style>
+    fieldset {
+      border: 0;
+    }
+    label {
+      display: block;
+      margin: 5px 0 0 0;
+    }
+    select {
+      width: 200px;
+    }
+    .overflow {
+      height: 200px;
+    }
+  </style>
 
-    	$( "#cmbTipoTurno" )
-    	.selectmenu()
-    	.selectmenu("menuWidget")
-      	.addClass( "overflow" );
-
-    	$( "#cmbCodigoMateriaPrima")
-    	.selectmenu()
-    	.selectmenu("menuWidget")
-      	.addClass( "overflow" );
-    	
-    	$("input[type=submit], input[type=button], button").button()
-    	.click(function(event) {
-    		event.preventDefault();
-    	});
-    	
-    	<!--Numeric-->
-		$('#txtAncho').change(function() {
-		    $('#txtAncho').val( Math.round($('#txtAncho').val() * 100) / 100 );
-		});
-
-		$('#txtEspesor').change(function() {
-		    $('#txtEspesor').val( Math.round($('#txtEspesor').val() * 100) / 100 );
-		});
-
-		$('#txtAncho').change(function() {
-		    $('#txtAncho').val( Math.round($('#txtAncho').val() * 100) / 100 );
-		});
-		
-  	});
-</script>
 
 <div id="body" class="ready">
 	
@@ -137,7 +85,7 @@
 					<!-- Producto -->
 					<td><label style="width: 120px;">Producto:</label></td>
 					<td>
-						<select  id="cmbProducto" style="width: 300px;">
+						<select  id="cmbProducto" style="width: 300px;" onchange="alert();" >
 								<c:forEach var="itemProducto" items="${productos}">	
 									<option value="${itemProducto.codigoProducto}">${itemProducto.descripcion}</option>
 								</c:forEach>	
@@ -310,7 +258,7 @@
 						<tr>
 							<td><label> Seleccione Materia Prima: </label></td>
 							<td>
-								<select id="cmbCodigoMateriaPrima" style="width: 350px;">
+								<select id="cmbCodigoMateriaPrima" style="width: 350px;" onchange="javascript:seleccionProducto();">
 											<c:forEach var="itemMateriaPrima" items="${materiasPrimas}">
 												<option value="itemMateriaPrima.codigoMateriaPrima">
 													${itemMateriaPrima.descMateriaPrima}</option>

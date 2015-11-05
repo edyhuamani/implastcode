@@ -88,7 +88,7 @@ registrarProducto=function(){
 			cache:false,
 			async:false
 		}).done(function(jsonData){
-			alert("registrado..");
+			actualizarListaProducto();
 		});
 	}
 };
