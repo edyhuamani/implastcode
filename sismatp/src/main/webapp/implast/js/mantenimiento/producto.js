@@ -69,3 +69,10 @@ $(document).ready(function(){
 });
 
 
+registrarProducto=function(){
+
+	alert("producto");	
+	
+	
+};
+

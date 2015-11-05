@@ -26,12 +26,12 @@ $(document).ready(function(){
 						index : 'codigoMateriaPrima',
 						width : 150,
 						sortable : false,
-						jsonmap:"head.codigoMateriaPrima",
+						jsonmap:"materiaPrima.codigoMateriaPrima",
 						resizable : false
 					},{
 						name : 'descMateriaPrima',
 						index : 'descMateriaPrima',
-						jsonmap:"head.descMateriaPrima",
+						jsonmap:"materiaPrima.descMateriaPrima",
 						width : 350,
 						sortable : false,
 						resizable : false

@@ -35,7 +35,6 @@ public class ProductoController {
 	
 	List<IngredienteBean> ingredientes;
 	
-	
 	public ProductoController() {
 		this.ingredientes=new ArrayList<IngredienteBean>();
 	}
