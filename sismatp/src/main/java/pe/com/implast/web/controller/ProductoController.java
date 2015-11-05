@@ -23,6 +23,7 @@ import pe.com.implast.model.beans.IngredienteBean;
 import pe.com.implast.model.beans.MateriaPrimaBean;
 import pe.com.implast.model.beans.MezclaBean;
 import pe.com.implast.model.beans.ProductoBean;
+import pe.com.implast.utils.OperadoresUtil;
 
 @Controller
 public class ProductoController {
@@ -58,20 +59,20 @@ public class ProductoController {
 	}
 	
 	@RequestMapping(value="/mantenimiento/listarProductos.json",method={RequestMethod.POST,RequestMethod.GET},produces=MediaType.APPLICATION_JSON)
-	public @ResponseBody ResponseListBean<MateriaPrimaBean> listarProductos(
+	public @ResponseBody ResponseListBean<ProductoBean> listarProductos(
 		@RequestParam(value="page",defaultValue="1") Integer pagina,
 		@RequestParam(value="rows",defaultValue="10")Integer registros ){
 		
-		ResponseListBean<MateriaPrimaBean> response=new ResponseListBean<MateriaPrimaBean>();
-		List<ProductoBean> listarProductos=new ArrayList<ProductoBean>();
+		ResponseListBean<ProductoBean> response=new ResponseListBean<ProductoBean>();
+		List<ProductoBean> listaProductos=new ArrayList<ProductoBean>();
 		
 		try{
-			listarProductos=productoBUS.listarProductosPaginado(pagina,registros);
-//			Integer totalRegistros = materiaPrimaBUS.totalMateriasPrimas();
-//			response.setPage(pagina);
-//			response.setRecords(totalRegistros);
-//			response.setTotal(OperadoresUtil.obtenerCociente(totalRegistros, registros));
-//			response.setRows(listaMateriasPrimas);
+			listaProductos=productoBUS.listarProductosPaginado(pagina,registros);
+			Integer totalRegistros = productoBUS.totalProductos();
+			response.setPage(pagina);
+			response.setRecords(totalRegistros);
+			response.setTotal(OperadoresUtil.obtenerCociente(totalRegistros, registros));
+			response.setRows(listaProductos);
 		}catch(Exception e) {
 			LOG.error(e.getMessage(),e);
 		}

@@ -64,9 +64,14 @@ public class ProductoBUSImpl implements ProductoBUS{
 		return productos;
 	}
 
-	public Integer totalMateriasPrimas() {
-		// TODO Auto-generated method stub
-		return null;
+	public Integer totalProductos() {
+		Integer response=0;
+		try{
+			response=productoDAO.totalProductos();
+		}catch (Exception e ){
+			LOG.error(e.getMessage(), e);
+		}
+		return response;
 	}
 
 }

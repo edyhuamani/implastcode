@@ -18,6 +18,6 @@ public interface ProductoBUS {
 
 	List<ProductoBean> listarProductosPaginado(Integer pagina, Integer registros);
 
-	Integer totalMateriasPrimas();
+	Integer totalProductos();
 	
 }
