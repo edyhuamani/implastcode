@@ -183,6 +183,7 @@
 	</dependency>
      
 	<!-- apache poi -->
+	<!-- 
 	<dependency>
 		<groupId>org.apache.poi</groupId>
 		<artifactId>poi</artifactId>
@@ -194,7 +195,7 @@
 		<artifactId>commons-codec</artifactId>
 		<version>1.10</version>
 	</dependency>
-
+	-->
     
   </dependencies>
   <build>
