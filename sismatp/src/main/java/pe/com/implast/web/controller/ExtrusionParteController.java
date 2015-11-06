@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import pe.com.implast.beans.ResponseListBean;
 import pe.com.implast.beans.ResponseObjectBean;
 import pe.com.implast.logic.business.ClienteBUS;
 import pe.com.implast.logic.business.MaquinaBUS;
@@ -150,11 +151,33 @@ public class ExtrusionParteController {
 		List<IngredienteBean> ingredientes=new ArrayList<IngredienteBean>();
 		try{
 			ingredientes=extrusionParteDAO.seleccionarMezcla(codigoProducto);
+			obtenerNombreIngrediente(ingredientes);
+			ingredientesMezcla.clear();
 			ingredientesMezcla.addAll(ingredientes);
 			
 		}catch (Exception e){
 			LOG.error(e.getMessage(), e);
 		}
 		return response;
+	}
+	
+	
+	@RequestMapping(value="/procesos/recargar-grilla-seleccionarMezcla.json",method={RequestMethod.GET,RequestMethod.POST},produces=MediaType.APPLICATION_JSON)
+	public @ResponseBody  ResponseListBean<IngredienteBean> recargaMezcla(){
+		ResponseListBean<IngredienteBean> response=new ResponseListBean<IngredienteBean>();
+		try{
+			response.setRows(ingredientesMezcla);
+		}catch (Exception e){
+			LOG.error(e.getMessage(), e);
+		}
+		return response;
+	}
+	
+	
+	private void obtenerNombreIngrediente(List<IngredienteBean> ingredientes){
+		for(IngredienteBean ingrediente:ingredientes){
+			String codigoMateriaPrima=ingrediente.getMateriaPrima().getCodigoMateriaPrima();
+			 ingrediente.getMateriaPrima().setDescMateriaPrima(materiaPrimaBUS.obtenerMateriaPrima(codigoMateriaPrima).getDescMateriaPrima());
+		}
 	}
 }

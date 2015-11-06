@@ -3,7 +3,6 @@
  */
 
 $(document).ready(function(){
-	
     	
 		$( "#txtFechaOrdenTrabajo" ).datepicker({ dateFormat: 'dd/mm/yy' });
 		
@@ -70,9 +69,6 @@ $(document).ready(function(){
 		$('#txtAncho').change(function() {
 		    $('#txtAncho').val( Math.round($('#txtAncho').val() * 100) / 100 );
 		});
-		
-		
-		
 
 	
 	
@@ -238,28 +234,40 @@ function seleccionarMezcla(){
 		async : false,
 		cache : false
 	}).done(function(){
-		actualizarListaIngresos();
+		actualizarElementosMezcla();
 	});
 
 }
 
 
-function adicionarMateriaPrima(){
-	var parametros=new Object();
-	parametros=$("#").val();
-	
-	$.ajax({
-		url : 'adicionarMateriaPrima.json',
-		data : parametros,
-		dataType:'json',
-		type : 'POST',
-		async : false,
-		cache : false
-	}).done(function(){
-		actualizarListaIngresos();
-	});
+function actualizarElementosMezcla(){
+    $("#grilla_mantenimiento_salidaMezcla").jqGrid('setGridParam',
+		{
+			url : 'recargar-grilla-seleccionarMezcla.json',
+			datatype : 'json', 
+			mtype : 'POST',
+			page : 1
+	}).trigger('reloadGrid');
 }
 
-function actualizarListaIngresos(){
-	$("#grilla_mantenimiento_salidaMateriaPrima").jqGrid('setGridParam').trigger('reloadGrid');
-}
+
+
+//function adicionarMateriaPrima(){
+//	var parametros=new Object();
+//	parametros=$("#").val();
+//	
+//	$.ajax({
+//		url : 'adicionarMateriaPrima.json',
+//		data : parametros,
+//		dataType:'json',
+//		type : 'POST',
+//		async : false,
+//		cache : false
+//	}).done(function(){
+//		actualizarListaIngresos();
+//	});
+//}
+//
+//function actualizarListaIngresos(){
+//	$("#grilla_mantenimiento_salidaMateriaPrima").jqGrid('setGridParam').trigger('reloadGrid');
+//}

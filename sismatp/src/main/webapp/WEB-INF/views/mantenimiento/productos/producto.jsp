@@ -22,16 +22,17 @@
 <div class="container">
 		<div class="row">
 			<p>Mantenimiento de Producto</p>
+				
 				<form id="frmInputProducto">
 					<table>
 						<tbody>
 						<tr>
-							<td><label style="width: 150px;">Código Producto:</label></td>
-							<td><input type="text" id="txtCodigoProducto" style="margin-left:10px;" ></td>
+							<td><label style="width: 150px;">Código :</label></td>
+							<td><input type="text" id="txtCodigoProducto" style="margin-left:10px;width: 150px;" ></td>
 						</tr>
 						<tr>
-							<td><label style="width: 150px">Descripción Producto:</label></td>
-							<td><input type="text" id="txtDescripcionProducto" style="margin-left: 10px;" ></td>
+							<td><label style="width: 150px">Descripción :</label></td>
+							<td><input type="text" id="txtDescripcionProducto" style="margin-left: 10px;width: 450px;" ></td>
 						</tr>
 						</tbody>
 					</table>
@@ -45,7 +46,7 @@
 						<table>
 							<tbody>
 								<tr>
-									<td>Materia Prima:</td>
+									<td><label style="width: 150px;">Materia Prima:</label></td>
 									<td>
 										<select id="cmbMateriaPrimaP"  style="margin-left:10px;">
 											<c:forEach var="itemMateriaPrima" items="${materiasPrimas}">
@@ -56,17 +57,18 @@
 									
 								</tr>
 								<tr>
-									<td>Porcentaje:</td>
-									<td><input type="text" id="txtPorcenMateriaPrima" style="margin-left:10px;" value="0.00"></td>
+									<td><label style="width: 150px;">Porcentaje:</label></td>
+									<td><input type="text" id="txtPorcenMateriaPrima"  value="0.00"></td>
 								</tr>
 								<tr>
-									<td>Cantidad:</td>
-									<td><input type="text" id="txtCantMateriaPrima" style="margin-left:10px;" value="0.00"></td>
+									<td><label style="width: 150px;">Cantidad:</label></td>
+									<td><input type="text" id="txtCantMateriaPrima"  value="0.00"></td>
 								</tr>
 							</tbody>
 						</table>
 					</fieldset>
 				</form>
+				<br>
 				
 				<input type="button" value="Registrar Mat.Prima en Mezcla" id="btnAdicionarMatPrimaIngrediente">
 				<input type="button" value="Cancelar" id="btnCancelarRegistroIngrediente">
@@ -84,6 +86,7 @@
 				<input type="button" value="Cancelar Registro" id="btnCancelarRegistroProducto">
 				<br>
 				<br>
+				
 				<div class="ready">
 					<div>
 						<table id="grilla_mantenimiento_producto"></table>

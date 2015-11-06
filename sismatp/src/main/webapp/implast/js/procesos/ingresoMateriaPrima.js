@@ -106,6 +106,4 @@ function actualizarListaIngresos(){
 			mtype : 'POST',
 			page : 1
 	}).trigger('reloadGrid');
-	
-	
 }

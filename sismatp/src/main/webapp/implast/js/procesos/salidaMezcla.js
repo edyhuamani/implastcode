@@ -26,13 +26,15 @@ $(document).ready(function(){
 				index : 'codigoMateriaPrima',
 				width : 120,
 				sortable : false,
-				resizable : false
+				resizable : false,
+				jsonmap:"materiaPrima.codigoMateriaPrima"
 			},{
 				name : 'descMateriaPrima',
 				index : 'descMateriaPrima',
 				width : 350,
 				sortable : false,
-				resizable : false
+				resizable : false,
+				jsonmap:"materiaPrima.descMateriaPrima"
 			},{
 				name : 'porcentaje',
 				index : 'porcentaje',
@@ -84,22 +86,22 @@ function eliminarMateriaPrima(){
 	
 }
 
-function adicionarMateriaPrima(){
-	var parametros=new Object();
-	parametros=$("#").val();
-	
-	$.ajax({
-		url : 'adicionarMateriaPrima.json',
-		data : parametros,
-		dataType:'json',
-		type : 'POST',
-		async : false,
-		cache : false
-	}).done(function(){
-		actualizarListaIngresos();
-	});
-}
-
-function actualizarListaIngresos(){
-	$("#grilla_mantenimiento_salidaMateriaPrima").jqGrid('setGridParam').trigger('reloadGrid');
-}
+//function adicionarMateriaPrima(){
+//	var parametros=new Object();
+//	parametros=$("#").val();
+//	
+//	$.ajax({
+//		url : 'adicionarMateriaPrima.json',
+//		data : parametros,
+//		dataType:'json',
+//		type : 'POST',
+//		async : false,
+//		cache : false
+//	}).done(function(){
+//		actualizarListaIngresos();
+//	});
+//}
+//
+//function actualizarListaIngresos(){
+//	$("#grilla_mantenimiento_salidaMateriaPrima").jqGrid('setGridParam').trigger('reloadGrid');
+//}

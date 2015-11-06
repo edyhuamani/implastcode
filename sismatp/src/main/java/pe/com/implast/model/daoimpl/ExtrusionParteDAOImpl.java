@@ -3,6 +3,7 @@ package pe.com.implast.model.daoimpl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -13,6 +14,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.object.MappingSqlQuery;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -114,10 +116,10 @@ public class ExtrusionParteDAOImpl implements ExtrusionParteDAO{
 					ingrediente.setMateriaPrima(materia);
 					ingrediente.setPorcentaje(result.getDouble("PORC_MEZC"));
 					ingrediente.setCantidad(result.getDouble("CANT_MEZC"));
-					return null;
+					return ingrediente;
 				}
 			};
-			
+			map.declareParameter(new SqlParameter(Types.VARCHAR));
 			map.compile();
 			ingredientes=map.execute(params);
 			

@@ -4,7 +4,7 @@ public class IngredienteBean {
 	private MateriaPrimaBean materiaPrima;
 	private double porcentaje;
 	private double cantidad;
-	
+
 	public double getPorcentaje() {
 		return porcentaje;
 	}
