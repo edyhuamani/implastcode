@@ -1,5 +1,6 @@
 package pe.com.implast.web.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.core.MediaType;
@@ -22,6 +23,7 @@ import pe.com.implast.logic.business.OperadorBUS;
 import pe.com.implast.logic.business.ProductoBUS;
 import pe.com.implast.model.beans.ClienteBean;
 import pe.com.implast.model.beans.InformacionMateriaPrimaBean;
+import pe.com.implast.model.beans.IngredienteBean;
 import pe.com.implast.model.beans.MaquinaBean;
 import pe.com.implast.model.beans.MateriaPrimaBean;
 import pe.com.implast.model.beans.OperadorBean;
@@ -139,13 +141,15 @@ public class ExtrusionParteController {
 	}
 	
 	
-	@RequestMapping(value="/procesos/seleccionarMezcla.json",method={RequestMethod.POST,RequestMethod.GET},produces=MediaType.APPLICATION_JSON)
+	@RequestMapping(value="/procesos/seleccionarMezclaProducto.json",method={RequestMethod.POST,RequestMethod.GET},produces=MediaType.APPLICATION_JSON)
 	public @ResponseBody  ResponseObjectBean<String> seleccionarProductoMezcla(
-			@RequestParam(value="",defaultValue=StringUtils.EMPTY ) String codigoProducto
+			@RequestParam(value="codigoProducto",defaultValue=StringUtils.EMPTY ) String codigoProducto
 			){
 		ResponseObjectBean<String> response=new ResponseObjectBean<String>();
+		List<IngredienteBean> ingredientes=new ArrayList<IngredienteBean>();
 		try{
-			extrusionParteDAO.seleccionarMezcla(codigoProducto);
+			ingredientes=extrusionParteDAO.seleccionarMezcla(codigoProducto);
+			System.out.println("");
 		}catch (Exception e){
 			LOG.error(e.getMessage(), e);
 		}

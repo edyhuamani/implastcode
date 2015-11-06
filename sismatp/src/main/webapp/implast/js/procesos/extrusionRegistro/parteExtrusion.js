@@ -227,6 +227,9 @@ function eliminarMateriaPrima(){
 
 function seleccionarMezcla(){
 	
+	var parametros=new Object();
+	parametros.codigoProducto=$("#cmbProducto").val();
+	
 	$.ajax({
 		url : 'seleccionarMezclaProducto.json',
 		data : parametros,
