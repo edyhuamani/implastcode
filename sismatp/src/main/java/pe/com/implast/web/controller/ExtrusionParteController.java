@@ -129,11 +129,26 @@ public class ExtrusionParteController {
 				extrusionParte.setMinimoProduccion(minProd);
 				extrusionParte.setScrap(scrap);
 				extrusionParte.setCodigoTipoManga(codTipoManga);
-				extrusionParteDAO.registraSalidaExtrusion(extrusionParte);
+				extrusionParteDAO.registraExtrusionParte(extrusionParte);
+				
 				
 			}catch (Exception e){
 				LOG.error(e.getMessage(), e);
 			}
 			return response;
+	}
+	
+	
+	@RequestMapping(value="/procesos/seleccionarMezcla.json",method={RequestMethod.POST,RequestMethod.GET},produces=MediaType.APPLICATION_JSON)
+	public @ResponseBody  ResponseObjectBean<String> seleccionarProductoMezcla(
+			@RequestParam(value="",defaultValue=StringUtils.EMPTY ) String codigoProducto
+			){
+		ResponseObjectBean<String> response=new ResponseObjectBean<String>();
+		try{
+			extrusionParteDAO.seleccionarMezcla(codigoProducto);
+		}catch (Exception e){
+			LOG.error(e.getMessage(), e);
+		}
+		return response;
 	}
 }

@@ -226,7 +226,18 @@ function eliminarMateriaPrima(){
 }
 
 function seleccionarMezcla(){
-	alert("seleccion de mezcla");
+	
+	$.ajax({
+		url : 'seleccionarMezclaProducto.json',
+		data : parametros,
+		dataType:'json',
+		type : 'POST',
+		async : false,
+		cache : false
+	}).done(function(){
+		actualizarListaIngresos();
+	});
+
 }
 
 
