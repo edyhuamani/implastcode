@@ -19,9 +19,6 @@ $(document).ready(function(){
 	};
 	
 	jQuery("#grilla_mantenimiento_salidaMezcla").jqGrid({
-		//url:'listarProveedores.json',
-		//datatype : 'json',
-		//mtype : 'POST',
 		colNames : ['Código Materia Prima','Descripción','Porcentaje','Cantidad','Opciones'],
 		colModel : [ 
 			{

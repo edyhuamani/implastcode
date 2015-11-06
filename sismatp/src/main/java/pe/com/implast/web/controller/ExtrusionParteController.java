@@ -37,6 +37,7 @@ public class ExtrusionParteController {
 	private static final Logger LOG=Logger.getLogger(ExtrusionParteController.class); 
 	
 	List<InformacionMateriaPrimaBean> registroSalidasMateriasPrimas;
+	List<IngredienteBean> ingredientesMezcla=new ArrayList<IngredienteBean>();
 	
 	@Autowired
 	MateriaPrimaBUS materiaPrimaBUS;
@@ -149,7 +150,8 @@ public class ExtrusionParteController {
 		List<IngredienteBean> ingredientes=new ArrayList<IngredienteBean>();
 		try{
 			ingredientes=extrusionParteDAO.seleccionarMezcla(codigoProducto);
-			System.out.println("");
+			ingredientesMezcla.addAll(ingredientes);
+			
 		}catch (Exception e){
 			LOG.error(e.getMessage(), e);
 		}
